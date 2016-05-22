@@ -1,0 +1,46 @@
+* { margin: 0; padding: 0; }
+
+a { text-decoration: none; color: black; }
+
+
+
+div#page-wrapper {
+    margin: 0 auto;
+    width: 1920px;
+    height: 978px;
+    background-image: url("image/movie-screen.jpg");
+    position: relative;
+}
+
+div.login-page {
+    position: relative;
+    top: 300px;
+    left: 710px;
+    width: 510px;
+    height: 225px;
+}
+
+input.idpasswd {
+    margin-bottom: 10px;
+    width: 340px;
+    height: 70px;
+    font-size: 45px;
+}
+
+input[type="submit"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 155px;
+    height: 158px;
+    font-size: 40px;
+}
+
+div.sign-button {
+    border: 1px solid gray;
+    background-color: lightgray;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    font-size: 30px;
+}
