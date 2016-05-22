@@ -1,0 +1,7 @@
+div#page-wrapper {
+    margin: 0 auto;
+    width: 1920px;
+    height: 978px;
+    background-image: url("image/movie-screen.jpg");
+    position: relative;
+}
