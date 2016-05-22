@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <?
 	include("function.php"); 
 
@@ -17,10 +15,13 @@
 	}
 ?>
 
+<!DOCTYPE html>
+
 <html>
 
 	<head>
 		<title> See Saw </title>
+		<link rel="stylesheet" type="text/css" href="init-style.css">
 		<link rel="stylesheet" type="text/css" href="login.css">
 	</head>
 
