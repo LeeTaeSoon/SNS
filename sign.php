@@ -8,6 +8,7 @@
 
 	<head>
 		<title> See Saw </title>
+		<link rel="stylesheet" type="text/css" href="init-style.css">
 		<link rel="stylesheet" type="text/css" href="sign.css">
 	</head>
 
