@@ -1,0 +1,45 @@
+div.menu-bar {
+	width: 1920px;
+    height: 90px;
+    position: fixed;
+    background-color: white;
+    opacity: 0.7;
+}
+
+div.logo {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}
+
+div.user-menu {
+	position: absolute;
+    right: 170px;
+    height: 90px;
+    line-height: 90px;
+}
+
+div.user-name {
+	display: inline-block;
+    margin-right: 10px;
+}
+
+span.name {
+	font-size: 1.2em;
+    font-weight: bold;
+}
+
+div.logout-button {
+    display: inline-block;
+}
+
+div.all-menu-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+img.menu-icon {
+	width: 78px;
+	height: 70px;
+}
