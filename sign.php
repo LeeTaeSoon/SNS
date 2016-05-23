@@ -10,11 +10,14 @@
 		<title> See Saw </title>
 		<link rel="stylesheet" type="text/css" href="init-style.css">
 		<link rel="stylesheet" type="text/css" href="sign.css">
+		<link rel="stylesheet" type="text/css" href="menubar.css">
 	</head>
 
 	<body>
 		
 		<div id="page-wrapper">
+
+			<? include("menubar.php"); ?>
 
 			<div class="sign-page">
 
