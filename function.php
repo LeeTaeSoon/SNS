@@ -1,31 +1,38 @@
 <?
-	function login_ok($filename, $id, $passwd)
+	function login_ok($id, $passwd)
 	{
-		$userfile = file_get_contents($filename);
-
-		if($userfile)
+		try
 		{
-			$temp = explode(PHP_EOL, $userfile);
-			$users = array();
+			include("db_connect.php");
 
-			foreach ($temp as $key => $info)
+			$t_id = $db->quote($id);
+			$t_passwd = $db->quote($passwd);
+
+			$users = $db->query("SELECT * FROM $user_table WHERE id=$t_id and passwd=$t_passwd");
+
+			if($users->rowCount())
 			{
-				list($users[$key]["id"], $users[$key]["passwd"]) = explode(" ", $info);
+				$user = $users->fetch();
 			}
 
-			foreach ($users as $key => $user) {
-				if($user["id"] == $id && $user["passwd"] == $passwd)
-				//	return true;
-				{
-					session_start();
+			if(isset($user))
+			{
+				session_start();
 
-					$_SESSION["id"] = $id;
-					$_SESSION["passwd"] = $passwd;
-					return true;
-				}
+				$_SESSION["id"] = $id;
+				$_SESSION["name"] = $user["name"];
+				return true;
 			}
 
 			return false;
+		}
+
+		catch (PODException $ex)
+		{
+?>
+			<p> Sorry, a database error occurred. Please try again later. </p>
+			<p> (Error details : <?= $ex->getMessage() ?>) </p>
+<?
 		}
 	}
 ?>

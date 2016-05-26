@@ -6,10 +6,10 @@
 
 	if(isset($id) && isset($passwd))
 	{
-		$is_login = login_ok("users.txt", $id, $passwd);
+		$is_login = login_ok($id, $passwd);
 
 		if($is_login)
-			echo '<meta http-equiv="refresh" content="0;url=main_page.php">';
+			echo '<meta http-equiv="refresh" content="0;url=timeline.php">';
 		else
 			echo '<meta http-equiv="refresh" content="0;url=login.php">';
 	}
@@ -27,7 +27,7 @@
 
 	<body>
 		
-		<div id="page-wrapper">
+		<div id="login-page-wrapper">
 
 			<div class="login-page">
 
