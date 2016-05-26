@@ -4,7 +4,7 @@
 
 	<div class="user-menu">
 		<div class="user-name">
-			<span class="name">이태순</span> 님
+			<span class="name"> <?= $name ?></span> 님
 		</div>
 
 		<div class="logout-button">
