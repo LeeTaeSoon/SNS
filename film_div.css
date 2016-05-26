@@ -1,0 +1,14 @@
+div.film-black-part {
+	background-color: black;
+	width: 1880px;
+	height: 30px;
+}
+
+div.film-white-part {
+	background-color: white;
+	width: 15px;
+	height: 15px;
+	margin: 7.5px 19px 7.5px 7.5px; 
+	border-radius: 5px;
+	display: inline-block;
+}
