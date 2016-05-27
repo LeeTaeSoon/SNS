@@ -1,0 +1,31 @@
+div#page-wrapper {
+    margin: 0 auto;
+    width: 1890px;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+div.movie {
+	float: left;
+	margin: 30px;
+	width: 150px;
+	height: 250px;
+}
+
+div.poster {
+	width: 150px;
+	height: 200px;
+}
+
+img.poster-img {
+	width: 150px;
+	height: 200px;
+}
+
+div.movie-name {
+	width: 150px;
+	height: 50px;
+	text-align: center;
+	color: lightgray;
+	line-height: 50px;
+}
