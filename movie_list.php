@@ -26,19 +26,21 @@
 	for($i = 0 ; $i < 20 ; $i++)
 	{
 ?>
-		<div class="movie">
-			<div class="poster">
-				<img src="image/menu-icon - 원본.png" class="poster-img">
-			</div>
+		<a href="">
+			<div class="movie">
+				<div class="poster">
+					<img src="image/menu-icon - 원본.png" class="poster-img">
+				</div>
 
-			<!-- <div class="star-score">
-				
-			</div> -->
+				<!-- <div class="star-score">
+					
+				</div> -->
 
-			<div class="movie-name">
-				주토피아
+				<div class="movie-name">
+					주토피아
+				</div>
 			</div>
-		</div>
+		</a>
 <?
 	}
 ?>		
