@@ -5,9 +5,11 @@
 	$id = $_SESSION["id"];
 	$name = $_SESSION["name"];
 
-	$db = new PDO("mysql:dbname=reply;host=localhost","root","apmsetup");
-
+	if(!$id)
+		header("Location: login.php");
+	
 ?>
+
 
 <html>
 
