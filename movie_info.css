@@ -1,0 +1,71 @@
+div#page-wrapper {
+	overflow: hidden;
+    margin: 0 auto;
+    padding-top: 200px;
+    width: 1700px;
+    height: 700px
+}
+
+div.poster {
+	float: left;
+}
+
+img.big-poster {
+	width: 540px;
+	height: 700px;
+}
+
+div.info {
+	width: 1000px;
+	float: right;
+	position: relative;
+}
+
+div.info-content {
+	position: absolute;
+	width: 230px;
+	height: 230px;
+	font-size: 2em;
+	text-align: center;
+	line-height: 230px;
+	border-radius: 50px;
+	background-color: aqua;
+}
+
+div.title {
+	top: 30px;
+	left: 150px;
+}
+
+div.open-date {
+	top: 70px;
+	left: 758px;
+}
+
+div.director {
+	top: 300px;
+	left: 15px;
+}
+
+div.actors {
+	top: 250px;
+	left: 420px;
+}
+
+div.user-rate {
+	top: 460px;
+	left: 655px;
+}
+
+a.detail_info {
+	position: absolute;
+	top: 620px;
+    left: 135px;
+	width: 300px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 1.2em;
+	border-radius: 5px;
+	background-color: lightgray;
+}
