@@ -1,0 +1,6 @@
+#pagewrapper{ width:1880px; margin: 0 auto;}
+#content{ height: 700px; overflow: hidden;}
+#article{ margin: 30px; padding:10px; width: 1800px; height:600px; border: solid black 2px; float: left; overflow: auto;  }
+#top{ height: 90px; }
+textarea{ width: 1000px; height: 550px; font-size: 25px; }
+#imgload{ float:right;  }
