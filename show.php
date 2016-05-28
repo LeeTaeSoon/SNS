@@ -7,7 +7,7 @@
 
 	if(!$id)
 		header("Location: login.php");
-	
+
 ?>
 
 
@@ -46,15 +46,15 @@
 
 		<div id = "comment">
 			<div id="show_comment">
-				<?	$query = "select*from reply";
-					$rows = $db->query($query);
+				<?	//$query = "select*from reply";
+				// 	$rows = $db->query($query);
 					
-					$n = $rows->rowCount();
+				// 	$n = $rows->rowCount();
 					
-					for($i=0; $i < $n ; $i = $i+1)
-					{	
-						$row = $rows->fetch();
-						$comment = $row[1];
+				// 	for($i=0; $i < $n ; $i = $i+1)
+				// 	{	
+				// 		$row = $rows->fetch();
+				// 		$comment = $row[1];
 
 					?>
 					<table> 
@@ -66,11 +66,11 @@
 						</tr>
 					</table>
 				<?	
-					} 
+					//} 
 				?>
 			</div>
-			</hr>
-			<div id = plus_comment>
+	
+			<div id = "plus_comment">
 				<form action="add_comment.php" method="GET">
 					<input type="text" name="comment" value="댓글을 달아 보세요">
 					<input type="submit" value="입력"> 
