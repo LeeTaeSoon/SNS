@@ -1,0 +1,27 @@
+#top{ height: 90px; }
+#cover{ width: 100%; height: 230px; margin-bottom: 20px; background-color: gray; position:relative; }
+#menu{ position: absolute; bottom:0px; left: 50%;}
+
+div#my_article{display: none; margin: 0 auto;}
+#my_article:checked~div#my_article{ display: block;}
+
+div#saw_movie{display: none; margin: 0 auto;}
+#saw_movie:checked~div#saw_movie{ display: block;}
+
+div#interest_movie{display: none; margin: 0 auto;}
+#interest_movie:checked~div#interest_movie{ display: block;}
+
+div#friends{display: none; margin: 0 auto;}
+#friends:checked~div#friends{ display: block;}
+
+.content{ width: 1300px; border:1px solid black;}
+
+input{display:none;}
+
+label{ float: left; display:block; width: 150px; height: 50px; 
+	background-color: black; color: white; margin: 10px; 
+	text-align: center; line-height: 50px; font-size: 18px; border-radius:15px;}
+label:hover{ background-color: white; color:black; }	
+
+#profile{ width: 180px; height: 180px; position: absolute; left: 25%; top: 30px; }
+
