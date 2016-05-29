@@ -5,6 +5,10 @@
 		{
 			include("db_connect.php");
 
+			$db = db_connect();
+
+			$user_table = "user";
+
 			$t_id = $db->quote($id);
 			$t_passwd = $db->quote($passwd);
 

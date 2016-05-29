@@ -40,7 +40,7 @@
 				for($j = 0; $j < 4; $j++)
 				{
 ?>
-					<a href="">
+					<a href="show.php">
 						<div class="timeline-article" style="background-image: url('image/menu-icon.png')">
 						
 							사용자의 게시물을 타임라인에 정렬된 순서로 보여줍니다 <br>
