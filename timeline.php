@@ -1,4 +1,6 @@
 <?
+	include("db_connect.php");
+
 	if(!isset($_SESSION))
 		session_start();
 
@@ -25,42 +27,60 @@
 	<div id="page-wrapper">
 <?	
 		include("menubar.php");
-		$articleCount = 30;
 
-		for($i = 0; $i < ceil($articleCount / 4); $i++)
+		try
 		{
-			//////////////////////// 한 필름 ////////////////////////
-?>
-			<div class="blank"></div>
-<?
-			include("film_div.php");
-?>
-			<div class="timeline-board">
-<?
-				for($j = 0; $j < 4; $j++)
-				{
-?>
-					<a href="show.php">
-						<div class="timeline-article" style="background-image: url('image/menu-icon.png')">
-						
-							사용자의 게시물을 타임라인에 정렬된 순서로 보여줍니다 <br>
-							배경은 게시물마다 저장된 이미지를 사용합니다.
 
-						</div>
-					</a>
-					<!-- <div class="timeline-article" style="background-image: url(<?= $articles[$i]["bgimg"] ?>)">
-						
-						<?= nl2br($articles[$i]["content"]); ?>
+			$db = db_connect();
 
-					</div> -->
-<?
-				}
+			$table = "article";
+
+			$t_id = $db->quote($id);
+
+			$articles = $db->query("SELECT * FROM $table WHERE id=$t_id");
+
+			$articleCount = count($articles);
+
+			for($i = 0; $i < ceil($articleCount / 4); $i++)
+			{
+				//////////////////////// 한 필름 ////////////////////////
 ?>
-			</div>
+				<div class="blank"></div>
 <?
-			include("film_div.php");
+				include("film_div.php");
+?>
+				<div class="timeline-board">
+	<?
+					for($j = 0; $j < 4; $j++)
+					{
+						if(isset($articles))
+							$article = $articles->fetch();
+						$url = $db->quote($article["bgimg"]);
+?>
+						<a href="show.php">
+							<div class="timeline-article" style="background-image: url(<?= $url ?>)">
+							
+								<?= nl2br($article["content"]) ?>
 
-			/////////////////////////////////////////////////////////
+							</div>
+						</a>
+<?
+					}
+?>
+				</div>
+<?
+				include("film_div.php");
+
+				/////////////////////////////////////////////////////////
+			}
+		}
+
+		catch (PODException $ex)
+		{
+?>
+			<p> Sorry, a database error occurred. Please try again later. </p>
+			<p> (Error details : <?= $ex->getMessage() ?>) </p>
+<?
 		}
 ?>
 	</div>
