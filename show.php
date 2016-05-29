@@ -56,27 +56,34 @@
 
 			<div id = "comment">
 				<div id="show_comment">
-					<?	//$query = "select*from reply";
-					// 	$rows = $db->query($query);
-						
-					// 	$n = $rows->rowCount();
-						
-					// 	for($i=0; $i < $n ; $i = $i+1)
-					// 	{	
-					// 		$row = $rows->fetch();
-					// 		$comment = $row[1];
-
-						?>
-						<table> 
-							<tr>
-								<th> 작성자 </th>
-							</tr>
-							<tr>
-								<td><? echo $comment?></td>
-							</tr>
-						</table>
 					<?	
-						//} 
+						$comment_table = "comment";
+						$user_table = "user";
+						$comments = $db->query("SELECT * FROM $comment_table WHERE num=$num");
+
+						$comment_count = $comments->rowCount();
+						
+						foreach($comments as $comment)
+						{	
+							$comment_content = $comment["comment"];
+
+							$c_id = $db->quote($comment["id"]);
+
+							$comment_writers = $db->query("SELECT * FROM $user_table WHERE id=$c_id");
+							if($comment_writers->rowCount())
+								$comment_writer = $comment_writers->fetch();
+
+					?>
+							<table> 
+								<tr>
+									<th> <?= $comment_writer["name"]; ?></th>
+								</tr>
+								<tr>
+									<td><?= $comment_content ?></td>
+								</tr>
+							</table>
+					<?	
+						} 
 					?>
 				</div>
 		
