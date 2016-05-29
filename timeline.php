@@ -56,7 +56,7 @@
 						$article = $articles->fetch();
 						$url = $db->quote($article["bgimg"]);
 ?>
-						<a href="show.php">
+						<a href="show.php?num=<?= $i*4 + $j ?>">
 							<div class="timeline-article" style="background-image: url(<?= $url ?>)">
 							
 								<?= nl2br($article["content"]) ?>
