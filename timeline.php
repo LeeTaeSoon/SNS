@@ -39,7 +39,7 @@
 
 			$articles = $db->query("SELECT * FROM $table WHERE id=$t_id");
 
-			$articleCount = count($articles);
+			$articleCount = $articles->rowCount();
 
 			for($i = 0; $i < ceil($articleCount / 4); $i++)
 			{
@@ -53,8 +53,7 @@
 	<?
 					for($j = 0; $j < 4; $j++)
 					{
-						if(isset($articles))
-							$article = $articles->fetch();
+						$article = $articles->fetch();
 						$url = $db->quote($article["bgimg"]);
 ?>
 						<a href="show.php">

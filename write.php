@@ -10,7 +10,7 @@
 
 	if(isset($_FILES))
 	{
-		$save_dir = "./article_bg_img/";
+		$save_dir = "./image/article_bg_img/";
 
 		if(is_uploaded_file($_FILES["uploadfile"]["tmp_name"]))
 		{
@@ -54,8 +54,8 @@
 	<div id ="content">
 		<div id ="article" style="background-image: url(<?= $imgurl ?>)">
 
-			<form action="save_article" method="post">
-				<textarea id="textarea"></textarea>
+			<form action="save_article.php" method="post">
+				<textarea id="textarea" name="content"></textarea>
 				<input type="hidden" name="bgimg" value="<?= $imgurl ?>">
 				<input type="submit" value="작성">
 			</form>

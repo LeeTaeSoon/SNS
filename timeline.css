@@ -12,12 +12,15 @@ div.timeline-board {
 	width: 1880px;
 	height: 300px;
 	background-color: black;
+	overflow: hidden;
+
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 div.timeline-article {
-	background-color: white;
-	display: inline-block;
+	float: left;
 	margin: 0 20px;
+	background-color: white;
 	width: 425px;
 	height: 300px;
 }
