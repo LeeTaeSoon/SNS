@@ -8,23 +8,24 @@
 	if(!$id)
 		header("Location: login.php");
 
-	if(1)
+	if(isset($_FILES))
 	{
-		$save_dir = "./";
+		$save_dir = "./article_bg_img/";
 
 		if(is_uploaded_file($_FILES["uploadfile"]["tmp_name"]))
 		{
-			echo "업로드한 파일 명 : " . $_FILES["uploadfile"]["name"];
+			//echo "업로드한 파일 명 : " . $_FILES["uploadfile"]["name"];
 			// 파일을 저장할 디렉토리 및 파일명
 			$dest = $save_dir.$_FILES["uploadfile"]["name"];
 			//파일을 지정한 디렉토리에 저장
 			if(move_uploaded_file($_FILES["uploadfile"]["tmp_name"], $dest))
-				echo "success";
-			else
-				echo "fail2";
+				$imgurl = $save_dir.$_FILES["uploadfile"]["name"];
+			//	echo "success";
+			//else
+			//	echo "fail2";
 		}
-		else
-			echo "no uploadfile";
+		//else
+			//echo "no uploadfile";
 	}
 ?>
 
@@ -51,14 +52,20 @@
 	<? include("film_div.php") ?>
 	
 	<div id ="content">
-		<div id ="article">
+		<div id ="article" style="background-image: url(<?= $imgurl ?>)">
+
+			<form action="save_article" method="post">
+				<textarea id="textarea"></textarea>
+				<input type="hidden" name="bgimg" value="<?= $imgurl ?>">
+				<input type="submit" value="작성">
+			</form>
+
+			</form>
 			
-			<form enctype="multipart/form-data" action="write.php" method="post">
-				<textarea id="textarea"> </textarea>
-				<img src='<?= $_FILES["uploadfile"]["name"] ?>'>;
-		 		<div id ="imgload" >
+			<form enctype="multipart/form-data" action="" method="post">
+		 		<div id ="imgload">
 			 		<input name="uploadfile" type="file">
-			 		<input type="submit" value="upload"></input>
+			 		<input type="submit" value="배경 설정"></input>
 			 	</div>
 		 	</form>
 
