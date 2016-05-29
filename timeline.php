@@ -51,12 +51,12 @@
 ?>
 				<div class="timeline-board">
 	<?
-					for($j = 0; $j < 4; $j++)
+					for($j = 0; $j < $articleCount - $i*4; $j++)
 					{
 						$article = $articles->fetch();
 						$url = $db->quote($article["bgimg"]);
 ?>
-						<a href="show.php?num=<?= $i*4 + $j ?>">
+						<a href="show.php?num=<?= $article['num'] ?>">
 							<div class="timeline-article" style="background-image: url(<?= $url ?>)">
 							
 								<?= nl2br($article["content"]) ?>
