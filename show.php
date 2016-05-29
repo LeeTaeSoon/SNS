@@ -98,7 +98,20 @@
 		</div>
 <? 
 		include("film_div.php");
-
+?>
+		<div class="sub-menu">
+			<form action="timeline.php" method="get">
+				<input type="submit" value="목록"></input>
+			</form>
+			<form action="modify_memo.php" method="get">
+				<input type="submit" value="수정"></input>
+			</form>
+			<form action="delete_article.php" method="get">
+				<input type="hidden" name="num" value=<?= $num ?>></input>
+				<input type="submit" value="삭제"></input>
+			</form>
+		</div>
+<?
 	} 
 
 	catch (PODException $ex)
