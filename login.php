@@ -33,8 +33,8 @@
 
 				<form action="" method="post">
 					
-					<input type="text" name="id" value="id" class="idpasswd"></input>
-					<input type="password" name="passwd" value="password" class="idpasswd"></input>
+					<input type="text" name="id" placeholder="id" class="idpasswd"></input>
+					<input type="password" name="passwd" placeholder="password" class="idpasswd"></input>
 					<input type="submit" value="로그인"></input>
 
 				</form>

@@ -90,7 +90,7 @@
 		
 				<div id = "plus_comment">
 					<form action="add_comment.php" method="post">
-						<input type="text" name="comment" value="댓글을 달아 보세요">
+						<input type="text" name="comment" placeholder="댓글을 달아보세요.">
 						<input type="hidden" name="num" value="<?= $num ?>">
 						<input type="submit" value="입력"> 
 					</form>
