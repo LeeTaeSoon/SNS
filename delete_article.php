@@ -23,21 +23,21 @@
 		if($imgs->rowCount())
 			$img = $imgs->fetch();
 
-		$temp = explode('/', $img["bgimg"]);
-		$temp = implode('\\', $temp);
+		//$temp = explode('/', $img["bgimg"]);
+		//$temp = implode('\\', $temp);
 
-		echo $temp;
+		//$path = substr($temp, 1);
 
-		$path = substr($temp, 1);
-
-		$imgurl = '"'.getcwd().$path.'"';
+		//$imgurl = '"'.getcwd().$path.'"';
+		
+		$imgurl = substr($img["bgimg"], 2);		// 상대 경로를 사용해서 삭제함
 
 		unlink($imgurl);
 
-		//$db->exec("DELETE FROM $article_table WHERE num=$num");
-		//$db->exec("DELETE FROM $comment_table WHERE num=$num");
+		$db->exec("DELETE FROM $article_table WHERE num=$num");
+		$db->exec("DELETE FROM $comment_table WHERE num=$num");
 
-		//echo '<meta http-equiv="refresh" content="0;url=timeline.php">';
+		echo '<meta http-equiv="refresh" content="0;url=timeline.php">';
 	}
 
 	catch (PODException $ex)
