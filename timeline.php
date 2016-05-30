@@ -59,7 +59,7 @@
 						<a href="show.php?num=<?= $article['num'] ?>">
 							<div class="timeline-article" style="background-image: url(<?= $url ?>)">
 							
-								<?= nl2br($article["content"]) ?>
+								<?= stripslashes(nl2br($article["content"])) ?>
 
 							</div>
 						</a>

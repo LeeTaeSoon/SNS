@@ -51,7 +51,7 @@
 ?>
 		<div id ="content">
 			<div id ="article" style="background-image: url(<?= $article["bgimg"] ?>)">
-				<?= nl2br($article["content"]) ?>
+				<?= nl2br(stripslashes($article["content"])) ?>
 			</div>
 
 			<div id = "comment">
@@ -66,6 +66,7 @@
 						foreach($comments as $comment)
 						{	
 							$comment_content = $comment["comment"];
+							$comment_content = stripslashes($comment_content);		// 백슬래시 제거
 
 							$c_id = $db->quote($comment["id"]);
 
