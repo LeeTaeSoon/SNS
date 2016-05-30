@@ -32,13 +32,13 @@
 		{
 
 			$db = db_connect();
-			$t_name = $db->quote($name);
+			$t_id = $db->quote($id);
 
 			$f_recommands = "select fid, count(*) as cnt from (";
 			$f_recommands .= "select fid from friend where id in (";
-			$f_recommands .= "select fid from friend where id=$t_name)";
+			$f_recommands .= "select fid from friend where id=$t_id)";
 			$f_recommands .= " )as t where t.fid not in (";
-			$f_recommands .= "select fid from friend where id=$t_name)";
+			$f_recommands .= "select fid from friend where id=$t_id)";
 			$f_recommands .= " group by fid";
 			$f_recommands .= " order by cnt desc";
 
