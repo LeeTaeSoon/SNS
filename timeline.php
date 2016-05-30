@@ -50,9 +50,12 @@
 				include("film_div.php");
 ?>
 				<div class="timeline-board">
-	<?
+<?
 					for($j = 0; $j < $articleCount - $i*4; $j++)
 					{
+						if($j > 3)
+							break;
+
 						$article = $articles->fetch();
 						$url = $db->quote($article["bgimg"]);
 ?>
