@@ -16,6 +16,7 @@ try
 	$table = "comment";
 
 	$comment = $db->quote($_POST["comment"]);
+	$num = $_POST["num"];
 
 	$t_id = $db->quote($id);
 
