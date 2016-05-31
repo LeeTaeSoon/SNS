@@ -1,7 +1,7 @@
 body{position: relative;}
 #pagewrapper{ width:1880px; margin: 0 auto;}
 #content{ height: 700px; overflow: hidden;}
-#article{ margin: 30px; width: 1400px; height:600px; border: solid black 2px; float: left; overflow: auto;  }
+#article{ margin: 30px; width: 1400px; height:600px; border: solid black 2px; float: left; overflow: auto; background-size: 1400px 600px; }
 #comment{ width: 390px; height:600px; border: solid black 2px; float: left; margin: 30px 10px 30px auto; }
 #top{ height: 90px; }
 #go-left{ width: 80px; height:80px; position: absolute; left: 15px; top: 400px;}
