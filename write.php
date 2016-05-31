@@ -56,6 +56,11 @@
 
 			<form action="save_article.php" method="post">
 				<textarea id="textarea" name="content"></textarea>
+				<select name="access">
+					<option value="all" selected>전체 공개</option>
+					<option value="friend">친구 공개</option>
+					<option value="secret">비공개</option>
+				</select>
 				<input type="hidden" name="bgimg" value="<?= $imgurl ?>">
 				<input type="submit" value="작성">
 			</form>

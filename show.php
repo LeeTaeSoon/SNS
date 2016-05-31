@@ -59,7 +59,7 @@
 					<?	
 						$comment_table = "comment";
 						$user_table = "user";
-						$comments = $db->query("SELECT * FROM $comment_table WHERE num=$num");
+						$comments = $db->query("SELECT * FROM $comment_table WHERE num=$num ORDER BY date desc");
 
 						$comment_count = $comments->rowCount();
 						

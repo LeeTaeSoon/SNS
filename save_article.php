@@ -16,7 +16,7 @@ try {
 	$content = $_POST["content"];
 	$bgimg = $_POST["bgimg"];
 	$time = date("Y-m-d h:i:s", time());
-	//$access = $_POST["access"];
+	$access = $_POST["access"];
 	//$movie = $_POST["movie"];
 	
 
@@ -38,11 +38,11 @@ try {
 	$t_content = $db->quote($content);
 	$t_bgimg = $db->quote($bgimg);
 	$t_time = $db->quote($time);
-	//$t_access = $db->quote($access);
+	$t_access = $db->quote($access);
 	//$t_movie = $db->quote($movie);
 
-	$db->exec("INSERT INTO $table (num, id, content, bgimg, time/*, access, movie*/)
-			values ($num, $t_id, $t_content, $t_bgimg, $t_time)/*, $t_access, $t_movie*/");
+	$db->exec("INSERT INTO $table (num, id, content, bgimg, time, access/*, movie*/)
+			values ($num, $t_id, $t_content, $t_bgimg, $t_time, $t_access)/*, $t_movie*/");
 
 	header("Location: timeline.php");
 }
