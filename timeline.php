@@ -34,10 +34,12 @@
 			$db = db_connect();
 
 			$table = "article";
+			$frined_table = "friend";
 
 			$t_id = $db->quote($id);
 
-			$articles = $db->query("SELECT * FROM $table WHERE id=$t_id");
+			$articles = $db->query("SELECT * FROM $table WHERE id=$t_id or access='all' or (access='friend' and 
+									id in (select fid from friend where id=$t_id))");
 
 			$articleCount = $articles->rowCount();
 
