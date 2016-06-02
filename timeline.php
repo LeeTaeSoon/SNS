@@ -60,12 +60,21 @@
 
 						$article = $articles->fetch();
 						$url = $db->quote($article["bgimg"]);
+						$article_num = $article["num"];
 ?>
-						<a href="show.php?num=<?= $article['num'] ?>">
+						<a href="show.php?num=<?= $article_num ?>">
 							<div class="timeline-article" style="background-image: url(<?= $url ?>)">
-							
-								<?= stripslashes(nl2br($article["content"])) ?>
+<? 
+								$writers = $db->query("SELECT name FROM user INNER JOIN article ON user.id=article.id WHERE num=$article_num");
+								if(isset($writers))
+									$writer = $writers->fetch();
+								else
+									echo "Can't find a writer";
+								echo "작성자 : ".$writer['name']."<br>";
 
+								$article_content = stripslashes(nl2br($article['content']));
+								echo $article_content;
+?>
 							</div>
 						</a>
 <?

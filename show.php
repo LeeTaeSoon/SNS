@@ -51,7 +51,17 @@
 ?>
 		<div id ="content">
 			<div id ="article" style="background-image: url(<?= $article["bgimg"] ?>)">
-				<?= nl2br(stripslashes($article["content"])) ?>
+<?
+				$writers = $db->query("SELECT name FROM user INNER JOIN article ON user.id=article.id WHERE num=$num");
+				if(isset($writers))
+					$writer = $writers->fetch();
+				else
+					echo "Can't find a writer";
+				echo "작성자 : ".$writer['name']."<br>";
+
+				$article_content = stripslashes(nl2br($article['content']));
+				echo $article_content; 
+?>
 			</div>
 
 			<div id = "comment">
