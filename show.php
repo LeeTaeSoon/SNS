@@ -11,6 +11,7 @@
 	if(!$id)
 		header("Location: login.php");
 
+	include("function.php");
 ?>
 
 
@@ -52,15 +53,7 @@
 		<div id ="content">
 			<div id ="article" style="background-image: url(<?= $article["bgimg"] ?>)">
 <?
-				$writers = $db->query("SELECT name FROM user INNER JOIN article ON user.id=article.id WHERE num=$num");
-				if(isset($writers))
-					$writer = $writers->fetch();
-				else
-					echo "Can't find a writer";
-				echo "작성자 : ".$writer['name']."<br>";
-
-				$article_content = stripslashes(nl2br($article['content']));
-				echo $article_content; 
+				show_article($article);
 ?>
 			</div>
 

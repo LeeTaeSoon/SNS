@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-<!-- <?
+<?
 	if(!isset($_SESSION))
 		session_start();
 
@@ -9,9 +7,30 @@
 
 	if(!$id)
 		header("Location: login.php");
-	
-?> -->
 
+	include("function.php");
+
+	$userid = $_GET["id"];
+
+	try {
+		include("db_connect.php");
+		$db = db_connect();
+
+		$table = "user";
+
+		$userid = $db->quote($userid);
+		$users = $db->query("SELECT * FROM $table WHERE id = $userid");
+		if(isset($users))
+			$page_user = $users->fetch();
+		else
+		{
+			echo "Can't find user info";
+			exit(1);
+		}
+?>
+
+<!DOCTYPE html>
+<html>
 <head>
 	<title> See Saw </title>
 
@@ -34,9 +53,13 @@
 			<img id="profile" src="#"> <input type="file">
 		</div>
 
+		<div id="profile_name">
+			<?= $page_user["name"] ?>
+		</div>
+
 		<div id="menu">
-				<label class="mymenu" for="my_article">내가 쓴글</label>
-				<label class="mymenu" for="saw_movie">내가 본 영화</label>
+				<label class="mymenu" for="my_article">글</label>
+				<label class="mymenu" for="saw_movie">본 영화</label>
 				<label class="mymenu" for="interest_movie">관심 있는 영화</label>
 				<label class="mymenu" for="friends">친구 목록</label>
 		</div>
@@ -48,10 +71,18 @@
 	<input type="radio" id="friends" name="tab" value="friends">
 
 	<div id = "my_article" class="content">
+<?
+		$article_table = "article";
+		$page_articles = $db->query("SELECT * FROM $article_table WHERE id = $userid");
 
-		12366
-		
-
+		foreach ($page_articles as $article) {
+?>
+			<div class="article" style="background-image: url(<?= $article["bgimg"] ?>)">
+				<? show_article($article); ?>
+			</div>
+<?
+		}
+?>
 	</div>
 	
 	<div id = "saw_movie" class="content">
@@ -69,8 +100,15 @@
 
 
 </body>
-
-
-
-
 </html>
+
+<?
+	}
+
+	catch (PODException $ex)
+	{
+?>
+		<p> Sorry, a database error occurred. Please try again later. </p>
+		<p> (Error details : <?= $ex->getMessage() ?>) </p>
+<?
+	}
