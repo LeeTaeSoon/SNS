@@ -77,4 +77,8 @@ h3{ font-size: 30px; }
 	right: 250px;
 	bottom : 33px;
 }
+td>img{width:200px;height:160px;}
+td{
+	text-align: center;
+}
 

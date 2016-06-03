@@ -62,14 +62,15 @@
 					$rows = $db->query($query); 
 					$n = $rows->rowCount();
 					
+
 					for($i=0; $i < $n ; $i = $i+1)
 					{	
 						$row = $rows->fetch();
 			?> 	    
 					<tr>
-						<td>ID<br><?echo $row["id"]?></td>
-						<td>NAME<br><? echo $row["name"]?></td>
-						<td><img src=<?$row["proimg"]?> ></td>
+						<td><img src=<?=$row["proimg"]?>></td>
+						<td>NAME<br><?=$row["name"]?></td>
+						<td>ID<br><?=$row["id"]?></td>
 						<td><input type="submit"></td>
 					</tr>
 				<?  }
