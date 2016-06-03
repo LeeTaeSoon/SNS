@@ -65,7 +65,7 @@
 		</div>
 	</div>
 
-	<input type="radio" id="my_article" name="tab" value="my_article">
+	<input type="radio" id="my_article" name="tab" value="my_article" checked>
 	<input type="radio" id="saw_movie" name="tab" value="saw_movie">
 	<input type="radio" id="interest_movie" name="tab" value="interest_movie">
 	<input type="radio" id="friends" name="tab" value="friends">
@@ -76,10 +76,13 @@
 		$page_articles = $db->query("SELECT * FROM $article_table WHERE id = $userid");
 
 		foreach ($page_articles as $article) {
+			$article_num = $article["num"];
 ?>
-			<div class="article" style="background-image: url(<?= $article["bgimg"] ?>)">
-				<? show_article($article); ?>
-			</div>
+			<a href="show.php?num=<?= $article_num ?>">
+				<div class="article" style="background-image: url(<?= $article["bgimg"] ?>)">
+					<? show_article($article); ?>
+				</div>
+			</a>
 <?
 		}
 ?>

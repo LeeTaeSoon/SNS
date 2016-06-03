@@ -1,5 +1,30 @@
 <div class="menu-bar">
-	<div class="logo">
+	<a href="timeline.php">
+		<div class="logo">
+			<img src="image/logo.png">
+		</div>
+	</a>
+
+	<input type="checkbox" id="check">
+
+	<div class="simple-menu">
+		<a href="write.php" class="menu">
+			글쓰기
+		</a>
+
+		<a href="friends.php">
+			<div class="icon">
+				<img src="image/friend.png">
+			</div>
+		</a>
+
+		<div class="icon">
+			<label for="check"><img src="image/alarm.png"></label>
+		</div>
+	</div>
+
+	<div class="alarm">
+		ㅇㅇ
 	</div>
 
 	<div class="user-menu">

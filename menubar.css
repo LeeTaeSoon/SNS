@@ -7,9 +7,64 @@ div.menu-bar {
 }
 
 div.logo {
-    width: 30px;
-    height: 30px;
     position: absolute;
+    top: 5px;
+    left: 10px;
+}
+
+div.logo img {
+    width: 80px;
+    height: 80px;
+}
+
+div.simple-menu {
+    position: absolute;
+    overflow: hidden;
+    top: 20px;
+    right: 180px;
+    width: 500px;
+    height: 50px;
+    line-height: 50px;
+}
+
+a.menu {
+    float: left;
+    width: 100px;
+    height: 50px;
+    margin-right: 30px;
+    text-align: center;
+    font-size: 1.6em;
+    border-radius: 10px;
+}
+
+div.icon {
+    float: left;
+    margin-right: 30px;
+    width: 50px;
+    height: 50px;
+}
+
+div.simple-menu img {
+    width: 50px;
+    height: 50px;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked ~ div.alarm {
+    display: block;
+}
+
+div.alarm {
+    display: none;
+    position: absolute;
+    top: 90px;
+    right: 430px;
+    width: 400px;
+    background-color: white;
+    opacity: 1;
 }
 
 div.user-menu {
