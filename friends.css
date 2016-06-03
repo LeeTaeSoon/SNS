@@ -1,0 +1,80 @@
+#top{ height: 90px; }
+#friends_menu
+{
+	width: 1200px;
+	margin: 0 auto;
+	height: 100px;
+	position: relative;
+	border: solid black 2px;
+}
+#friends_recommand
+{
+	width: 1200px;
+	height:1000px;
+	margin: 0 auto;
+	border: solid black 2px;
+	display: none;
+}
+#recommand:checked~div#friends_recommand{ display: block;}
+
+#friends_find
+{
+	width: 1200px;
+	margin: 0 auto;
+	position: relative;
+}
+#recommand:checked~div#friends_find{ display: none;}
+
+#label_menu
+{	
+	position: absolute; left:300px;
+	top: 10px; 
+}
+label{ float: left; display:block; width: 200px; height: 50px;
+	background-color: orange; color: white; margin: 10px; 
+	text-align: center; line-height: 50px; font-size: 18px; border-radius:15px;}
+label:hover{ background-color: white; color:black; }
+
+input[type="radio"]{display: none};
+
+
+div#friends_find{display: none; margin: 0 auto;}
+#find:checked~div#friends_find{ display: block;}
+
+table{ margin: 0 auto; }
+td
+{
+	width: 200px;
+	height: 200px;
+	border: solid black 5px;
+}
+#nav
+{	
+	position: relative;
+	width: 1000px;
+	height: 50px;
+	margin:50px;
+	border:solid black 3px;
+	padding: 30px;
+	overflow: hidden;
+}
+h3{ font-size: 30px; }
+
+#friend_search
+{	
+	position: absolute;
+	left:300px;
+	font-size: 30px;
+	padding: 5px;
+}
+#search_button
+{
+	width : 100px;
+	height: 46px;
+	display: block;
+	float: right;
+	position: absolute;
+	right: 250px;
+	bottom : 33px;
+}
+
