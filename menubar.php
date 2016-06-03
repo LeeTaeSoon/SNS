@@ -29,7 +29,7 @@
 
 	<div class="user-menu">
 		<div class="user-name">
-			<span class="name"> <?= $name ?></span> 님
+			<a href="user_page.php?id=<?= $id ?>"><span class="name"> <?= $name ?></span> 님
 		</div>
 
 		<div class="logout-button">
