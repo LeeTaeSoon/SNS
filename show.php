@@ -52,9 +52,7 @@
 ?>
 		<div id ="content">
 			<div id ="article" style="background-image: url(<?= $article["bgimg"] ?>)">
-<?
-				show_article($article);
-?>
+				<? show_article($article); ?>
 			</div>
 
 			<div id = "comment">

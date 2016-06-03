@@ -50,7 +50,7 @@
 			<!-- <? ?> -->
 		<div id="profile_picture">
 			<!-- <? ?> -->
-			<img id="profile" src="#"> <input type="file">
+			<img id="profile" src="<?= $page_user['proimg'] ?>"> <input type="file">
 		</div>
 
 		<div id="profile_name">
@@ -95,7 +95,31 @@
 	</div>
 
 	<div id= "friends" class="content">
-	4
+<?
+		$friend_table = "friend";
+		$page_friends = $db->query("SELECT * FROM $friend_table WHERE id=$userid");
+
+		foreach ($page_friends as $friend) {
+?>
+			<div class="friend">
+<?
+				$fid = $db->quote($friend["fid"]);
+				$friends = $db->query("SELECT name FROM user WHERE id=$fid");
+
+				if(isset($friends))
+					$friend = $friends->fetch();
+				else
+				{
+					echo "Can't find freind name";
+					exit(1);
+				}
+
+				echo $friend["name"];
+?>
+			</div>
+<?
+		}
+?>
 	</div>
 
 
