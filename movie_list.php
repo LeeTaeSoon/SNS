@@ -7,6 +7,10 @@
 
 	if(!$id)
 		header("Location: login.php");
+
+	include("function.php");
+
+	$movies = search_movie("a", 100, 1, NULL, NULL, NULL, NULL, "sim");
 ?>
 
 <!DOCTYPE html>
@@ -26,24 +30,20 @@
 ?>
 	<div id="page-wrapper">
 <?
-	for($i = 0 ; $i < 20 ; $i++)
+	foreach($movies->channel->item as $movie)
 	{
 ?>
-		<a href="">
-			<div class="movie">
-				<div class="poster">
-					<img src="image/menu-icon - 원본.png" class="poster-img">
-				</div>
-
-				<!-- <div class="star-score">
-					
-				</div> -->
-
-				<div class="movie-name">
-					주토피아
-				</div>
+		<div class="movie">
+			<div class="poster">
+<?
+				echo sprintf("<a href='%s' target='_blank'><img src='%s' class='poster-img'/></a>", $movie->link, $movie->image);
+?>
 			</div>
-		</a>
+
+			<div class="movie-name">
+				<?= $movie->title ?>
+			</div>
+		</div>
 <?
 	}
 ?>		

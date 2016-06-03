@@ -58,7 +58,7 @@ try
 		$client_secret = "wnHI9MxWLt";
 		//$url = "https://openapi.naver.com/v1/search/movie.xml?query=%EC%A3%BC%EC%8B%9D&display=10&start=1&sort=sim";
 		$url = "https://openapi.naver.com/v1/search/movie.xml?".
-				"query=$search_query&display=$display_num&start=$start&genre=$genre&yearfrom=$yearfrom&yearto=$yearto&sort=date";
+				"query=$search_query&display=$display_num&start=$start&genre=$genre&yearfrom=$yearfrom&yearto=$yearto&sort=$sort";
 		$is_post = false;
 
 		$ch = curl_init();
@@ -80,7 +80,7 @@ try
 		}
 		curl_close ($ch);
 
-		var_dump($response);
+		//var_dump($response);
 
 		$xml = simplexml_load_string($response) or die("Error: Cannot create object");
 
