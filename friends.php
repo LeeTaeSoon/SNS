@@ -37,7 +37,8 @@
 	
 	<div id="friends_recommand">
 
-			2222
+			<? include("friend_recommand.php"); ?>
+
 
 	</div>
 
