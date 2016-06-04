@@ -1,4 +1,6 @@
-<?if(!isset($_SESSION))
+<?
+	
+	if(!isset($_SESSION))
 		session_start();
 
 	$id = $_SESSION["id"];
@@ -27,8 +29,9 @@
 
 	<div id="friends_menu">
 		<div id="label_menu">
-			<label class="mymenu" for="recommand">SeeSaw 추천 친구</label>
+			<label class="mymenu" for="recommand">알 수도 있는 사람</label>
 			<label class="mymenu" for="find">USER 검색</label>
+			<label class="mymenu" for="find">취향 비슷한 사람</label>
 		</div>
 	</div>
 
