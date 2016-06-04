@@ -20,13 +20,15 @@
 	<title> See Saw </title>
 
 	<link rel="stylesheet" type="text/css" href="init-style.css">
+	<link rel="stylesheet" type="text/css" href="menubar.css">
 	<link rel="stylesheet" type="text/css" href="friend_recommand.css">
 
 <body>
+<?
+	show_menubar();
+?>
 	<div id="page-wrapper">
 <?	
-		show_menubar();
-		
 		try
 		{
 

@@ -26,10 +26,11 @@
 </head>
 
 <body>
+<?
+	show_menubar();
+?>
 	<div id="page-wrapper">
 <?	
-		show_menubar();
-
 		try
 		{
 
