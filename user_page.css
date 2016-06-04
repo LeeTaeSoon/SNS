@@ -18,10 +18,10 @@ div#friends{display: none; margin: 0 auto;}
 
 input{display:none;}
 
-label{ float: left; display:block; width: 150px; height: 50px; 
+#menu label{ float: left; display:block; width: 150px; height: 50px; 
 	background-color: black; color: white; margin: 10px; 
 	text-align: center; line-height: 50px; font-size: 18px; border-radius:15px;}
-label:hover{ background-color: white; color:black; }	
+#menu label:hover{ background-color: white; color:black; }	
 
 #profile{ width: 180px; height: 180px; position: absolute; left: 25%; top: 30px; border-radius: 90px;}
 
