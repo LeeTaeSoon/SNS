@@ -6,6 +6,7 @@ div#page-wrapper {
 
 div.blank {
 	height: 90px;
+	background-color: azure;
 }
 
 div.timeline-board {
@@ -13,25 +14,31 @@ div.timeline-board {
 	height: 300px;
 	background-color: black;
 	overflow: hidden;
+	position: relative;
 
 	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 div.timeline-article {
 	position: relative;
-	float: left;
-	margin: 0 20px;
-	padding: 30px;
+    float: left;
+    width: 425px;
+    height: 300px;
+    margin: 0 20px;
+}
+
+div.article {
+	padding: 45px 30px 15px 30px;
 	background-color: white;
 	width: 365px;
-	height: 300px;
+	height: 240px;
 	background-size: 425px 300px;
 	font-size: 1.2em;
 }
 
 div.article-writer {
 	position: absolute;
-	top: 0;
-	left: 10px;
+	top: 10px;
+	left: 20px;
 	font-weight: bold;
 }

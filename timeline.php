@@ -64,25 +64,28 @@
 						$article = $articles->fetch();
 						$url = $db->quote($article["bgimg"]);
 						$article_num = $article["num"];
+
+						$writers = $db->query("SELECT user.id, name FROM user INNER JOIN article ON user.id=article.id WHERE num=$article_num");
+						if(isset($writers))
+							$writer = $writers->fetch();
+						else
+							echo "Can't find a writer";
 ?>
-						<a href="show.php?num=<?= $article_num ?>">
-							<div class="timeline-article" style="background-image: url(<?= $url ?>)">
-								<div class="article-writer">
-<? 
-									$writers = $db->query("SELECT name FROM user INNER JOIN article ON user.id=article.id WHERE num=$article_num");
-									if(isset($writers))
-										$writer = $writers->fetch();
-									else
-										echo "Can't find a writer";
-									echo $writer['name'];
+						<div class="timeline-article">
+							<a href="show.php?num=<?= $article_num ?>">
+								<div class="article" style="background-image: url(<?= $url ?>)">
+<?
+									$article_content = stripslashes(nl2br($article['content']));
+									echo $article_content;
 ?>
 								</div>
-<?
-								$article_content = stripslashes(nl2br($article['content']));
-								echo $article_content;
-?>
+							</a>
+
+							
+							<div class="article-writer">
+								<a href="user_page.php?id=<?= $writer['id'] ?>"><?= $writer['name'] ?></a>
 							</div>
-						</a>
+						</div>
 <?
 					}
 ?>
