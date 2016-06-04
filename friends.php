@@ -22,7 +22,7 @@
 <body>
 
 	<div id="top">
-	 	<? include("menubar.php") ?>
+	 	<? show_menubar(); ?>
 	</div>
 
 	<div id="friends_menu">

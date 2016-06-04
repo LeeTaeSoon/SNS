@@ -7,6 +7,8 @@
 
 	if(!$id)
 		header("Location: login.php");
+
+	include("function.php");
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +23,7 @@
 </head>
 
 <body>
-	<? include("menubar.php") ?>
+	<? show_menubar(); ?>
 
 	<div id="page-wrapper">
 

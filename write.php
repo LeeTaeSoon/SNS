@@ -8,6 +8,8 @@
 	if(!$id)
 		header("Location: login.php");
 
+	include("function.php");
+
 	if(isset($_FILES))
 	{
 		$save_dir = "./image/article_bg_img/";
@@ -44,7 +46,7 @@
 <body>
 
 <div id="top">
- 	<? include("menubar.php") ?>
+ 	<? show_menubar(); ?>
 </div>
 
 

@@ -10,7 +10,14 @@
 
 	include("function.php");
 
-	$movies = search_movie("a", 100, 1, NULL, NULL, NULL, NULL, "sim");
+	if(isset($_GET["search_query"]))
+	{
+		$search_query = $_GET["search_query"];
+		$movies = search_movie($search_query, 100, 1, NULL, NULL, NULL, NULL, "date");
+	}
+
+	else
+		$movies = search_movie("a", 100, 1, NULL, NULL, NULL, NULL, "sim");
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +33,7 @@
 
 <body>
 <?	
-	include("menubar.php");
+	show_menubar("movie_list");
 ?>
 	<div id="page-wrapper">
 <?
