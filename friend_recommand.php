@@ -1,34 +1,9 @@
-<?
-	include("db_connect.php");
-
-	if(!isset($_SESSION))
-		session_start();
-
-	$id = $_SESSION["id"];
-	$name = $_SESSION["name"];
-
-	if(!$id)
-		header("Location: login.php");
-
-	include("function.php");
-?>
-
-<!DOCTYPE html>
-
-<html>
-<head>
-	<title> See Saw </title>
-
 	<link rel="stylesheet" type="text/css" href="init-style.css">
-	<link rel="stylesheet" type="text/css" href="menubar.css">
 	<link rel="stylesheet" type="text/css" href="friend_recommand.css">
 
 <body>
-<?
-	show_menubar();
-?>
 	<div id="page-wrapper">
-<?	
+<?
 		try
 		{
 
@@ -67,7 +42,7 @@
 						$fid = $db->quote($recommand["id"]);
 						$fimg = $db->quote($recommand["proimg"]);
 ?>
-						<a href="show.php?num=<?= $recommand['num'] ?>">
+						<a href="add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$recommand['id']?>">
 							<div class="timeline-article" style="background-image: url(<?=$fimg?>);">
 							
 								<?= stripcslashes(nl2br($recommand["id"])) ?>
