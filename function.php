@@ -103,13 +103,14 @@ try
 
 		$num = $article["num"];
 
-		$writers = $db->query("SELECT name FROM user INNER JOIN article ON user.id=article.id WHERE num=$num");
+		$writers = $db->query("SELECT user.id, name FROM user INNER JOIN article ON user.id=article.id WHERE num=$num");
 		if(isset($writers))
 			$writer = $writers->fetch();
 		else
 			echo "Can't find a writer";
-		echo "작성자 : ".$writer['name']."<br>";
-
+?>
+		<a href="user_page.php?id=<?= $writer['id'] ?>"><?= $writer['name'] ?></a>
+<?
 		$article_content = stripslashes(nl2br($article['content']));
 		echo $article_content;
 	}

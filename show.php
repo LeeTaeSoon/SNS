@@ -78,7 +78,7 @@
 					?>
 							<table> 
 								<tr>
-									<th> <?= $comment_writer["name"]; ?></th>
+									<th> <a href="user_page.php?id=<?= $comment_writer['id'] ?>"><?= $comment_writer["name"]; ?></a></th>
 								</tr>
 								<tr>
 									<td><?= $comment_content ?></td>
