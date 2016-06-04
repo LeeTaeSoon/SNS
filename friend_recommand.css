@@ -1,0 +1,46 @@
+div#page-wrapper {
+    margin: 0 auto;
+    width: 1200px;
+    position: relative;
+}
+div.timeline-board {
+	width: 1200px;
+	height: 250px;
+	background-color: black;
+	overflow: hidden;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+div.timeline-article {
+	position: relative;
+	float: left;
+	margin: 0 20px;
+	padding: 30px;
+	background-color: white;
+	width: 200px;
+	height: 200px;
+	background-size: 200px 200px;
+	font-size: 1.2em;
+}
+
+div.article-writer {
+	position: absolute;
+	top: 0;
+	left: 10px;
+	font-weight: bold;
+}
+
+div.film-black-part {
+	background-color: black;
+	width: 1200px;
+	height: 30px;
+}
+
+div.film-white-part {
+	background-color: white;
+	width: 10px;
+	height: 10px;
+	margin: 7.5px 19px 7.5px 7.5px; 
+	border-radius: 5px;
+	display: inline-block;
+}
