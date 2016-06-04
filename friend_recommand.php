@@ -20,29 +20,27 @@
 	<title> See Saw </title>
 
 	<link rel="stylesheet" type="text/css" href="init-style.css">
-	<link rel="stylesheet" type="text/css" href="menubar.css">
-	<link rel="stylesheet" type="text/css" href="film_div.css">
-	<link rel="stylesheet" type="text/css" href="timeline.css">
-</head>
+	<link rel="stylesheet" type="text/css" href="friend_recommand.css">
 
 <body>
 	<div id="page-wrapper">
 <?	
 		show_menubar();
-
+		
 		try
 		{
 
 			$db = db_connect();
 			$t_id = $db->quote($id);
 
-			$f_recommands = "select fid, count(*) as cnt from (";
+			$f_recommands = "select user.id, user.proimg from user,(";
+			$f_recommands .= "select fid as id, count(*) as cnt from (";
 			$f_recommands .= "select fid from friend where id in (";
 			$f_recommands .= "select fid from friend where id=$t_id)";
 			$f_recommands .= " )as t where t.fid not in (";
 			$f_recommands .= "select fid from friend where id=$t_id)";
 			$f_recommands .= " group by fid";
-			$f_recommands .= " order by cnt desc";
+			$f_recommands .= " order by cnt desc) as r where user.id=r.id";
 
 			$recommands = $db->query($f_recommands);
 
@@ -62,14 +60,15 @@
 					{
 						if($j > 3)
 							break;
-
+	
 						$recommand = $recommands->fetch();
-						$fid = $db->quote($recommand["fid"]);
+						$fid = $db->quote($recommand["id"]);
+						$fimg = $db->quote($recommand["proimg"]);
 ?>
 						<a href="show.php?num=<?= $recommand['num'] ?>">
-							<div class="timeline-article">
+							<div class="timeline-article" style="background-image: url(<?=$fimg?>);">
 							
-								<?= stripcslashes(nl2br($recommand["fid"])) ?>
+								<?= stripcslashes(nl2br($recommand["id"])) ?>
 
 							</div>
 						</a>
