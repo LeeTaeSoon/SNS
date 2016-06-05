@@ -17,7 +17,7 @@
 			$f_recommands .= "select fid from friend where id in (";
 			$f_recommands .= "select fid from friend where id=$t_id)";
 			$f_recommands .= " )as t where t.fid not in (";
-			$f_recommands .= "select fid from friend where id=$t_id)";
+			$f_recommands .= "select fid from friend where (id=$t_id or fid=$t_id))";
 			$f_recommands .= " group by fid";
 			$f_recommands .= " order by cnt desc) as r where user.id=r.id";
 
