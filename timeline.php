@@ -100,7 +100,7 @@
 							}
 ?>
 							<div class="article-writer">
-								<a href="user_page.php?id=<?= $writer['id'] ?>"><?= $writer['name'] ?></a>
+								<a href="user_page.php?id=<?= $writer['id'] ?>"><?= $writer['id'] ?></a>
 							</div>
 						</div>
 <?
