@@ -42,3 +42,21 @@ div.article-writer {
 	left: 20px;
 	font-weight: bold;
 }
+
+div.spoiler {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 45px 30px 15px 30px;
+	background-color: #FFF9F9;
+	width: 365px;
+	height: 240px;
+}
+
+div.spoiler img {
+	width: 230px;
+	height: 200px;
+	position: absolute;
+	top: 50px;
+	left: 100px;
+}

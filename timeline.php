@@ -65,7 +65,7 @@
 						$url = $db->quote($article["bgimg"]);
 						$article_num = $article["num"];
 
-						$writers = $db->query("SELECT user.id, name FROM user INNER JOIN article ON user.id=article.id WHERE num=$article_num");
+						$writers = $db->query("SELECT user.id, name, spoiler FROM user INNER JOIN article ON user.id=article.id WHERE num=$article_num");
 						if(isset($writers))
 							$writer = $writers->fetch();
 						else
@@ -80,8 +80,25 @@
 ?>
 								</div>
 							</a>
+<?
+							if ($article["spoiler"] == "YES")
+							{
+?>								
+								<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
+								<script type="text/javascript">
+								$(function(){
+									$('.article<?= $article['num']?>').click(function(){
+										$('.article<?= $article['num']?>').hide();
+									});
+								});
+								</script>
 
-							
+								<div class="spoiler article<?= $article['num']?>">
+									<img src="image/caution.png">
+								</div>
+<?
+							}
+?>
 							<div class="article-writer">
 								<a href="user_page.php?id=<?= $writer['id'] ?>"><?= $writer['name'] ?></a>
 							</div>
