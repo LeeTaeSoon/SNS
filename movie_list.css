@@ -11,6 +11,7 @@ div.movie {
 	width: 300px;
 	height: 380px;
 	border-radius: 10px;
+	position: relative;
 }
 
 div.poster {
@@ -30,3 +31,18 @@ div.movie-name {
 	color: gray;
 	line-height: 50px;
 }
+div.mgrade
+{
+	display:none; height:180px;
+	position: absolute; bottom:50px;				
+}
+div.movie:hover div.mgrade{display:block;}
+div.movie:hover img.poster-img{opacity: 0.5;}
+label:hover{background-color: yellow;}
+
+.star{width:57px; height:57px;}
+.star:hover{ background-color: yellow;}
+.heart{width:57px; height:57px;}
+.heart:hover{ background-color: black;}
+#want{float:right;}
+#want1{float:right;}

@@ -45,15 +45,36 @@
 <?
 				echo sprintf("<a href='%s' target='_blank'><img src='%s' class='poster-img'/></a>", $movie->link, $movie->image);
 ?>
+				<div class="mgrade">
+					
+					<?
+						$movie_name = strip_tags($movie->subtitle);		// <b>
+						$temp = explode("&amp; ", $movie_name);
+						$movie_name = implode("", $temp);
+					?>
+
+					<table>
+						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=1&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class=star src="image/star.png"></a></td>
+						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=2"> <img class=star src="image/star.png"> </td>
+						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=3"> <img class=star src="image/star.png"></label></td>
+						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=4"> <img class=star src="image/star.png"></label></td>
+						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=5"> <img class=star src="image/star.png"></label></td>
+					</table>
+
+					<div id="want1">
+						<a href = "save_grades.php?movie=<?=$movie?>&<?=$mimage=$movies->image?>"> <img class="heart" src="image/heart1.png" </a>
+					</div>
+
+					<div id="want">
+						<h2>보고<br>싶어요</h2>
+					</div>
+
+				</div>
 			</div>
 
 			<div class="movie-name">
 <?
 				echo $movie->title;
-
-				$movie_name = strip_tags($movie->subtitle);		// <b>
-				$temp = explode("&amp; ", $movie_name);
-				$movie_name = implode("", $temp);
 ?>
 				<a href="recommand_movie.php?receiver=nrst136&movie=<?= $movie_name ?>">추천</a>
 			</div>
