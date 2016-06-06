@@ -48,7 +48,14 @@
 			</div>
 
 			<div class="movie-name">
-				<?= $movie->title ?>
+<?
+				echo $movie->title;
+
+				$movie_name = strip_tags($movie->subtitle);		// <b>
+				$temp = explode("&amp; ", $movie_name);
+				$movie_name = implode("", $temp);
+?>
+				<a href="recommand_movie.php?receiver=nrst136&movie=<?= $movie_name ?>">추천</a>
 			</div>
 		</div>
 <?

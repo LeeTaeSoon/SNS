@@ -1,3 +1,21 @@
+<?
+	try 
+	{
+		include("function.php");
+		$recommand_table = "recommand_table";
+
+		$alarms = $db->query("SELECT * FROM $table");
+	}
+
+	catch (PODException $ex)
+	{
+?>
+		<p> Sorry, a database error occurred. Please try again later. </p>
+		<p> (Error details : <?= $ex->getMessage() ?>) </p>
+<?
+	}
+?>
+
 <div class="menu-bar">
 	<a href="timeline.php">
 		<div class="logo">
@@ -24,7 +42,28 @@
 	</div>
 
 	<div class="alarm">
-		ㅇㅇ
+<?
+		if($alarms->rowCount())
+		{
+			foreach ($alarms as $alarm)
+			{
+				$movie_name = $alarm["movie"];
+				// $temp = explode(" ", $movie_name);
+				// $movie_name = implode("", $temp);
+				var_dump(md5($movie_name));
+				$movie_name = strip_tags($movie_name);		// <b>
+				$temp = explode("&amp", $movie_name);
+				$movie_name = implode("", $temp);
+				$movie_name = preg_replace("/[ #\&\+\-%@=\/\\\:;,\.'\"\^`~\_|\!\?\*$#<>()\[\]\{\}]/i", "", $movie_name);
+?>
+				<div class="alarm-item">
+					<?= $alarm["sender"] ?> 님 께서 <?= $alarm["receiver"] ?> 님 께 <?= $alarm["movie"] ?> 를 추천하셨습니다.
+				</div>
+<?
+			}
+
+		}
+?>
 	</div>
 
 	<div class="user-menu">

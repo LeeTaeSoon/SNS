@@ -1,12 +1,13 @@
 <?
+	include("db_connect.php");
+	$db = db_connect();
+
 try
 {
 
 	function login_ok($id, $passwd)
 	{
-		include("db_connect.php");
-
-		$db = db_connect();
+		global $db;
 
 		$user_table = "user";
 
@@ -36,6 +37,11 @@ try
 	{
 		global $id;
 		global $name;
+		global $db;
+
+		$recommand_table = "recommand_movie";
+
+		$alarms = $db->query("SELECT * FROM $recommand_table");
 ?>
 		<div class="menu-bar">
 			<a href="timeline.php">
@@ -77,7 +83,26 @@ try
 			</div>
 
 			<div class="alarm">
-				ㅇㅇ
+				
+<?
+				if($alarms->rowCount())
+				{
+					foreach ($alarms as $alarm)
+					{
+						$movie_name = $alarm["movie"];
+						$movie_name = preg_replace("/[ #\&\+\-%@=\/\\\:;,\.'\"\^`~\_|\!\?\*$#<>()\[\]\{\}]/i", "", $movie_name);
+?>
+						<div class="alarm-item">
+							<a href="user_page.php?id=<?= $alarm['sender'] ?>"><?= $alarm["sender"] ?></a> 님 께서
+							<a href="user_page.php?id=<?= $alarm['receiver'] ?>"><?= $alarm["receiver"] ?> 님 께 
+							<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?> 를 추천하셨습니다.
+							<!-- <a href="<?= $alarm['link'] ?>"><?= stripslashes($alarm["movie"]) ?> 를 추천하셨습니다. -->
+						</div>
+<?
+					}
+
+				}
+?>
 			</div>
 
 			<div class="user-menu">
