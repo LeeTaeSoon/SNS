@@ -60,7 +60,13 @@
 						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=4"> <img class=star src="image/star.png"></label></td>
 						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=5"> <img class=star src="image/star.png"></label></td>
 					</table>
-
+					<br>
+					<div class="recom">
+					 	<h2>추천</h2> 
+					</div>
+					<div class="recom">
+						<a href="recommand_movie.php?receiver=nrst136&movie=<?= $movie_name ?>"><img id="recom"src="image/recommand1.jpg"></a>
+					</div>
 					<div id="want1">
 						<a href = "save_grades.php?movie=<?=$movie?>&<?=$mimage=$movies->image?>"> <img class="heart" src="image/heart1.png" </a>
 					</div>
@@ -76,7 +82,6 @@
 <?
 				echo $movie->title;
 ?>
-				<a href="recommand_movie.php?receiver=nrst136&movie=<?= $movie_name ?>">추천</a>
 			</div>
 		</div>
 <?
