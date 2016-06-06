@@ -96,8 +96,14 @@ div.alarm {
     position: absolute;
     top: 90px;
     right: 430px;
-    width: 400px;
+    padding: 0 10px;
     background-color: white;
+}
+
+div.alarm-item {
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
 }
 
 div.user-menu {

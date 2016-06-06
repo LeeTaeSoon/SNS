@@ -1,6 +1,4 @@
 <?
-	include("db_connect.php");
-
 	if(!isset($_SESSION))
 		session_start();
 
@@ -34,7 +32,6 @@
 		try
 		{
 
-			$db = db_connect();
 
 			$table = "article";
 			$frined_table = "friend";

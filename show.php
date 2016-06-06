@@ -1,7 +1,4 @@
 <?
-	include("db_connect.php");
-	$db = db_connect();
-
 	if(!isset($_SESSION))
 		session_start();
 

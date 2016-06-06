@@ -13,9 +13,6 @@
 	$userid = $_GET["id"];
 
 	try {
-		include("db_connect.php");
-		$db = db_connect();
-
 		$table = "user";
 
 		$userid = $db->quote($userid);

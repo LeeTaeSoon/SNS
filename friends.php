@@ -9,9 +9,7 @@
 	if(!$id)
 		header("Location: login.php");
 
-	include("db_connect.php");
 	include("function.php");
-	$db = db_connect();
 
 ?>
 <html>

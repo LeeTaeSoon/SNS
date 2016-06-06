@@ -8,11 +8,9 @@
 	if(!$id)
 		header("Location: login.php");
 
-	include("db_connect.php");
+	include("function.php");
 
 	try {
-		$db = db_connect();
-
 		$num = $_POST["num"];
 		$content = $_POST["content"];
 		$bgimg = $_POST["bgimg"];

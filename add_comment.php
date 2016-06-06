@@ -10,8 +10,7 @@
 
 try
 {
-	include("db_connect.php");
-	$db = db_connect();
+	include("function.php");
 
 	$table = "comment";
 

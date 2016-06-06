@@ -1,8 +1,6 @@
 <?
 try {
-	include("db_connect.php");
-
-	$db = db_connect();
+	include("function.php");
 
 	if(!isset($_SESSION))
 		session_start();
