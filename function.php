@@ -39,9 +39,11 @@ try
 		global $name;
 		global $db;
 
+		$t_id = $db->quote($id);
+
 		$recommand_table = "recommand_movie";
 
-		$alarms = $db->query("SELECT * FROM $recommand_table");
+		$alarms = $db->query("SELECT * FROM $recommand_table WHERE receiver=$t_id");
 ?>
 		<div class="menu-bar">
 			<a href="timeline.php">
