@@ -8,9 +8,7 @@
 	if(!$id)
 		header("Location: login.php");
 
-	include("db_connect.php");
-
-	$db = db_connect();
+	include("function.php");
 
 	$num = $_GET["num"];
 
@@ -64,7 +62,7 @@
 <body>
 
 <div id="top">
- 	<? include("menubar.php") ?>
+ 	<? show_menubar(); ?>
 </div>
 
 

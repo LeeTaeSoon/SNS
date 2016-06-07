@@ -44,5 +44,10 @@ label:hover{background-color: yellow;}
 .star:hover{ background-color: yellow;}
 .heart{width:57px; height:57px;}
 .heart:hover{ background-color: black;}
+#recom{width:57px; height:57px;}
+#recom:hover{ background-color: black;}
+
+h2{color:orange;}
 #want{float:right;}
 #want1{float:right;}
+div.recom{float:left; margin:5px;}
