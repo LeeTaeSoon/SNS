@@ -97,7 +97,8 @@ try
 						<div class="alarm-item">
 							<a href="user_page.php?id=<?= $alarm['sender'] ?>"><?= $alarm["sender"] ?></a> 님 께서
 							<a href="user_page.php?id=<?= $alarm['receiver'] ?>"><?= $alarm["receiver"] ?></a> 님 께 
-							<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?></a> 를 추천하셨습니다.
+							<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?></a> 를 추천하셨습니다. <br>
+							<a href="user_page.php?id=<?= $alarm['sender'] ?>"><?= $alarm["sender"] ?></a> 님 과의 취향 지수 <span> <?= similarity($alarm["receiver"], $alarm["sender"]) ?> </span> % 
 							<!-- <a href="<?= $alarm['link'] ?>"><?= stripslashes($alarm["movie"]) ?> 를 추천하셨습니다. -->
 						</div>
 <?
@@ -178,6 +179,28 @@ try
 		$xml = simplexml_load_string($response) or die("Error: Cannot create object");
 
 		return $xml;
+	}
+
+	function similarity($me, $fri)
+	{
+		global $db;
+		$me = $db->quote($me);
+		$fri = $db->quote($fri);
+
+		$my_movies = $db->query("SELECT id movie FROM see_movie WHERE id=$me");
+		$fri_movies = $db->query("SELECT id movie FROM see_movie WHERE id=$fri");
+
+		$together_movies = $db->query("SELECT id movie FROM see_movie WHERE id=$me and
+										movie in (select movie from see_movie where id=$fri)");
+		$together_grade_movies = $db->query("SELECT id movie FROM see_movie WHERE id=$me and (
+										( movie in (select movie from see_movie where id=$fri and grade > 3) and grade > 3 ) or
+										( movie in (select movie from see_movie where id=$fri and grade < 3) and grade < 3 ) or
+										( movie in (select movie from see_movie where id=$fri and grade = 3) and grade = 3 ))");
+
+		if($together_movies->rowCount())
+			$percent = $together_grade_movies->rowCount() * 100 / $together_movies->rowCount();
+
+		return $percent;
 	}
 
 }

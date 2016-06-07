@@ -103,7 +103,7 @@ div.alarm {
 }
 
 div.alarm-item {
-    height: 30px;
+    height: 60px;
     line-height: 30px;
     font-size: 20px;
     border-bottom: 1px solid rgb(200, 200, 200);
@@ -111,6 +111,10 @@ div.alarm-item {
 
 div.alarm-item a {
     color: blue;
+}
+
+div.alarm-item span {
+    color: red;
 }
 
 div.user-menu {

@@ -8,9 +8,6 @@
 		header("Location: login.php");
 
 	include("function.php");
-	include("db_connect.php");
-
-	$db = db_connect();
 
 	$movie = $_GET["movie"];
 	$grade = $_GET["grade"];
