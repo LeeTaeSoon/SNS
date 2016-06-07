@@ -38,7 +38,7 @@ div.mgrade
 }
 div.movie:hover div.mgrade{display:block;}
 div.movie:hover img.poster-img{opacity: 0.5;}
-label:hover{background-color: yellow;}
+.movie label:hover{background-color: yellow;}
 
 .star{width:57px; height:57px;}
 .star:hover{ background-color: yellow;}
