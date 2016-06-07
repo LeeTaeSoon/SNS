@@ -2,8 +2,7 @@ div.menu-bar {
 	width: 100%;
     height: 90px;
     position: fixed;
-    background-color: white;
-    opacity: 0.7;
+    background-color: rgba(255, 255, 255, 0.7);
     z-index: 2;
 }
 
@@ -11,6 +10,7 @@ div.logo {
     position: absolute;
     top: 5px;
     left: 10px;
+    opacity: 0.7;
 }
 
 div.logo img {
@@ -26,6 +26,7 @@ div.simple-menu {
     width: 915px;
     height: 50px;
     line-height: 50px;
+    opacity: 0.7;
 }
 
 div.search {
@@ -98,12 +99,18 @@ div.alarm {
     right: 430px;
     padding: 0 10px;
     background-color: white;
+    z-index: 10;
 }
 
 div.alarm-item {
     height: 30px;
     line-height: 30px;
     font-size: 20px;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+div.alarm-item a {
+    color: blue;
 }
 
 div.user-menu {
@@ -111,6 +118,7 @@ div.user-menu {
     right: 180px;
     height: 90px;
     line-height: 90px;
+    opacity: 0.7;
 }
 
 div.user-name {
@@ -131,6 +139,7 @@ div.all-menu-button {
     position: absolute;
     right: 20px;
     top: 10px;
+    opacity: 0.7;
 }
 
 img.menu-icon {

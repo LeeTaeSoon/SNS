@@ -96,8 +96,8 @@ try
 ?>
 						<div class="alarm-item">
 							<a href="user_page.php?id=<?= $alarm['sender'] ?>"><?= $alarm["sender"] ?></a> 님 께서
-							<a href="user_page.php?id=<?= $alarm['receiver'] ?>"><?= $alarm["receiver"] ?> 님 께 
-							<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?> 를 추천하셨습니다.
+							<a href="user_page.php?id=<?= $alarm['receiver'] ?>"><?= $alarm["receiver"] ?></a> 님 께 
+							<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?></a> 를 추천하셨습니다.
 							<!-- <a href="<?= $alarm['link'] ?>"><?= stripslashes($alarm["movie"]) ?> 를 추천하셨습니다. -->
 						</div>
 <?
