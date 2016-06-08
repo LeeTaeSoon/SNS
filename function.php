@@ -43,7 +43,7 @@ try
 
 		$recommand_table = "recommand_movie";
 
-		$alarms = $db->query("SELECT * FROM $recommand_table WHERE receiver=$t_id");
+		$alarms = $db->query("SELECT * FROM $recommand_table WHERE receiver=$t_id ORDER BY time desc");
 ?>
 		<div class="menu-bar">
 			<a href="timeline.php">
@@ -84,11 +84,12 @@ try
 				</div>
 			</div>
 
-			<div class="alarm">
-				
 <?
-				if($alarms->rowCount())
-				{
+			if($alarms->rowCount() < 6)
+			{
+?>
+				<div class="alarm">
+<?
 					foreach ($alarms as $alarm)
 					{
 						$movie_name = $alarm["movie"];
@@ -96,18 +97,44 @@ try
 ?>
 						<div class="alarm-item">
 							<a href="user_page.php?id=<?= $alarm['sender'] ?>"><?= $alarm["sender"] ?></a> 님 께서
-							<a href="user_page.php?id=<?= $alarm['receiver'] ?>"><?= $alarm["receiver"] ?></a> 님 께 
 							<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?></a> 를 추천하셨습니다. <br>
-							<a href="user_page.php?id=<?= $alarm['sender'] ?>"><?= $alarm["sender"] ?></a> 님 과의 취향 지수 <span> <?= similarity($alarm["receiver"], $alarm["sender"]) ?> </span> % 
+							<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<span class="percent"> <?= similarity($alarm["receiver"], $alarm["sender"]) ?> </span> %
+							</p>
 							<!-- <a href="<?= $alarm['link'] ?>"><?= stripslashes($alarm["movie"]) ?> 를 추천하셨습니다. -->
 						</div>
 <?
 					}
-
-				}
 ?>
-			</div>
+				</div>
+<?
+			}
 
+			else
+			{
+?>
+				<div class="alarm-full">
+<?
+					foreach ($alarms as $alarm)
+					{
+						$movie_name = $alarm["movie"];
+						$movie_name = preg_replace("/[ #\&\+\-%@=\/\\\:;,\.'\"\^`~\_|\!\?\*$#<>()\[\]\{\}]/i", "", $movie_name);
+?>
+						<div class="alarm-item-full">
+							<a href="user_page.php?id=<?= $alarm['sender'] ?>"><?= $alarm["sender"] ?></a> 님 께서
+							<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?></a> 를 추천하셨습니다. <br>
+							<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<span class="percent"> <?= similarity($alarm["receiver"], $alarm["sender"]) ?> </span> %
+							</p>
+							<!-- <a href="<?= $alarm['link'] ?>"><?= stripslashes($alarm["movie"]) ?> 를 추천하셨습니다. -->
+						</div>
+<?
+					}
+?>
+				</div>
+<?
+			}
+?>
 			<div class="user-menu">
 				<div class="user-name">
 					<a href="user_page.php?id=<?= $id ?>"><span class="name"> <?= $name ?></span> 님 </a>

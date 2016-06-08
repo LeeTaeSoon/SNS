@@ -92,6 +92,10 @@ input[type="checkbox"]:checked ~ div.alarm {
     display: block;
 }
 
+input[type="checkbox"]:checked ~ div.alarm-full {
+    display: block;
+}
+
 div.alarm {
     display: none;
     position: absolute;
@@ -102,8 +106,27 @@ div.alarm {
     z-index: 10;
 }
 
+div.alarm-full {
+    display: none;
+    position: absolute;
+    overflow: auto;
+    overflow-x: hidden;
+    top: 90px;
+    height: 488px;
+    right: 430px;
+    padding: 0 10px;
+    background-color: white;
+    z-index: 10;
+}
+
 div.alarm-item {
-    height: 60px;
+    line-height: 30px;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+div.alarm-item-full {
+    width: 102%;
     line-height: 30px;
     font-size: 20px;
     border-bottom: 1px solid rgb(200, 200, 200);
@@ -113,7 +136,11 @@ div.alarm-item a {
     color: blue;
 }
 
-div.alarm-item span {
+p.center {
+    text-align: center;
+}
+
+div.alarm-item span.percent {
     color: red;
 }
 
