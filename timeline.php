@@ -39,7 +39,7 @@
 			$t_id = $db->quote($id);
 
 			$articles = $db->query("SELECT * FROM $table WHERE id=$t_id or access='all' or (access='friend' and 
-									id in (select fid from friend where id=$t_id))");
+									id in (select fid from friend where id=$t_id)) ORDER BY time desc");
 
 			$articleCount = $articles->rowCount();
 
