@@ -45,7 +45,7 @@ try
 		{
 		?>  <div class="saw_movie_list">
 				<br> 
-			 	<h2><?=$row['movie']?></h2>
+			 	<h2><?= stripslashes($row['movie'])?></h2>
 			 	<a><img class="molist" src="<?=$row['image']?>"></a>
 			 	<h2> 나의 평점 : <?=$row['grade']?></h2>
 			</div>
