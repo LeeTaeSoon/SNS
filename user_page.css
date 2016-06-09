@@ -6,7 +6,10 @@ div#my_article{display: none; margin: 0 auto;}
 #my_article:checked~div#my_article{ display: block;}
 
 div#saw_movie{display: none; margin: 0 auto;}
-#saw_movie:checked~div#saw_movie{ display: block;}
+#saw_movie:checked~div#saw_movie{ display: block; overflow: hidden;}
+
+div.saw_movie_list{ float: left; margin:40px; text-align: center;}
+img.molist{ width:200px; height:350px; }
 
 div#interest_movie{display: none; margin: 0 auto;}
 #interest_movie:checked~div#interest_movie{ display: block;}

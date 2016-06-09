@@ -33,6 +33,26 @@ try
 		return false;
 	}
 
+	function show_saw_movie($userid)
+	{
+		global $db;
+
+		$db = db_connect();
+		$querys = "SELECT * from see_movie where id=$userid";
+		$rows = $db->query($querys);
+		
+		foreach($rows as $row)
+		{
+		?>  <div class="saw_movie_list">
+				<br> 
+			 	<h2><?=$row['movie']?></h2>
+			 	<a><img class="molist" src="<?=$row['image']?>"></a>
+			 	<h2> 나의 평점 : <?=$row['grade']?></h2>
+			</div>
+		<?
+		}
+	}
+
 	function show_menubar($page = NULL)
 	{
 		global $id;

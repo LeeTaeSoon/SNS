@@ -11,7 +11,6 @@
 	include("function.php");
 
 	$userid = $_GET["id"];
-
 	try {
 		$table = "user";
 
@@ -86,8 +85,7 @@
 	</div>
 	
 	<div id = "saw_movie" class="content">
-
-		2
+		<? show_saw_movie($userid); ?>
 	</div>
 	
 	<div id= "interest_movie" class="content">

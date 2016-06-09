@@ -24,7 +24,10 @@
 	$query.=" values($id,$movie,$grade,$mimage,$murl)";
 
 	$result = $db->exec($query);
-
-	//header("Location:movie_list.php");
+	if(isset($result))
+	{
+		$_SESSION['flash']="성공적으로 저장";
+	}
+	header("Location:movie_list.php");
 
 ?>

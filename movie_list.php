@@ -36,6 +36,11 @@
 	show_menubar("movie_list");
 ?>
 	<div id="page-wrapper">
+		
+		<div id="save_message">
+			<?=$_SESSION['flash']?>
+			<?unset($_SESSION['flash']);?>
+		</div>
 <?
 	foreach($movies->channel->item as $movie)
 	{
@@ -55,10 +60,10 @@
 
 					<table>
 						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=1&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class=star src="image/star.png"></a></td>
-						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=2"> <img class=star src="image/star.png"> </td>
-						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=3"> <img class=star src="image/star.png"></label></td>
-						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=4"> <img class=star src="image/star.png"></label></td>
-						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=5"> <img class=star src="image/star.png"></label></td>
+						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=2&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class=star src="image/star.png"> </td>
+						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=3&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"> <img class=star src="image/star.png"></label></td>
+						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=4&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"> <img class=star src="image/star.png"></label></td>
+						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=5&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"> <img class=star src="image/star.png"></label></td>
 					</table>
 					<br>
 					<div class="recom">
