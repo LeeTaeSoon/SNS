@@ -4,6 +4,8 @@
 
 div#my_article{display: none; margin: 0 auto;}
 #my_article:checked~div#my_article{ display: block;}
+.article{ height:300px; margin: 60px; background-image:opacity:0.5; } 
+p{ font-size: 35px;  }
 
 div#saw_movie{display: none; margin: 0 auto;}
 #saw_movie:checked~div#saw_movie{ display: block; overflow: hidden;}

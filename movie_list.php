@@ -72,8 +72,9 @@
 					<div class="recom">
 						<a href="select_receiver.php?movie=<?= $movie_name ?>"><img id="recom"src="image/recommand1.jpg"></a>
 					</div>
+
 					<div id="want1">
-						<a href = "save_grades.php?movie=<?=$movie?>&<?=$mimage=$movies->image?>"> <img class="heart" src="image/heart1.png" </a>
+						<a href = "save_wish_movie.php?movie=<?=$movie_name?>&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class="heart" src="image/heart1.png" </a>
 					</div>
 
 					<div id="want">

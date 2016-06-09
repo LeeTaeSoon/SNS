@@ -85,11 +85,33 @@
 	</div>
 	
 	<div id = "saw_movie" class="content">
+		<div style="text-align: center;">
+			<br>
+			<p> What you Saw </p>
+		</div>
 		<? show_saw_movie($userid); ?>
 	</div>
 	
 	<div id= "interest_movie" class="content">
-	3
+		3
+	<?
+		$db = db_connect();
+		$querys = "SELECT * from wish_movie where id=$userid";
+		$rows = $db->query($querys);
+
+		foreach($rows as $row)
+		{
+		?>  <div class="saw_movie_list">
+				<br> 
+			 	<h2><?= stripslashes($row['movie'])?></h2>
+			 	<a href="<?=$row['link']?>"><img class="molist" src="<?=$row['image']?>"></a>
+			 	<h2> SeeSaw 유저 평점 : </h2>
+			</div>
+		<?
+		}
+		?>
+
+
 	</div>
 
 	<div id= "friends" class="content">
