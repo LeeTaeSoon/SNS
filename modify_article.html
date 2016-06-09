@@ -32,6 +32,9 @@
 
 		if(is_uploaded_file($_FILES["uploadfile"]["tmp_name"]))
 		{
+			$imgurl = substr($imgurl, 2);		// 상대 경로를 사용해서 삭제함
+			unlink($imgurl);
+			
 			//echo "업로드한 파일 명 : " . $_FILES["uploadfile"]["name"];
 			// 파일을 저장할 디렉토리 및 파일명
 			$dest = $save_dir.$_FILES["uploadfile"]["name"];
@@ -73,7 +76,7 @@
 		<div id ="article" style="background-image: url(<?= $imgurl ?>)">
 
 			<form action="modify_article.php" method="post">
-				<textarea id="textarea" name="content"><?= nl2br($article["content"])?></textarea>
+				<textarea id="textarea" name="content"><?= $article["content"]?></textarea>
 				<select name="access">
 <?
 					if($article["access"] == "all")
