@@ -174,6 +174,7 @@ div.all-menu-button {
 }
 
 img.menu-icon {
-	width: 78px;
+	width: 70px;
 	height: 70px;
+    border-radius: 35px;
 }

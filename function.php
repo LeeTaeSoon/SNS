@@ -166,7 +166,7 @@ try
 			</div>
 
 			<div class="all-menu-button">
-				<img src="image/menu-icon.png" class="menu-icon">
+				<a href="movie_list.php"><img src="image/menu-icon.jpg" class="menu-icon"></a>
 			</div>
 		</div>
 <?
@@ -246,6 +246,11 @@ try
 
 		if($together_movies->rowCount())
 			$percent = $together_grade_movies->rowCount() * 100 / $together_movies->rowCount();
+
+		if(!isset($percent))
+			$percent = 0;
+
+		$percent = ceil($percent);
 
 		return $percent;
 	}

@@ -14,14 +14,14 @@
 	$mimage = $_GET["mimage"];
 	$murl = $_GET["murl"];
 
-	$id = $db->quote($id);
+	$t_id = $db->quote($id);
 	$movie = $db->quote($movie);
     $grade = $db->quote($grade);
 	$mimage = $db->quote($mimage);
 	$murl = $db->quote($murl);
 
 	$query="insert into see_movie(id,movie,grade,image,link)";
-	$query.=" values($id,$movie,$grade,$mimage,$murl)";
+	$query.=" values($t_id,$movie,$grade,$mimage,$murl)";
 
 	$result = $db->exec($query);
 	if(isset($result))
