@@ -1,6 +1,7 @@
 #top{ height: 90px; }
 #cover{ width: 100%; height: 230px; margin-bottom: 20px; background-color: gray; position:relative; }
 #menu{ position: absolute; bottom:0px; left: 50%;}
+div#my_situ_message{ position: absolute; right: 350px; text-align: center; }
 
 div#my_article{display: none; margin: 0 auto;}
 #my_article:checked~div#my_article{ display: block;}
@@ -25,7 +26,11 @@ div#interest_movie_title{ height: 40px; text-overflow: ellipsis; overflow: hidde
 white-space: nowrap;}
 
 div#friends{display: none; margin: 0 auto;}
-#friends:checked~div#friends{ display: block;}
+#friends:checked~div#friends{ display: block; overflow: hidden;}
+div.friend{ overflow: hidden; float:left; width: 600px;}
+
+div.friend_profile{float: left; width: 300px;}
+#fri_proimg{ width:200px; height:200px; margin:20px; border: solid 10px orange; border-radius: 20px;  }
 
 .content{ width: 1300px; border:1px solid black;}
 

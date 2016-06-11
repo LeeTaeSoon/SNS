@@ -43,6 +43,10 @@
 
 
 	<div id="cover">
+
+		<div id = "my_situ_message">
+		<h1> Welcome to my page </h1>
+		</div>
 			<!-- <? ?> -->
 		<div id="profile_picture">
 			<!-- <? ?> -->
@@ -124,7 +128,7 @@
 			<div class="friend">
 <?
 				$fid = $db->quote($friend["fid"]);
-				$friends = $db->query("SELECT name FROM user WHERE id=$fid");
+				$friends = $db->query("SELECT * FROM user WHERE id=$fid");
 
 				if(isset($friends))
 					$friend = $friends->fetch();
@@ -133,9 +137,18 @@
 					echo "Can't find freind name";
 					exit(1);
 				}
-
-				echo $friend["name"];
 ?>
+				<div class="friend_profile">
+					<img id="fri_proimg" src="<?=$friend['proimg']?>">	
+				</div>
+				<div>
+					<br>
+					<br>
+					<h2><a href="user_page.php?id=<?=$friend['id']?>"><?=$friend['name']?></a></h2>
+					<br>
+					<br>
+					<h3> 함께 아는 친구 :    명 </h3>
+				</div>
 			</div>
 <?
 		}
