@@ -70,10 +70,11 @@
 ?>
 						<div class="timeline-article">
 							<a href="show.php?num=<?= $article_num ?>">
-								<div class="article" style="background-image: url(<?= $url ?>)">
+								<div class="article">
+									<div class="bg" style="background-image: url(<?= $url ?>)"></div>
 <?
-									$article_content = stripslashes(nl2br($article['content']));
-									echo $article_content;
+										$article_content = stripslashes(nl2br($article['content']));
+										echo $article_content;
 ?>
 								</div>
 							</a>
