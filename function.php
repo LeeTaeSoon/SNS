@@ -114,12 +114,20 @@ try
 					{
 						$movie_name = $alarm["movie"];
 						$movie_name = preg_replace("/[ #\&\+\-%@=\/\\\:;,\.'\"\^`~\_|\!\?\*$#<>()\[\]\{\}]/i", "", $movie_name);
+
+						$sen = $db->quote($alarm["sender"]);
+						$rei = $db->quote($alarm["receiver"]);
+						$friends = $db->query("SELECT similarity FROM friend WHERE id=$rei and fid=$sen");
+						if($friends->rowCount())
+							$friend = $friends->fetch();
+						else
+							echo "Cannot find friends in alarm function";
 ?>
 						<div class="alarm-item">
 							<a href="user_page.php?id=<?= $alarm['sender'] ?>"><?= $alarm["sender"] ?></a> 님 께서
 							<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?></a> 를 추천하셨습니다. <br>
 							<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="percent"> <?= similarity($alarm["receiver"], $alarm["sender"]) ?> </span> %
+								<span class="percent"> <?= $friend["similarity"] ?> </span> %
 							</p>
 							<!-- <a href="<?= $alarm['link'] ?>"><?= stripslashes($alarm["movie"]) ?> 를 추천하셨습니다. -->
 						</div>
@@ -139,12 +147,20 @@ try
 					{
 						$movie_name = $alarm["movie"];
 						$movie_name = preg_replace("/[ #\&\+\-%@=\/\\\:;,\.'\"\^`~\_|\!\?\*$#<>()\[\]\{\}]/i", "", $movie_name);
+
+						$sen = $db->quote($alarm["sender"]);
+						$rei = $db->quote($alarm["receiver"]);
+						$friends = $db->query("SELECT similarity FROM friend WHERE id=$rei and fid=$sen");
+						if($friends->rowCount())
+							$friend = $friends->fetch();
+						else
+							echo "Cannot find friends in alarm function";
 ?>
 						<div class="alarm-item-full">
 							<a href="user_page.php?id=<?= $alarm['sender'] ?>"><?= $alarm["sender"] ?></a> 님 께서
 							<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?></a> 를 추천하셨습니다. <br>
 							<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="percent"> <?= similarity($alarm["receiver"], $alarm["sender"]) ?> </span> %
+								<span class="percent"> <?= $friend["similarity"] ?> </span> %
 							</p>
 							<!-- <a href="<?= $alarm['link'] ?>"><?= stripslashes($alarm["movie"]) ?> 를 추천하셨습니다. -->
 						</div>

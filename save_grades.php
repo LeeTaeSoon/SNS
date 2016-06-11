@@ -14,20 +14,45 @@
 	$mimage = $_GET["mimage"];
 	$murl = $_GET["murl"];
 
-	$t_id = $db->quote($id);
-	$movie = $db->quote($movie);
-    $grade = $db->quote($grade);
-	$mimage = $db->quote($mimage);
-	$murl = $db->quote($murl);
-
-	$query="insert into see_movie(id,movie,grade,image,link)";
-	$query.=" values($t_id,$movie,$grade,$mimage,$murl)";
-
-	$result = $db->exec($query);
-	if(isset($result))
+	try
 	{
-		$_SESSION['flash']="성공적으로 저장";
+
+		$t_id = $db->quote($id);
+		$movie = $db->quote($movie);
+	    $grade = $db->quote($grade);
+		$mimage = $db->quote($mimage);
+		$murl = $db->quote($murl);
+
+		$query="insert into see_movie(id,movie,grade,image,link)";
+		$query.=" values($t_id,$movie,$grade,$mimage,$murl)";
+
+		$result = $db->exec($query);
+
+
+		$friends = $db->query("SELECT fid FROM friend WHERE id=$t_id");
+
+		foreach ($friends as $friend) {
+			$similarity = similarity($id, $friend["fid"]);
+
+			$fri = $db->quote($friend["fid"]);
+			$db->exec("UPDATE friend SET similarity=$similarity WHERE (id=$t_id and fid=$fri) or (id=$fri and fid=$t_id)");
+		}
+
+
+		if(isset($result))
+		{
+			$_SESSION['flash']="성공적으로 저장";
+		}
+		header("Location:movie_list.php");
 	}
-	header("Location:movie_list.php");
+
+	catch (PODException $ex)
+	{
+?>
+		<p> Sorry, a database error occurred. Please try again later. </p>
+		<p> (Error details : <?= $ex->getMessage() ?>) </p>
+<?
+	}
+?>
 
 ?>
