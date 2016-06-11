@@ -107,12 +107,78 @@
 		$querys = "SELECT * from wish_movie where id=$userid";
 		$articles = $db->query($querys);
 
-		foreach($articles as $article){
+		foreach($articles as $article)
+		{
 		?>  <div class="interest_movie_list">
 			 	<br> 
 			 	<div id="interest_movie_title"><h2><?= stripslashes($article['movie'])?></h2></div>
 			 	<a href="<?=$article['link']?>"><img class="molist" src="<?=$article['image']?>"></a>
-				<h2> SeeSaw 유저 평점 : </h2>
+				<?	
+					$movie = $db->quote($article['movie']);
+					$avr_grade = 0;
+					$query="SELECT grade from see_movie where movie=$movie";
+					$rows = $db->query($query);
+					$count = $rows-> rowCount();
+
+					foreach($rows as $row)
+					{
+						$total_grade = $row['grade']+$avr_grade;  
+					}
+					if($count!=0)
+					{
+					$avr_grade = $total_grade / $count;
+					}
+					else
+					{
+					$avr_grade = 0;
+					$avr_grade = "평점 없음";
+					}
+				?>
+				<br>
+				<h2> SeeSaw 유저 평점 : <?=$avr_grade?></h2>
+				<div>
+				 <?
+				 	if($avr_grade == 0 )
+				 	{
+				 ?>
+				 	<img class="gstar" src="image/star.png">
+				 <?	
+				 	}
+					if($avr_grade == 1 )
+					{
+				?>
+					<img class="gstar" src="image/gradestar.jpg">
+				<?
+					}
+					if($avr_grade == 2 )
+					{
+				?>	<img class="gstar"src="image/gradestar.jpg"><img class="gstar"src=		"image/gradestar.jpg">
+				<?
+					}
+					if($avr_grade == 3 )
+					{
+				?>
+					<img class="gstar"src="image/gradestar.jpg"><img class="gstar"src="image/gradestar.jpg"><img class="gstar" src="image/gradestar.jpg">
+				<?
+					}
+				?>
+				<?
+					if($avr_grade == 4 )
+					{
+				?>
+					<img class="gstar"src="image/gradestar.jpg"><img class="gstar"src="image/gradestar.jpg"><img class="gstar"src="image/gradestar.jpg"><img class="gstar"src="image/gradestar.jpg">
+				<?
+					}
+				?>
+				<?
+					if($avr_grade == 5 )
+					{
+				?>
+					<img class="gstar"src="image/gradestar.jpg"><img class="gstar"src="image/gradestar.jpg"><img class="gstar"src="image/gradestar.jpg"><img class="gstar"src="image/gradestar.jpg"><img class="gstar"src="image/gradestar.jpg">
+				<?
+					}
+				?>
+				</div>
 			</div>
 		<?
 		}

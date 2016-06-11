@@ -14,11 +14,12 @@ div#saw_movie{display: none; margin: 0 auto;}
 div#interest_movie{display: none; margin: 0 auto;}
 #interest_movie:checked~div#interest_movie{ display: block; overflow: hidden;}
 
+div#star_grade{display: none}
+
 div.saw_movie_list{ float: left; margin:40px; text-align: center; width: 340px;}
 img.molist{ width:200px; height:350px; }
 div#saw_movie_title{ height: 40px; text-overflow: ellipsis; overflow: hidden; display: block;
 white-space: nowrap;}
-
 
 
 div.interest_movie_list{ float: left; margin:40px; text-align: center; width: 340px;}
@@ -43,3 +44,6 @@ input{display:none;}
 
 #profile{ width: 180px; height: 180px; position: absolute; left: 25%; top: 30px; border-radius: 90px;}
 
+
+div#star_grade{overflow: hidden;}
+img.gstar{width: 68px; float: left; display: block;}
