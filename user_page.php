@@ -66,6 +66,7 @@
 	<input type="radio" id="interest_movie" name="tab" value="interest_movie">
 	<input type="radio" id="friends" name="tab" value="friends">
 
+
 	<div id = "my_article" class="content">
 <?
 		$article_table = "article";
@@ -93,25 +94,24 @@
 	</div>
 	
 	<div id= "interest_movie" class="content">
-		3
-	<?
-		$db = db_connect();
+		<div style="text-align: center;">
+			<br>
+			<p> What you Want </p>
+		</div>
+		<?
 		$querys = "SELECT * from wish_movie where id=$userid";
-		$rows = $db->query($querys);
+		$articles = $db->query($querys);
 
-		foreach($rows as $row)
-		{
-		?>  <div class="saw_movie_list">
-				<br> 
-			 	<h2><?= stripslashes($row['movie'])?></h2>
-			 	<a href="<?=$row['link']?>"><img class="molist" src="<?=$row['image']?>"></a>
-			 	<h2> SeeSaw 유저 평점 : </h2>
+		foreach($articles as$article){
+		?>  <div class="interest_movie_list">
+			 	<br> 
+			 	<div id="interest_movie_title"><h2><?= stripslashes($article['movie'])?></h2><div>
+			 	<a href="<?=$article['link']?>"><img class="molist" src="<?=$artice['image']?>"></a>
+				<h2> SeeSaw 유저 평점 : </h2>
 			</div>
 		<?
 		}
 		?>
-
-
 	</div>
 
 	<div id= "friends" class="content">

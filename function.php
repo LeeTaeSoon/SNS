@@ -37,7 +37,6 @@ try
 	{
 		global $db;
 
-		$db = db_connect();
 		$querys = "SELECT * from see_movie where id=$userid";
 		$rows = $db->query($querys);
 		
@@ -45,13 +44,14 @@ try
 		{
 		?>  <div class="saw_movie_list">
 				<br> 
-			 	<h2><?= stripslashes($row['movie'])?></h2>
+			 	<div id="saw_movie_title"><h2><?= stripslashes($row['movie'])?></h2></div>
 			 	<a href="<?=$row['link']?>"><img class="molist" src="<?=$row['image']?>"></a>
 			 	<h2> 나의 평점 : <?=$row['grade']?></h2>
 			</div>
 		<?
 		}
 	}
+	
 
 	function show_menubar($page = NULL)
 	{
