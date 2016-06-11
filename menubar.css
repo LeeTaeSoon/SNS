@@ -3,14 +3,13 @@ div.menu-bar {
     height: 90px;
     position: fixed;
     background-color: rgba(255, 255, 255, 0.7);
-    z-index: 2;
+    z-index: 100;
 }
 
 div.logo {
     position: absolute;
     top: 5px;
     left: 10px;
-    opacity: 0.7;
 }
 
 div.logo img {
@@ -103,6 +102,8 @@ div.alarm {
     right: 430px;
     padding: 0 10px;
     background-color: white;
+    border-radius: 10px;
+    border: 1px solid #8cc1ff;
     z-index: 10;
 }
 
@@ -149,7 +150,6 @@ div.user-menu {
     right: 180px;
     height: 90px;
     line-height: 90px;
-    opacity: 0.7;
 }
 
 div.user-name {
@@ -170,7 +170,6 @@ div.all-menu-button {
     position: absolute;
     right: 20px;
     top: 10px;
-    opacity: 0.7;
 }
 
 img.menu-icon {
