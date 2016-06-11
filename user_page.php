@@ -102,11 +102,11 @@
 		$querys = "SELECT * from wish_movie where id=$userid";
 		$articles = $db->query($querys);
 
-		foreach($articles as$article){
+		foreach($articles as $article){
 		?>  <div class="interest_movie_list">
 			 	<br> 
-			 	<div id="interest_movie_title"><h2><?= stripslashes($article['movie'])?></h2><div>
-			 	<a href="<?=$article['link']?>"><img class="molist" src="<?=$artice['image']?>"></a>
+			 	<div id="interest_movie_title"><h2><?= stripslashes($article['movie'])?></h2></div>
+			 	<a href="<?=$article['link']?>"><img class="molist" src="<?=$article['image']?>"></a>
 				<h2> SeeSaw 유저 평점 : </h2>
 			</div>
 		<?
