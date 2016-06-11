@@ -5,7 +5,7 @@ div#my_situ_message{ position: absolute; right: 350px; text-align: center; }
 
 div#my_article{display: none; margin: 0 auto;}
 #my_article:checked~div#my_article{ display: block;}
-.article{ height:300px; margin: 60px; background-image:opacity:0.5; } 
+.article{ height:250px; width: 800px; margin: 40px auto; background-image:opacity:0.5; padding: 50px; border-radius: 50px; } 
 #saw_movie p{ font-size: 35px;  }
 
 div#saw_movie{display: none; margin: 0 auto;}
@@ -29,10 +29,10 @@ div#friends{display: none; margin: 0 auto;}
 #friends:checked~div#friends{ display: block; overflow: hidden;}
 div.friend{ overflow: hidden; float:left; width: 600px;}
 
-div.friend_profile{float: left; width: 300px;}
-#fri_proimg{ width:200px; height:200px; margin:20px; border: solid 10px orange; border-radius: 20px;  }
+div.friend_profile{float: left; width: 310px;}
+#fri_proimg{ width:140px; height:140px; padding:10px; margin:20px; border: dotted 15px orange;  }
 
-.content{ width: 1300px; border:1px solid black;}
+.content{ width: 1300px; border: 7px solid black; padding: 25px; }
 
 input{display:none;}
 

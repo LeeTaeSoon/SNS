@@ -81,6 +81,7 @@
 ?>
 			<a href="show.php?num=<?= $article_num ?>">
 				<div class="article" style="background-image: url(<?= $article["bgimg"] ?>)">
+					<h1> Your article </h1>
 					<? show_article($article); ?>
 				</div>
 			</a>
