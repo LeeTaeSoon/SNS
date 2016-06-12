@@ -71,7 +71,17 @@ try
 					<img src="image/logo.png">
 				</div>
 			</a>
-
+<?
+			if($page == "timeline")
+			{
+?>
+				<div class="sort">
+					<a href="timeline.php?sort=date" class="sort-type">최신 순</a>
+					<a href="timeline.php?sort=prefer" class="sort-type">비슷한 성향 친구 순</a>
+				</div>
+<?
+			}
+?>
 			<input type="checkbox" id="check">
 
 			<div class="simple-menu">

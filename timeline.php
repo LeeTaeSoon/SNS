@@ -25,21 +25,31 @@
 
 <body>
 <?
-	show_menubar();
+	show_menubar("timeline");
+
+	if(isset($_GET["sort"]))
+		$sort_type = $_GET["sort"];
+	else
+		$sort_type = "date";
 ?>
 	<div id="page-wrapper">
 <?	
 		try
 		{
-
-
 			$table = "article";
 			$frined_table = "friend";
 
 			$t_id = $db->quote($id);
 
-			$articles = $db->query("SELECT * FROM $table WHERE id=$t_id or access='all' or (access='friend' and 
+			if ($sort_type == "date") {
+				$articles = $db->query("SELECT * FROM $table WHERE id=$t_id or access='all' or (access='friend' and 
 									id in (select fid from friend where id=$t_id)) ORDER BY time desc");
+			}
+
+			else if ($sort_type == "prefer") {
+				$articles = $db->query("SELECT * FROM $table INNER JOIN friend ON $table.id=friend.id WHERE $table.id=$t_id or access='all' or (access='friend' and 
+									$table.id in (select fid from friend where id=$t_id)) GROUP BY $table.num ORDER BY friend.similarity desc, $table.time desc");
+			}
 
 			$articleCount = $articles->rowCount();
 

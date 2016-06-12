@@ -17,6 +17,19 @@ div.logo img {
     height: 80px;
 }
 
+div.sort {
+    position: relative;
+    top: 50px;
+    left: 12%;
+}
+
+a.sort-type {
+    color: #9d9dff;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 5px;
+}
+
 div.simple-menu {
     position: absolute;
     overflow: hidden;
