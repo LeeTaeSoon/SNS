@@ -193,9 +193,21 @@ try
 							<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<span class="percent"> <?= $friend ?> </span> %
 							</p>
-							<!-- <a href="<?= $alarm['link'] ?>"><?= stripslashes($alarm["movie"]) ?> 를 추천하셨습니다. -->
 						</div>
 <?
+					}else{?>
+						<div class="alarm-item-full">
+							<a href="#"><?= $alarm["sender"] ?></a> 님 께서 친구 요청을 하셨습니다. 
+							<a href="f_add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$alarm["sender"]?>" onclick="return confirm('친구 추가하시겠습니까?');"> ⓥ </a>
+							<br>
+							<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<span class="percent"> <?= $friend ?> </span> %
+							</p>
+						</div>
+
+
+					<?
+					}
 					}
 ?>
 				</div>
