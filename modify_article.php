@@ -14,12 +14,10 @@
 		$num = $_POST["num"];
 		$content = $_POST["content"];
 		$bgimg = $_POST["bgimg"];
-		$time = date("Y-m-d h:i:s", time());
 		$access = $_POST["access"];
 
 		$t_content = $db->quote($content);
 		$t_bgimg = $db->quote($bgimg);
-		$t_time = $db->quote($time);
 		$t_access = $db->quote($access);
 
 		$table = "article";
@@ -46,7 +44,7 @@
 			}
 		}
 
-		$db->exec("UPDATE $table SET content=$t_content, bgimg=$t_bgimg, time=$t_time, access=$t_access WHERE num=$num");
+		$db->exec("UPDATE $table SET content=$t_content, bgimg=$t_bgimg, access=$t_access WHERE num=$num");
 
 		header("Location: timeline.php");
 	}
