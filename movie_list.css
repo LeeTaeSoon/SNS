@@ -141,12 +141,36 @@ div.cover {
 	display: inline-block;
 }
 .heart{width:57px; height:57px;}
-.heart:hover{ background-color: black;}
+.hoverheart {
+	widows: 57px; height: 57px;
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.heart:hover ~ a .hoverheart {
+	display: inline-block;
+}
+.hoverheart:hover {
+	display: inline-block;
+}
 .recom{width:57px; height:57px; line-height: 57px; text-align: center;}
 #recom{width:57px; height:57px;}
-#recom:hover{ background-color: black;}
 
+.hoverrecom {
+	display: none;
+	widows: 57px; height: 57px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#recom:hover ~ a .hoverrecom { 
+	display: inline-block;
+}
+.hoverrecom:hover {
+	display: inline-block;
+}
 h2{color:orange;}
 #want{float:right;}
-#want1{float:right;}
-div.recom{float:left; margin:5px;}
+#want1{float:right; position: relative;}
+div.recom{float:left; margin:5px; position: relative;}

@@ -71,17 +71,19 @@
 						<a href= "save_grades.php?movie=<?=$movie_name?>&grade=1&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class="ystar ystar4" src="image/yellowstar.png"></a>
 						<a href= "save_grades.php?movie=<?=$movie_name?>&grade=1&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class="ystar ystar5" src="image/yellowstar.png"></a>
 					</div>
-					
+
 					<br>
 					<div class="recom">
 					 	<h2>추천</h2> 
 					</div>
 					<div class="recom">
-						<a href="select_receiver.php?movie=<?= $movie_name ?>"><img id="recom"src="image/recommand1.jpg"></a>
+						<img id="recom"src="image/recommand.png">
+						<a href="select_receiver.php?movie=<?= $movie_name ?>"><img class="hoverrecom"src="image/hoverrecommand.png"></a>
 					</div>
 
 					<div id="want1">
-						<a href = "save_wish_movie.php?movie=<?=$movie_name?>&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class="heart" src="image/heart1.png" </a>
+						<img class="heart" src="image/heart1.png">
+						<a href = "save_wish_movie.php?movie=<?=$movie_name?>&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class="hoverheart" src="image/hoverheart.png"></a>
 					</div>
 
 					<div id="want">
