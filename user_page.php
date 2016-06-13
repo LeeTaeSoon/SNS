@@ -109,6 +109,7 @@
 
 		foreach($articles as $article)
 		{
+
 		?>  <div class="interest_movie_list">
 			 	<br> 
 			 	<div id="interest_movie_title"><h2><?= stripslashes($article['movie'])?></h2></div>
@@ -197,6 +198,9 @@
 				$fid = $db->quote($friend["fid"]);
 				$friends = $db->query("SELECT * FROM user WHERE id=$fid");
 
+				$sen = $db->quote($_SESSION["id"]);
+				$friend_n = similarity($sen,$fid);
+
 				if(isset($friends))
 					$friend = $friends->fetch();
 				else
@@ -214,7 +218,7 @@
 					<h2><a href="user_page.php?id=<?=$friend['id']?>"><?=$friend['name']?></a></h2>
 					<br>
 					<br>
-					<h3> 함께 아는 친구 :    명 </h3>
+					<h3> 함께 아는 친구 :  <?=$friend_n?>  명 </h3>
 				</div>
 			</div>
 <?
