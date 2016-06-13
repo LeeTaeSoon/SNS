@@ -139,27 +139,27 @@ try
 						if($alarm["movie"]!=NULL){
 
 ?>
-						<div class="alarm-item">
-							<a href="user_page.php?id=<?= $alarm["sender"] ?>"><?= $alarm["sender"] ?></a> 님 께서
-							<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?></a> 를 추천하셨습니다. <br>
-							<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="percent"> <?= $friend ?> </span> %
-							</p>
-						</div>
+							<div class="alarm-item">
+								<a href="user_page.php?id=<?= $alarm["sender"] ?>"><?= $alarm["sender"] ?></a> 님 께서
+								<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?></a> 를 추천하셨습니다. <br>
+								<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<span class="percent"> <?= $friend["similarity"] ?> </span> %
+								</p>
+							</div>
 <?
-					}else{?>
-						<div class="alarm-item">
-							<a href="user_page.php?id=<?= $alarm["sender"] ?>"><?= $alarm["sender"] ?></a> 님 께서 친구 요청을 하셨습니다. 
-							<a href="f_add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$alarm["sender"]?>" onclick="return confirm('친구 추가하시겠습니까?');"> ⓥ </a>
-							<br>
-							<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="percent"> <?= $friend ?> </span> %
-							</p>
-						</div>
+						}else{?>
+							<div class="alarm-item">
+								<a href="user_page.php?id=<?= $alarm["sender"] ?>"><?= $alarm["sender"] ?></a> 님 께서 친구 요청을 하셨습니다. 
+								<a href="f_add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$alarm["sender"]?>" onclick="return confirm('친구 추가하시겠습니까?');"> ⓥ </a>
+								<br>
+								<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<span class="percent"> <?= similarity($id, $fid) ?> </span> %
+								</p>
+							</div>
 
 
-					<?
-					}
+						<?
+						}
 					}
 ?>
 				</div>
@@ -186,31 +186,29 @@ try
 						else
 							echo "Cannot find friends in alarm function";*/
 
-								if($alarm["movie"]!=NULL){
+						if($alarm["movie"]!=NULL){
 
 ?>
-						<div class="alarm-item-full">
-							<a href="user_page.php?id=<?= $alarm["sender"] ?>"><?= $alarm["sender"] ?></a> 님 께서
-							<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?></a> 를 추천하셨습니다. <br>
-							<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="percent"> <?= $friend ?> </span> %
-							</p>
-						</div>
+							<div class="alarm-item-full">
+								<a href="user_page.php?id=<?= $alarm["sender"] ?>"><?= $alarm["sender"] ?></a> 님 께서
+								<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?></a> 를 추천하셨습니다. <br>
+								<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<span class="percent"> <?= $friend["similarity"] ?> </span> %
+								</p>
+							</div>
 
 <?
-					}else{?>
-						<div class="alarm-item-full">
-							<a href="user_page.php?id=<?= $alarm["sender"] ?>"><?= $alarm["sender"] ?></a> 님 께서 친구 요청을 하셨습니다. 
-							<a href="f_add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$alarm["sender"]?>" onclick="return confirm('친구 추가하시겠습니까?');"> ⓥ </a>
-							<br>
-							<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="percent"> <?= $friend ?> </span> %
-							</p>
-						</div>
-
-
+						}else{?>
+							<div class="alarm-item-full">
+								<a href="user_page.php?id=<?= $alarm["sender"] ?>"><?= $alarm["sender"] ?></a> 님 께서 친구 요청을 하셨습니다. 
+								<a href="f_add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$alarm["sender"]?>" onclick="return confirm('친구 추가하시겠습니까?');"> ⓥ </a>
+								<br>
+								<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<span class="percent"> <?= similarity($id, $fid) ?> </span> %
+								</p>
+							</div>
 					<?
-					}
+						}
 					}
 ?>
 				</div>

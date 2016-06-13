@@ -130,6 +130,8 @@ div.alarm-full {
     right: 430px;
     padding: 0 10px;
     background-color: white;
+    border-radius: 10px;
+    border: 1px solid #8cc1ff;
     z-index: 10;
 }
 
@@ -150,11 +152,15 @@ div.alarm-item a {
     color: blue;
 }
 
+div.alarm-item-full a {
+    color: blue;
+}
+
 p.center {
     text-align: center;
 }
 
-div.alarm-item span.percent {
+div.alarm-item-full span.percent {
     color: red;
 }
 
