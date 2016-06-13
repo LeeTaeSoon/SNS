@@ -37,10 +37,7 @@
 	<input type="radio" id="find" name="tab" value="saw_movie">
 	
 	<div id="friends_recommand">
-
 			<? include("friend_recommand.php"); ?>
-
-
 	</div>
 
 	<div id="friends_find">
@@ -49,7 +46,7 @@
 
 		<div id="nav">
 			<form method="POST" action="">
-				<input id="friend_search" type="text" name="user">
+				<input id="friend_search" type="text" name="user" >
 				<input id="search_button" type="submit" value="검색">
 			</form>
 		</div>
