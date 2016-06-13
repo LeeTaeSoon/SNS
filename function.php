@@ -128,13 +128,12 @@ try
 
 						$sen = $db->quote($alarm["sender"]);
 						$rei = $db->quote($alarm["receiver"]);
-						$friend = similarity($sen,$rei);
 
-						/*$friends = $db->query("SELECT similarity FROM friend WHERE id=$rei and fid=$sen");
+						$friends = $db->query("SELECT similarity FROM friend WHERE id=$rei and fid=$sen");
 						if($friends->rowCount())
 							$friend = $friends->fetch();
-						else
-							echo "Cannot find friends in alarm function";*/
+						//else
+						//	echo "Cannot find friends in alarm function";
 
 						if($alarm["movie"]!=NULL){
 
@@ -178,13 +177,12 @@ try
 
 						$sen = $db->quote($alarm["sender"]);
 						$rei = $db->quote($alarm["receiver"]);
-						$friend = similarity($sen,$rei);
 
-						/*$friends = $db->query("SELECT similarity FROM friend WHERE id=$rei and fid=$sen");
+						$friends = $db->query("SELECT similarity FROM friend WHERE id=$rei and fid=$sen");
 						if($friends->rowCount())
 							$friend = $friends->fetch();
-						else
-							echo "Cannot find friends in alarm function";*/
+						//else
+						//	echo "Cannot find friends in alarm function";
 
 						if($alarm["movie"]!=NULL){
 
