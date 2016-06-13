@@ -58,13 +58,20 @@
 						$movie_name = implode("", $temp);
 					?>
 
-					<table>
-						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=1&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class=star src="image/star.png"></a></td>
-						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=2&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class=star src="image/star.png"> </td>
-						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=3&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"> <img class=star src="image/star.png"></label></td>
-						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=4&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"> <img class=star src="image/star.png"></label></td>
-						<td> <a href= "save_grades.php?movie=<?=$movie_name?>&grade=5&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"> <img class=star src="image/star.png"></label></td>
-					</table>
+					<img class="star star1" src="image/star.png">
+					<img class="star star2" src="image/star.png">
+					<img class="star star3" src="image/star.png">
+					<img class="star star4" src="image/star.png">
+					<img class="star star5" src="image/star.png">
+
+					<div class="cover">
+						<a href= "save_grades.php?movie=<?=$movie_name?>&grade=1&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class="ystar ystar1" src="image/yellowstar.png"></a>
+						<a href= "save_grades.php?movie=<?=$movie_name?>&grade=1&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class="ystar ystar2" src="image/yellowstar.png"></a>
+						<a href= "save_grades.php?movie=<?=$movie_name?>&grade=1&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class="ystar ystar3" src="image/yellowstar.png"></a>
+						<a href= "save_grades.php?movie=<?=$movie_name?>&grade=1&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class="ystar ystar4" src="image/yellowstar.png"></a>
+						<a href= "save_grades.php?movie=<?=$movie_name?>&grade=1&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class="ystar ystar5" src="image/yellowstar.png"></a>
+					</div>
+					
 					<br>
 					<div class="recom">
 					 	<h2>추천</h2> 

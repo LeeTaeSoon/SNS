@@ -33,17 +33,116 @@ div.movie-name {
 }
 div.mgrade
 {
-	display:none; height:180px;
-	position: absolute; bottom:50px;				
+	display:none; height:170px; width: 300px;
+	position: relative; bottom: 174px;				
 }
-div.movie:hover div.mgrade{display:block;}
-div.movie:hover img.poster-img{opacity: 0.5;}
+div.movie:hover div.mgrade{display:block; background-color: rgba(255, 255, 255, 0.7);}
 .movie label:hover{background-color: yellow;}
 
-.star{width:57px; height:57px;}
-.star:hover{ background-color: yellow;}
+.star{width:55px; height:55px; margin: 15px 0 15px 0;}
+div.cover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+}
+.ystar {
+	width:55px; height:55px; margin: 15px 0 15px 0;
+	display: none;
+}
+.star1:hover ~ div.cover .ystar1 {
+	display: inline-block;
+}
+.ystar1:hover {
+	display: inline-block;
+}
+.star2:hover ~ div.cover .ystar1 {
+	display: inline-block;
+}
+.star2:hover ~ div.cover .ystar2 {
+	display: inline-block;
+}
+.ystar2:hover ~ div.cover .ystar1 {
+	display: inline-block;
+}
+.ystar2:hover {
+	display: inline-block;
+}
+.star3:hover ~ div.cover .ystar1 {
+	display: inline-block;
+}
+.star3:hover ~ div.cover .ystar2 {
+	display: inline-block;
+}
+.star3:hover ~ div.cover .ystar3 {
+	display: inline-block;
+}
+.ystar3:hover ~ div.cover .ystar1 {
+	display: inline-block;
+}
+.ystar3:hover ~ div.cover .ystar2 {
+	display: inline-block;
+}
+.ystar3:hover {
+	display: inline-block;
+}
+.star4:hover ~ div.cover .ystar1 {
+	display: inline-block;
+}
+.star4:hover ~ div.cover .ystar2 {
+	display: inline-block;
+}
+.star4:hover ~ div.cover .ystar3 {
+	display: inline-block;
+}
+.star4:hover ~ div.cover .ystar4 {
+	display: inline-block;
+}
+.ystar4:hover ~ div.cover .ystar1 {
+	display: inline-block;
+}
+.ystar4:hover ~ div.cover .ystar2 {
+	display: inline-block;
+}
+.ystar4:hover ~ div.cover .ystar3 {
+	display: inline-block;
+}
+.ystar4:hover {
+	display: inline-block;
+}
+.star5:hover ~ div.cover .ystar1 {
+	display: inline-block;
+}
+.star5:hover ~ div.cover .ystar2 {
+	display: inline-block;
+}
+.star5:hover ~ div.cover .ystar3 {
+	display: inline-block;
+}
+.star5:hover ~ div.cover .ystar4 {
+	display: inline-block;
+}
+.star5:hover ~ div.cover .ystar5 {
+	display: inline-block;
+}
+.ystar5:hover ~ div.cover .ystar1 {
+	display: inline-block;
+}
+.ystar5:hover ~ div.cover .ystar2 {
+	display: inline-block;
+}
+.ystar5:hover ~ div.cover .ystar3 {
+	display: inline-block;
+}
+.ystar5:hover ~ div.cover .ystar4 {
+	display: inline-block;
+}
+.ystar5:hover {
+	display: inline-block;
+}
 .heart{width:57px; height:57px;}
 .heart:hover{ background-color: black;}
+.recom{width:57px; height:57px; line-height: 57px; text-align: center;}
 #recom{width:57px; height:57px;}
 #recom:hover{ background-color: black;}
 
