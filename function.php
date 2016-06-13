@@ -128,11 +128,13 @@ try
 
 						$sen = $db->quote($alarm["sender"]);
 						$rei = $db->quote($alarm["receiver"]);
-						$friends = $db->query("SELECT similarity FROM friend WHERE id=$rei and fid=$sen");
+						$friend = similarity($sen,$rei);
+
+						/*$friends = $db->query("SELECT similarity FROM friend WHERE id=$rei and fid=$sen");
 						if($friends->rowCount())
 							$friend = $friends->fetch();
 						else
-							echo "Cannot find friends in alarm function";
+							echo "Cannot find friends in alarm function";*/
 
 						if($alarm["movie"]!=NULL){
 
@@ -141,7 +143,7 @@ try
 							<a href="user_page.php?id=<?= $alarm['sender'] ?>"><?= $alarm["sender"] ?></a> 님 께서
 							<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?></a> 를 추천하셨습니다. <br>
 							<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="percent"> <?= $friend["similarity"] ?> </span> %
+								<span class="percent"> <?= $friend ?> </span> %
 							</p>
 						</div>
 <?
@@ -151,7 +153,7 @@ try
 							<a href="f_add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$alarm["sender"]?>" onclick="return confirm('친구 추가하시겠습니까?');"> ⓥ </a>
 							<br>
 							<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="percent"> <?= $friend["similarity"] ?> </span> %
+								<span class="percent"> <?= $friend ?> </span> %
 							</p>
 						</div>
 
@@ -176,17 +178,20 @@ try
 
 						$sen = $db->quote($alarm["sender"]);
 						$rei = $db->quote($alarm["receiver"]);
-						$friends = $db->query("SELECT similarity FROM friend WHERE id=$rei and fid=$sen");
+						$friend = similarity($sen,$rei);
+
+						/*$friends = $db->query("SELECT similarity FROM friend WHERE id=$rei and fid=$sen");
 						if($friends->rowCount())
 							$friend = $friends->fetch();
 						else
-							echo "Cannot find friends in alarm function";
+							echo "Cannot find friends in alarm function";*/
+
 ?>
 						<div class="alarm-item-full">
 							<a href="user_page.php?id=<?= $alarm['sender'] ?>"><?= $alarm["sender"] ?></a> 님 께서
 							<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?></a> 를 추천하셨습니다. <br>
 							<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="percent"> <?= $friend["similarity"] ?> </span> %
+								<span class="percent"> <?= $friend ?> </span> %
 							</p>
 							<!-- <a href="<?= $alarm['link'] ?>"><?= stripslashes($alarm["movie"]) ?> 를 추천하셨습니다. -->
 						</div>
