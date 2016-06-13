@@ -185,6 +185,8 @@ try
 							$friend = $friends->fetch();
 						else
 							echo "Cannot find friends in alarm function";*/
+							
+								if($alarm["movie"]!=NULL){
 
 ?>
 						<div class="alarm-item-full">
@@ -194,6 +196,7 @@ try
 								<span class="percent"> <?= $friend ?> </span> %
 							</p>
 						</div>
+
 <?
 					}else{?>
 						<div class="alarm-item-full">
