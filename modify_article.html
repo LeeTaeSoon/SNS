@@ -32,9 +32,6 @@
 
 		if(is_uploaded_file($_FILES["uploadfile"]["tmp_name"]))
 		{
-			$imgurl = substr($imgurl, 2);		// 상대 경로를 사용해서 삭제함
-			unlink($imgurl);
-			
 			//echo "업로드한 파일 명 : " . $_FILES["uploadfile"]["name"];
 			// 파일을 저장할 디렉토리 및 파일명
 			$dest = $save_dir.$_FILES["uploadfile"]["name"];
@@ -48,6 +45,9 @@
 		//else
 			//echo "no uploadfile";
 	}
+
+	if(!$_FILES["uploadfile"]["name"] && $_POST["click_bgbutton"])
+		$imgurl = NULL;
 ?>
 
 <html>
@@ -99,12 +99,11 @@
 				<input type="hidden" name="num" value="<?= $num ?>">
 				<input type="submit" value="수정">
 			</form>
-
-			</form>
 			
 			<form enctype="multipart/form-data" action="" method="post">
 		 		<div id ="imgload">
 			 		<input name="uploadfile" type="file">
+			 		<input type="hidden" name="click_bgbutton" value="1">
 			 		<input type="submit" value="배경 설정"></input>
 			 	</div>
 		 	</form>

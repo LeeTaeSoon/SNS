@@ -24,6 +24,28 @@
 
 		$table = "article";
 
+		$articles = $db->query("SELECT bgimg FROM $table WHERE num=$num");
+		if($articles->rowCount())
+			$article = $articles->fetch();
+
+		if($article["bgimg"] != $bgimg)
+		{
+			$imgurl = $article["bgimg"];
+
+			if(!$imgurl)
+			{
+				$t_url = $db->quote($imgurl);
+
+				$anotherimgs = $db->query("SELECT num FROM $table WHERE bgimg=$t_url");
+				if($anotherimgs->rowCount() < 2 && file_exists($imgurl))
+				{
+					$imgurl = substr($imgurl, 2);		// 상대 경로를 사용해서 삭제함
+
+					unlink($imgurl);
+				}
+			}
+		}
+
 		$db->exec("UPDATE $table SET content=$t_content, bgimg=$t_bgimg, time=$t_time, access=$t_access WHERE num=$num");
 
 		header("Location: timeline.php");

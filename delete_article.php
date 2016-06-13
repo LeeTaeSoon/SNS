@@ -28,9 +28,14 @@
 
 		//$imgurl = '"'.getcwd().$path.'"';
 		
-		$imgurl = substr($img["bgimg"], 2);		// 상대 경로를 사용해서 삭제함
+		$t_url = $db->quote($img["bgimg"]);
+		$anotherimgs = $db->query("SELECT num FROM $article_table WHERE bgimg=$t_url");
+		if($anotherimgs->rowCount() < 2)
+		{
+			$imgurl = substr($img["bgimg"], 2);		// 상대 경로를 사용해서 삭제함
 
-		unlink($imgurl);
+			unlink($imgurl);
+		}
 
 		$db->exec("DELETE FROM $article_table WHERE num=$num");
 		$db->exec("DELETE FROM $comment_table WHERE num=$num");
