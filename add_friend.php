@@ -16,11 +16,6 @@
 
 <html>
 
-<head>
-	
-</head>
-
-
 <body>
  <? 
 	try
@@ -28,8 +23,8 @@
 		$id = $_GET["id"];
 		$fid = $_GET["fid"];
 
-		$table = "friend";
-		$query = "insert into $table (id,fid) values ('".$id."','".$fid."')";
+		$table = "alarm";
+		$query = "insert into $table (sender,receiver) values ('".$id."','".$fid."')";
 		$db->exec($query);
 
 		echo "new record create successful";
