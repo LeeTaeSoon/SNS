@@ -61,9 +61,10 @@ try
 
 		$t_id = $db->quote($id);
 
-		$recommand_table = "recommand_movie";
+		$table1 = "recommand_movie";
+		$table2 = "alarm";
 
-		$alarms = $db->query("SELECT * FROM $recommand_table WHERE receiver=$t_id ORDER BY time desc");
+		$alarms = $db->query("SELECT * from $table1 where receiver=$t_id union select * from $table2 where receiver=$t_id order by time desc");
 ?>
 		<div class="menu-bar">
 			<a href="timeline.php">
@@ -132,6 +133,9 @@ try
 							$friend = $friends->fetch();
 						else
 							echo "Cannot find friends in alarm function";
+
+						if($alarm["movie"]!=NULL){
+
 ?>
 						<div class="alarm-item">
 							<a href="user_page.php?id=<?= $alarm['sender'] ?>"><?= $alarm["sender"] ?></a> 님 께서
@@ -139,9 +143,21 @@ try
 							<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<span class="percent"> <?= $friend["similarity"] ?> </span> %
 							</p>
-							<!-- <a href="<?= $alarm['link'] ?>"><?= stripslashes($alarm["movie"]) ?> 를 추천하셨습니다. -->
 						</div>
 <?
+					}else{?>
+						<div class="alarm-item">
+							<a href="#"><?= $alarm["sender"] ?></a> 님 께서 친구 요청을 하셨습니다. 
+							<a href="f_add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$alarm["sender"]?>" onclick="return confirm('친구 추가하시겠습니까?');"> ⓥ </a>
+							<br>
+							<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<span class="percent"> <?= $friend["similarity"] ?> </span> %
+							</p>
+						</div>
+
+
+					<?
+					}
 					}
 ?>
 				</div>
