@@ -44,7 +44,7 @@
 						$fid = $db->quote($recommand["id"]);
 						$fimg = $db->quote($recommand["proimg"]);
 ?>
-						<a href="add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$recommand['id']?>">
+						<a href="add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$recommand['id']?>" onclick="return confirm('친구 추가하시겠습니까?');">
 							<div class="timeline-article" style="background-image: url(<?=$fimg?>);">
 							
 								<?= stripcslashes(nl2br($recommand["id"])) ?>
