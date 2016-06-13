@@ -160,6 +160,10 @@ p.center {
     text-align: center;
 }
 
+div.alarm-item span.percent {
+    color: red;
+}
+
 div.alarm-item-full span.percent {
     color: red;
 }
