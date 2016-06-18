@@ -30,6 +30,11 @@ a.sort-type {
     padding: 5px;
 }
 
+a.sort-type:hover {
+    color: white;
+    background-color: #ff4141;
+}
+
 div.simple-menu {
     position: absolute;
     overflow: hidden;
