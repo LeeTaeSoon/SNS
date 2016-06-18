@@ -21,7 +21,9 @@
 	<link rel="stylesheet" type="text/css" href="friends.css">
 
 	<style>
-		div#friends_find{display: block; margin: 0 auto;}
+		div#friends_find {
+			display: block;
+		}
 	</style>
 
 <body>
