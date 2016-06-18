@@ -20,6 +20,12 @@
 	<link rel="stylesheet" type="text/css" href="menubar.css">
 	<link rel="stylesheet" type="text/css" href="friends.css">
 
+	<style>
+		div#friends_find {
+			display: block;
+		}
+	</style>
+
 <body>
 
 	<div id="top">

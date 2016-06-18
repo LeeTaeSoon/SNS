@@ -31,11 +31,6 @@
 
 	<div id ="pagewrapper" >
 		<? include("film_div.php") ?>
-		
-		<div id= "go-left">
-			<a href ="#"><img src="left.png" width="80" height="80" ></a>
-		</div>
-
 <?
 	try
 	{
@@ -48,7 +43,8 @@
 			$article = $articles->fetch();
 ?>
 		<div id ="content">
-			<div id ="article" style="background-image: url(<?= $article["bgimg"] ?>)">
+			<div id ="article">
+				<div class="bg" style="background-image: url(<?= $article["bgimg"] ?>)"></div>
 				<? show_article($article); ?>
 			</div>
 
@@ -75,10 +71,11 @@
 					?>
 							<table> 
 								<tr>
+									<th> <img src="<?= $comment_writer['proimg'] ?>"> </th>
 									<th> <a href="user_page.php?id=<?= $comment_writer['id'] ?>"><?= $comment_writer["name"]; ?></a></th>
 								</tr>
 								<tr>
-									<td><?= $comment_content ?></td>
+									<td colspan="2"><?= $comment_content ?></td>
 								</tr>
 							</table>
 					<?	

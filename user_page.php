@@ -45,7 +45,6 @@
 	<div id="cover">
 
 		<div id = "my_situ_message">
-		<h1> Welcome to my page </h1>
 		</div>
 			<!-- <? ?> -->
 		<div id="profile_picture">
@@ -80,9 +79,12 @@
 			$article_num = $article["num"];
 ?>
 			<a href="show.php?num=<?= $article_num ?>">
-				<div class="article" style="background-image: url(<?= $article["bgimg"] ?>)">
-					<h1> Your article </h1>
-					<? show_article($article); ?>
+				<div class="article">
+					<div class="bg" style="background-image: url(<?= $article["bgimg"] ?>)"></div>
+					<? 
+						$article_content = stripslashes(nl2br($article['content']));
+						echo $article_content; 
+					?>
 				</div>
 			</a>
 <?

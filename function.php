@@ -283,13 +283,18 @@ try
 
 		$num = $article["num"];
 
-		$writers = $db->query("SELECT user.id, name FROM user INNER JOIN article ON user.id=article.id WHERE num=$num");
+		$writers = $db->query("SELECT user.id, name, proimg FROM user INNER JOIN article ON user.id=article.id WHERE num=$num");
 		if(isset($writers))
 			$writer = $writers->fetch();
 		else
 			echo "Can't find a writer";
 ?>
-		<a href="user_page.php?id=<?= $writer['id'] ?>"><?= $writer['name'] ?></a>
+		<a href="user_page.php?id=<?= $writer['id'] ?>">
+			<div class="writer">
+					<img src="<?= $writer['proimg'] ?>">
+					<div class="name"><?= $writer['name'] ?></div>
+			</div>
+		</a>
 <?
 		$article_content = stripslashes(nl2br($article['content']));
 		echo $article_content;
