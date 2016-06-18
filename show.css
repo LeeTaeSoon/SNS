@@ -91,6 +91,6 @@ input[type="submit"]:hover{ background-color: black; color:white; }
 .sub-menu input[value="목록"]{float: right; margin: 5px 35px 10px 5px;}
 .sub-menu input[value="삭제"]{float: right; margin: 5px 5px 10px;}
 .sub-menu input[value="수정"]{float: right; margin: 5px 5px 10px;}
-td{ border: 1px solid black; width: 300px; height: 50px; font-size: 20px; }
+td{ width: 300px; height: 50px; font-size: 20px; }
 th{ text-align: left; font-size: 20px;}
 table{ margin: 7px; }

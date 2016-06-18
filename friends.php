@@ -57,8 +57,8 @@
 				$abc = $_POST["user"];
 				if(isset($abc))
 				{
-					$search_name = $db->quote($_POST["user"]);
-					$query = "SELECT*from user where name=$search_name";
+					$search_name = $db->quote('%'.$_POST["user"].'%');
+					$query = "SELECT*from user where name like $search_name";
 					$rows = $db->query($query); 
 					$n = $rows->rowCount();
 					
