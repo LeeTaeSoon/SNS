@@ -91,6 +91,7 @@ div.poster {
 	height: 330px;
 
 	background-size: 300px 330px;
+	background-color: rgba(218, 217, 255, 0.5);
 	background-image: url("image/base_poster.png");
 }
 
@@ -101,6 +102,7 @@ img.poster-img {
 }
 
 div.movie-name {
+	  font-size: 1.5em;
 	width: 300px;
 	height: 50px;
 	text-align: center;
@@ -112,7 +114,7 @@ div.mgrade
 	display:none; height:170px; width: 300px;
 	position: relative; bottom: 174px;				
 }
-div.movie:hover div.mgrade{display:block; background-color: rgba(255, 255, 255, 0.7);}
+div.movie:hover div.mgrade{display:block; background-color: rgba(218, 217, 255, 0.8);}
 .movie label:hover{background-color: yellow;}
 
 .star{width:55px; height:55px; margin: 15px 0 15px 0;}
@@ -153,7 +155,7 @@ div.cover {
 .hoverrecom:hover {
 	display: inline-block;
 }
-h2{color:orange;}
+h2{color:black;}
 #want{float:right;}
 #want1{float:right; position: relative;}
 div.recom{float:left; margin:5px; position: relative;}
