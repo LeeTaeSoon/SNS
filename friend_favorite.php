@@ -41,11 +41,11 @@
 						$fid = $db->quote($recommand["id"]);
 						$fimg = $db->quote($recommand["proimg"]);
 ?>
-						<a href="add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$recommand['id']?>" onclick="return confirm('친구 추가하시겠습니까?');">
+						<a href="add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$recommand['fid']?>" onclick="return confirm('<?=$recommand['fid']?>를 친구로 추가하시겠습니까?');">
 							<div class="timeline-article" style="background-image: url(<?=$fimg?>);">
 								
 								<?= stripcslashes(nl2br($recommand["fid"])) ?>
-								<br>취향 : <? similarity($t_id, $recommand["fid"]); ?> %
+								<br>취향 : <?= similarity($id, $recommand["fid"]); ?> %
 
 
 							</div>
