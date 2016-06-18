@@ -144,8 +144,10 @@ try
 ?>
 				</div>
 
-				<a href="write.php" class="menu">
-					글쓰기
+				<a href="write.php">
+					<div class="icon">
+					<img src="image/write.png">
+					</div>
 				</a>
 
 				<a href="friends.php">

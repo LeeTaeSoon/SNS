@@ -27,7 +27,7 @@
 
 	<div class="simple-menu">
 		<a href="write.php" class="menu">
-			글쓰기
+			<img src="image/write.png">
 		</a>
 
 		<a href="friends.php">
