@@ -12,14 +12,10 @@
 			$db = db_connect();
 			$t_id = $db->quote($id);
 
-			$f_recommands = "select user.id, user.proimg from user,(";
-			$f_recommands .= "select fid as id, count(*) as cnt from (";
-			$f_recommands .= "select fid from friend where id in (";
-			$f_recommands .= "select fid from friend where id=$t_id)";
-			$f_recommands .= " )as t where t.fid not in (";
-			$f_recommands .= "select fid from friend where (id=$t_id or fid=$t_id))";
-			$f_recommands .= " group by fid";
-			$f_recommands .= " order by cnt desc) as r where user.id=r.id";
+			$f_recommands = "select * from friend where id in";
+			$f_recommands .= "(select friend.fid as id ";
+			$f_recommands .= "from friend";
+			$f_recommands .= "where id=$t_id) and fid<>$t_id";
 
 			$recommands = $db->query($f_recommands);
 
@@ -32,7 +28,6 @@
 				<div class="blank"></div>
 <?
 				include("film_div.php");
-
 ?>
 				<div class="timeline-board">
 <?

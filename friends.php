@@ -29,12 +29,13 @@
 		<div id="label_menu">
 			<label class="mymenu" for="recommand">알 수도 있는 사람</label>
 			<label class="mymenu" for="find">USER 검색</label>
-			<label class="mymenu" for="find">취향 비슷한 사람</label>
+			<label class="mymenu" for="favorite">취향 비슷한 사람</label>
 		</div>
 	</div>
 
 	<input type="radio" id="recommand" name="tab" value="my_article">
-	<input type="radio" id="find" name="tab" value="saw_movie">
+	<input type="radio" id="find" name="tab" value="saw_movie" checked="checked">
+	<input type="radio" id="favorite" name="tab" value="favor_person">
 	
 	<div id="friends_recommand">
 			<? include("friend_recommand.php"); ?>
@@ -76,6 +77,10 @@
 			    } ?>
 		</table>
 
+	</div>
+
+	<div id="friends_favorite">
+			<? include("friend_favorite.php"); ?>
 	</div>
 
 </body>

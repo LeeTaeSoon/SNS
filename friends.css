@@ -15,7 +15,6 @@
 	border: solid black 2px;
 	display: none;
 }
-#recommand:checked~div#friends_recommand{ display: block;}
 
 #friends_find
 {
@@ -23,7 +22,6 @@
 	margin: 0 auto;
 	position: relative;
 }
-#recommand:checked~div#friends_find{ display: none;}
 
 #label_menu
 {	
@@ -37,9 +35,14 @@ label:hover{ background-color: white; color:black; }
 
 input[type="radio"]{display: none};
 
+div#friends_recommand{display: none; margin: 0 auto;}
+#recommand:checked~div#friends_recommand{ display: block;}
 
 div#friends_find{display: none; margin: 0 auto;}
 #find:checked~div#friends_find{ display: block;}
+
+div#friends_favorite{display: none; margin: 0 auto;}
+#favorite:checked~div#friends_favorite{ display: block;}
 
 table{ margin: 0 auto; }
 td
