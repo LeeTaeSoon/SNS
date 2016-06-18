@@ -13,15 +13,13 @@
 	$genre = $_GET["genre"];
 	if(!$genre)
 		$genre = NULL;	
-	
-	if(isset($_GET["search_query"]))
-	{
-		$search_query = $_GET["search_query"];
-		$movies = search_movie($search_query, 100, 1, $genre, NULL, NULL, NULL, "date");
-	}
 
-	else
-		$movies = search_movie("a", 100, 1, $genre, NULL, NULL, NULL, "sim");
+
+	$search_query = $_GET["search_query"];
+	if(!isset($search_query))
+		$search_query = 'a';
+	
+	$movies = search_movie($search_query, 100, 1, $genre, NULL, NULL, NULL, "date");
 ?>
 
 <!DOCTYPE html>
