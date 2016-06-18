@@ -13,15 +13,13 @@
 	$genre = $_GET["genre"];
 	if(!$genre)
 		$genre = NULL;	
-	
-	if(isset($_GET["search_query"]))
-	{
-		$search_query = $_GET["search_query"];
-		$movies = search_movie($search_query, 100, 1, $genre, NULL, NULL, NULL, "date");
-	}
 
-	else
-		$movies = search_movie("a", 100, 1, $genre, NULL, NULL, NULL, "sim");
+
+	$search_query = $_GET["search_query"];
+	if(!isset($search_query))
+		$search_query = 'a';
+	
+	$movies = search_movie($search_query, 100, 1, $genre, NULL, NULL, NULL, "date");
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +31,9 @@
 	<link rel="stylesheet" type="text/css" href="init-style.css">
 	<link rel="stylesheet" type="text/css" href="menubar.css">
 	<link rel="stylesheet" type="text/css" href="movie_list.css">
+
+	<script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous">
+	</script>
 </head>
 
 <body>
@@ -91,19 +92,19 @@
 						$movie_name = implode("", $temp);
 					?>
 
-					<img class="star star1" src="image/star.png">
-					<img class="star star2" src="image/star.png">
-					<img class="star star3" src="image/star.png">
-					<img class="star star4" src="image/star.png">
-					<img class="star star5" src="image/star.png">
+					<a href= "save_grades.php?movie=<?=$movie_name?>&grade=1&mimage=<?=$movie->image?>"><img class="star star1" src="image/star.png"></a>
+					<a href= "save_grades.php?movie=<?=$movie_name?>&grade=2&mimage=<?=$movie->image?>"><img class="star star2" src="image/star.png"></a>
+					<a href= "save_grades.php?movie=<?=$movie_name?>&grade=3&mimage=<?=$movie->image?>"><img class="star star3" src="image/star.png"></a>
+					<a href= "save_grades.php?movie=<?=$movie_name?>&grade=4&mimage=<?=$movie->image?>"><img class="star star4" src="image/star.png"></a>
+					<a href= "save_grades.php?movie=<?=$movie_name?>&grade=5&mimage=<?=$movie->image?>"><img class="star star5" src="image/star.png"></a>
 
-					<div class="cover">
-						<a href= "save_grades.php?movie=<?=$movie_name?>&grade=1&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class="ystar ystar1" src="image/yellowstar.png"></a>
-						<a href= "save_grades.php?movie=<?=$movie_name?>&grade=1&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class="ystar ystar2" src="image/yellowstar.png"></a>
-						<a href= "save_grades.php?movie=<?=$movie_name?>&grade=1&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class="ystar ystar3" src="image/yellowstar.png"></a>
-						<a href= "save_grades.php?movie=<?=$movie_name?>&grade=1&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class="ystar ystar4" src="image/yellowstar.png"></a>
-						<a href= "save_grades.php?movie=<?=$movie_name?>&grade=1&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class="ystar ystar5" src="image/yellowstar.png"></a>
-					</div>
+					<script>
+						$('.star').hover(function() {
+							$(this).parent().prevAll().children().add(this).attr("src", "image/yellowstar.png");
+						}, function(){
+							$(this).parent().prevAll().children().add(this).attr("src", "image/star.png");
+						});
+					</script>
 
 					<br>
 					<div class="recom">
@@ -116,7 +117,7 @@
 
 					<div id="want1">
 						<img class="heart" src="image/heart1.png">
-						<a href = "save_wish_movie.php?movie=<?=$movie_name?>&mimage=<?=$movie->image?>&murl=<?=$movie->link?>"><img class="hoverheart" src="image/hoverheart.png"></a>
+						<a href = "save_wish_movie.php?movie=<?=$movie_name?>&mimage=<?=$movie->image?>"><img class="hoverheart" src="image/hoverheart.png"></a>
 					</div>
 
 					<div id="want">

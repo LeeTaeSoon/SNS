@@ -12,7 +12,6 @@
 	$movie = $_GET["movie"];
 	$grade = $_GET["grade"];
 	$mimage = $_GET["mimage"];
-	$murl = $_GET["murl"];
 
 	try
 	{
@@ -21,10 +20,9 @@
 		$movie = $db->quote($movie);
 	    $grade = $db->quote($grade);
 		$mimage = $db->quote($mimage);
-		$murl = $db->quote($murl);
 
-		$query="insert into see_movie(id,movie,grade,image,link)";
-		$query.=" values($t_id,$movie,$grade,$mimage,$murl)";
+		$query="insert into see_movie(id,movie,grade,image)";
+		$query.=" values($t_id,$movie,$grade,$mimage)";
 
 		$result = $db->exec($query);
 
