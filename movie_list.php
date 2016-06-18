@@ -76,8 +76,7 @@
 			</div>
 		</div>
 <?
-	foreach($movies->channel->item as $movie)
-	{
+	foreach($movies->channel->item as $movie){
 ?>
 		<div class="movie">
 			<div class="poster">

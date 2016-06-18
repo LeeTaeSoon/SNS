@@ -184,7 +184,8 @@ try
 ?>
 							<div class="alarm-item">
 								<a href="user_page.php?id=<?= $alarm["sender"] ?>"><?= $alarm["sender"] ?></a> 님 께서
-								<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?></a> 를 추천하셨습니다. <br>
+								<a href="movie_list.php?search_query=<?= $movie_name ?>"><?= stripslashes($alarm["movie"]) ?></a> 를 추천하셨습니다.
+								<a href="delete_recommand.php?id=<?=$_SESSION['id']?>&fid=<?=$alarm["sender"]?>&movie=<?=$alarm["movie"]?>" onclick="return confirm('목록에서 삭제하시겠습니까?');"> ⓥ </a><br>
 								<p class="center">취향 지수 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<span class="percent"> <?= $friend["similarity"] ?> </span> %
 								</p>
