@@ -96,7 +96,7 @@ div.simple-menu img {
     height: 50px;
 }
 
-input[type="checkbox"] {
+input[id="check"] {
     display: none;
 }
 
