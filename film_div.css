@@ -1,8 +1,17 @@
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+
+body {
+  font-family: 'Jeju Gothic', serif;
+  background: #f2f2f2;}
+
+
 div.film-black-part {
 	background-color: black;
 	width: 1880px;
 	height: 30px;
 }
+
 
 div.film-white-part {
 	background-color: white;

@@ -42,7 +42,7 @@
 	</div>
 
 	<div id="friends_find">
-	<br>
+	<br><br><br>
 		<h3 style="text-align:center"> 친구가 되고 싶은 USER 사용자를 검색 해보세요 </h3>
 
 		<div id="nav">

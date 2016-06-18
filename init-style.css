@@ -1,3 +1,12 @@
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+
+body {
+  font-family: 'Jeju Gothic', serif;
+}
+
+
 * { margin: 0; padding: 0; }
 
 a { text-decoration: none; color: black; }
+

@@ -2,10 +2,11 @@ div#page-wrapper {
     margin: 0 auto;
     width: 1880px;
     position: relative;
+    padding-top: 80px;
 }
 
 div.blank {
-	height: 90px;
+	height: 60px;
 	background-color: azure;
 }
 
