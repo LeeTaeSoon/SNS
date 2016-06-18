@@ -91,10 +91,7 @@
 					</form>
 				</div>	
 			</div>
-		</div>
-<? 
-		include("film_div.php");
-?>
+
 		<div class="sub-menu">
 			<form action="timeline.php" method="get">
 				<input type="submit" value="목록"></input>
@@ -114,7 +111,10 @@
 		}
 ?>
 		</div>
+	</div>
 <?
+		include("film_div.php");
+
 	} 
 
 	catch (PODException $ex)

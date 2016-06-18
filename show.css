@@ -69,6 +69,7 @@ body{position: relative;}
 }
 
 #comment{ width: 390px; height:600px; border: solid black 2px; float: left; margin: 30px 10px 30px auto; }
+
 #top{ height: 90px; }
 #go-left{ width: 80px; height:80px; position: absolute; left: 15px; top: 400px;}
 #show_comment{ width:370px; height:500px; overflow: auto; border-bottom:1px solid black;  padding: 10px;}
@@ -76,6 +77,11 @@ body{position: relative;}
 input[type="text"]{width: 300px; height:50px; font-size: 20px;}
 input[type="submit"]{ width: 50px; height:50px; border-radius: 20px; }
 input[type="submit"]:hover{ background-color: black; color:white; }
-td{ height: 50px; font-size: 20px; }
-th{ text-align: left; font-size: 20px; }
+
+.sub_menu{overflow: hidden;}
+.sub-menu input[value="목록"]{float: right; margin: 5px 35px 10px 5px;}
+.sub-menu input[value="삭제"]{float: right; margin: 5px 5px 10px;}
+.sub-menu input[value="수정"]{float: right; margin: 5px 5px 10px;}
+td{ border: 1px solid black; width: 300px; height: 50px; font-size: 20px; }
+th{ text-align: left; font-size: 20px;}
 table{ margin: 7px; }

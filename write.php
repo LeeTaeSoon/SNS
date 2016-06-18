@@ -54,26 +54,65 @@
 	<? include("film_div.php") ?>
 	
 	<div id ="content">
-		<div id ="article" style="background-image: url(<?= $imgurl ?>)">
+		<div id ="article" >
 
 			<form action="save_article.php" method="post">
-				<textarea id="textarea" name="content"></textarea>
-				<select name="access">
-					<option value="all" selected>전체 공개</option>
-					<option value="friend">친구 공개</option>
-					<option value="secret">비공개</option>
-				</select>
-				<input type="hidden" name="bgimg" value="<?= $imgurl ?>">
-				<input type="submit" value="작성">
+				<div>
+				<textarea id="textarea" name="content"style="background-image: url(<?= $imgurl ?>)"></textarea>
+				</div>
+				<table id="menu1">
+					<tr>
+						<th colspan="2" bgcolor="#C0C0C0">
+							<h1>세부 설정</h1>
+						</th>
+					</tr>
+					<tr>
+						<td><br>
+							권한 설정 :
+						</td>
+						<td><br>
+								<select name="access">
+									<option value="all" selected>전체 공개</option>
+									<option value="friend">친구 공개</option>
+									<option value="secret">비공개</option>
+								</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="right">
+							<input type="hidden" name="bgimg" value="<?= $imgurl ?>"><br>
+							<input type="submit" value="작        성">
+						</td>
+					</tr>
+		<tr>
+			<td><br>스포 일러 :</td>
+			<td><br>
+				<input type="checkbox" name="spoiler" value="yes">있음</input>&nbsp&nbsp
+				<input type="checkbox" name="spoiler" value="no">없음</input>
+			</td>
+		</tr>
+	</table><br><br>
 			</form>
 
-			</form>
 			
 			<form enctype="multipart/form-data" action="" method="post">
+		 		<table id="menu2">
+		 			<tr>
+		 				<td>배경 설정 :</td>
+		 			</tr>
+		 			<tr>
+		 				<td colspan="2">
 		 		<div id ="imgload">
 			 		<input name="uploadfile" type="file">
+			 	</td>
+			 	</tr>
+			 		<tr>
+			 			<td colspan="2" align="right"><br>
 			 		<input type="submit" value="배경 설정"></input>
 			 	</div>
+			 </td>
+			</tr>
+		</table>
 		 	</form>
 
 		 </div>	
