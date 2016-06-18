@@ -142,7 +142,7 @@
 				 	if($avr_grade == 0 )
 				 	{
 				 ?>
-				 	<img class="gstar" src="image/star.png">
+				 	<img class="g0star" src="image/star.png">
 				 <?	
 				 	}
 					if($avr_grade == 1 )

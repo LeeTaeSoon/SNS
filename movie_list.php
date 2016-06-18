@@ -10,14 +10,18 @@
 
 	include("function.php");
 
+	$genre = $_GET["genre"];
+	if(!$genre)
+		$genre = NULL;	
+	
 	if(isset($_GET["search_query"]))
 	{
 		$search_query = $_GET["search_query"];
-		$movies = search_movie($search_query, 100, 1, NULL, NULL, NULL, NULL, "date");
+		$movies = search_movie($search_query, 100, 1, $genre, NULL, NULL, NULL, "date");
 	}
 
 	else
-		$movies = search_movie("a", 100, 1, NULL, NULL, NULL, NULL, "sim");
+		$movies = search_movie("a", 100, 1, $genre, NULL, NULL, NULL, "sim");
 ?>
 
 <!DOCTYPE html>
@@ -33,13 +37,43 @@
 
 <body>
 <?	
-	show_menubar("movie_list");
+	show_menubar("movie_list", $genre);
 ?>
 	<div id="page-wrapper">
 		
 		<div id="save_message">
 			<?=$_SESSION['flash']?>
 			<?unset($_SESSION['flash']);?>
+		</div>
+
+		<div class="select-genre">
+			<div class="genre">
+				<a href="movie_list.php?search_query=<?= $search_query ?>&genre=19">액션</a>
+			</div>
+
+			<div class="genre">
+				<a href="movie_list.php?search_query=<?= $search_query ?>&genre=18">SF</a>
+			</div>
+
+			<div class="genre">
+				<a href="movie_list.php?search_query=<?= $search_query ?>&genre=2">판타지</a>
+			</div>
+
+			<div class="genre">
+				<a href="movie_list.php?search_query=<?= $search_query ?>&genre=4">공포</a>
+			</div>
+
+			<div class="genre">
+				<a href="movie_list.php?search_query=<?= $search_query ?>&genre=11">코미디</a>
+			</div>
+
+			<div class="genre">
+				<a href="movie_list.php?search_query=<?= $search_query ?>&genre=5">로맨스</a>
+			</div>
+
+			<div class="genre">
+				<a href="movie_list.php?search_query=<?= $search_query ?>&genre=15">애니메이션</a>
+			</div>
 		</div>
 <?
 	foreach($movies->channel->item as $movie)

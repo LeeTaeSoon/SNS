@@ -4,3 +4,77 @@ div#page-wrapper {
     height: 978px;
     position: relative;
 }
+
+#sign-menubar{
+	margin: 0 30px;
+	width: 1860px;
+	height: 170px;
+	background-color: #FF5722;
+	overflow: hidden;
+	opacity: 0.8;
+}
+#sign-menubar > img{
+	float: left;
+	width: 150px;
+	height: 150px;
+	margin: 8px 10px;
+}
+#sign-menubar > h1{
+
+	margin: 0 auto;
+	float: left;
+	color: yellow;
+	font-size: 100px;
+	text-align: center;
+
+}
+div#sign-title{
+	margin: 170px 610px 10px 610px;
+	width: 750px;
+	height: 50px;
+	background-color : #FF5722;
+}
+
+
+
+div#sign-title>h1{
+	margin-left: 50px;
+	color: #F1CBC0;
+}
+
+div#id_flash{
+	margin-left: 10px;
+	color: #FF5722;
+	float: left;
+}
+
+
+div#passwd_flash{
+	margin-left: 10px;
+	color:#FF5722;
+	float: left;
+}
+
+
+table { 
+		margin: 10px 610px 0 610px;
+		width :750px;
+		height: 400px;
+		line-height: 30px;
+}
+table th{ font-size: 21px;}
+
+table input[type="text"]{font-size: 20px; width: 200px; height: 30px; margin-left: 5px ; float: left;} 
+table input[type="password"]{font-size: 20px; width: 200px; height: 30px;margin-left: 5px; float: left;}
+
+table input[type="checkbox"]{font-size: 20px; width: 20px; height: 20px; margin-left:5px; }
+
+.sign-page input[type="submit"]{
+	margin: 50px 0 0 860px;
+	width: 200px; height:60px;
+	font-size: 30px;
+}
+
+.sign-page > table .genre{
+	border: none;
+}
