@@ -158,7 +158,7 @@ try
 
 				<?if($alarms->rowCount()==0){?>
 				<div class="icon">
-					<label for="check"><img src="image/alarmnew.png"></label>
+					<label for="check"><img src="image/alarm.png"></label>
 				</div>
 				<?}else{?>
 				<div class="icon">
