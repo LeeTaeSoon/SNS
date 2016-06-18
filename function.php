@@ -47,6 +47,49 @@ try
 			 	<div id="saw_movie_title"><h2><?= stripslashes($row['movie'])?></h2></div>
 			 	<a href="<?=$row['link']?>"><img class="molist" src="<?=$row['image']?>"></a>
 			 	<h2> 나의 평점 : <?=$row['grade']?></h2>
+			 	<div>
+				 <?
+				 	if($row['grade'] == 0 )
+				 	{
+				 ?>
+				 	<img class="g0star" src="image/star.png">
+				 <?	
+				 	}
+					if($row['grade'] >= 1 && $row['grade'] < 2 )
+					{
+				?>
+					<img class="gstar" src="image/gradestar.jpg">
+				<?
+					}
+					if($row['grade'] >= 2 && $row['grade'] < 3 )
+					{
+				?>	<img class="gstar"src="image/gradestar.jpg"><img class="gstar"src=		"image/gradestar.jpg">
+				<?
+					}
+					if($row['grade'] >= 3 && $row['grade'] < 4 )
+					{
+				?>
+					<img class="gstar"src="image/gradestar.jpg"><img class="gstar"src="image/gradestar.jpg"><img class="gstar" src="image/gradestar.jpg">
+				<?
+					}
+				?>
+				<?
+					if($row['grade'] >= 4 && $row['grade'] < 5 )
+					{
+				?>
+					<img class="gstar"src="image/gradestar.jpg"><img class="gstar"src="image/gradestar.jpg"><img class="gstar"src="image/gradestar.jpg"><img class="gstar"src="image/gradestar.jpg">
+				<?
+					}
+				?>
+				<?
+					if($row['grade'] == 5 )
+					{
+				?>
+					<img class="gstar"src="image/gradestar.jpg"><img class="gstar"src="image/gradestar.jpg"><img class="gstar"src="image/gradestar.jpg"><img class="gstar"src="image/gradestar.jpg"><img class="gstar"src="image/gradestar.jpg">
+				<?
+					}
+				?>
+				</div>
 			</div>
 		<?
 		}
