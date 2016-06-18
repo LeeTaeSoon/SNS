@@ -74,7 +74,7 @@
 						$url = $db->quote($article["bgimg"]);
 						$article_num = $article["num"];
 
-						$writers = $db->query("SELECT user.id, name, spoiler FROM user INNER JOIN article ON user.id=article.id WHERE num=$article_num");
+						$writers = $db->query("SELECT user.id, name, proimg, spoiler FROM user INNER JOIN article ON user.id=article.id WHERE num=$article_num");
 						if(isset($writers))
 							$writer = $writers->fetch();
 						else
@@ -109,9 +109,12 @@
 <?
 							}
 ?>
-							<div class="article-writer">
-								<a href="user_page.php?id=<?= $writer['id'] ?>"><span class="white"><?= $writer['name'] ?></span></a>
-							</div>
+							<a href="user_page.php?id=<?= $writer['id'] ?>">
+								<div class="article-writer">
+									<img src="<?= $writer['proimg'] ?>">
+									<div class="name"><?= $writer['name'] ?></div>
+								</div>
+							</a>
 						</div>
 <?
 					}

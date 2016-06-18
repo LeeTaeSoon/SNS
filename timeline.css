@@ -29,10 +29,10 @@ div.timeline-article {
 }
 
 div.article {
-	padding: 45px 30px 15px 30px;
+	padding: 75px 30px 15px 30px;
 	background-color: black;
 	width: 365px;
-	height: 240px;
+	height: 210px;
 	font-size: 1.2em;
 	position: relative;
 	z-index: 1;
@@ -59,14 +59,25 @@ div.article .bg:hover {
 
 div.article-writer {
 	position: absolute;
+	overflow: hidden;
 	top: 10px;
 	left: 20px;
 	font-weight: bold;
+	color: white;
 	z-index: 3;
 }
 
-.white {
-	color: white;
+div.article-writer img {
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	margin-right: 20px;
+}
+
+div.article-writer .name {
+	height: 40px;
+	line-height: 40px;
+	float: right;
 }
 
 div.spoiler {
