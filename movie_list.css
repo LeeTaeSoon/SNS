@@ -43,6 +43,7 @@ div.poster {
 img.poster-img {
 	width: 300px;
 	height: 330px;
+	border-radius: 10px;
 }
 
 div.movie-name {
@@ -67,100 +68,7 @@ div.cover {
 	left: 0;
 	display: inline-block;
 }
-.ystar {
-	width:55px; height:55px; margin: 15px 0 15px 0;
-	display: none;
-}
-.star1:hover ~ div.cover .ystar1 {
-	display: inline-block;
-}
-.ystar1:hover {
-	display: inline-block;
-}
-.star2:hover ~ div.cover .ystar1 {
-	display: inline-block;
-}
-.star2:hover ~ div.cover .ystar2 {
-	display: inline-block;
-}
-.ystar2:hover ~ div.cover .ystar1 {
-	display: inline-block;
-}
-.ystar2:hover {
-	display: inline-block;
-}
-.star3:hover ~ div.cover .ystar1 {
-	display: inline-block;
-}
-.star3:hover ~ div.cover .ystar2 {
-	display: inline-block;
-}
-.star3:hover ~ div.cover .ystar3 {
-	display: inline-block;
-}
-.ystar3:hover ~ div.cover .ystar1 {
-	display: inline-block;
-}
-.ystar3:hover ~ div.cover .ystar2 {
-	display: inline-block;
-}
-.ystar3:hover {
-	display: inline-block;
-}
-.star4:hover ~ div.cover .ystar1 {
-	display: inline-block;
-}
-.star4:hover ~ div.cover .ystar2 {
-	display: inline-block;
-}
-.star4:hover ~ div.cover .ystar3 {
-	display: inline-block;
-}
-.star4:hover ~ div.cover .ystar4 {
-	display: inline-block;
-}
-.ystar4:hover ~ div.cover .ystar1 {
-	display: inline-block;
-}
-.ystar4:hover ~ div.cover .ystar2 {
-	display: inline-block;
-}
-.ystar4:hover ~ div.cover .ystar3 {
-	display: inline-block;
-}
-.ystar4:hover {
-	display: inline-block;
-}
-.star5:hover ~ div.cover .ystar1 {
-	display: inline-block;
-}
-.star5:hover ~ div.cover .ystar2 {
-	display: inline-block;
-}
-.star5:hover ~ div.cover .ystar3 {
-	display: inline-block;
-}
-.star5:hover ~ div.cover .ystar4 {
-	display: inline-block;
-}
-.star5:hover ~ div.cover .ystar5 {
-	display: inline-block;
-}
-.ystar5:hover ~ div.cover .ystar1 {
-	display: inline-block;
-}
-.ystar5:hover ~ div.cover .ystar2 {
-	display: inline-block;
-}
-.ystar5:hover ~ div.cover .ystar3 {
-	display: inline-block;
-}
-.ystar5:hover ~ div.cover .ystar4 {
-	display: inline-block;
-}
-.ystar5:hover {
-	display: inline-block;
-}
+
 .heart{width:57px; height:57px;}
 .hoverheart {
 	widows: 57px; height: 57px;

@@ -11,15 +11,13 @@
 
 	$movie = $_GET["movie"];
 	$mimage = $_GET["mimage"];
-	$murl = $_GET["murl"];
 
 	$t_id = $db->quote($id);
 	$movie = $db->quote($movie);
 	$mimage = $db->quote($mimage);
-	$murl = $db->quote($murl);
 
-	$query="insert into wish_movie(id,movie,image,link)";
-	$query.=" values($t_id,$movie,$mimage,$murl)";
+	$query="insert into wish_movie(id,movie,image)";
+	$query.=" values($t_id,$movie,$mimage)";
 
 	$result = $db->exec($query);
 	
