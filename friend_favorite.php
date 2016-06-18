@@ -1,7 +1,10 @@
 
-
 	<link rel="stylesheet" type="text/css" href="init-style.css">
 	<link rel="stylesheet" type="text/css" href="friend_recommand.css">
+
+	<?
+
+	?>
 
 <body>
 	<div id="page-wrapper">
@@ -9,15 +12,13 @@
 		try
 		{
 			echo "<br>";
-			$db = db_connect();
 			$t_id = $db->quote($id);
 
-			$f_recommands = "select * from friend where id in";
-			$f_recommands .= "(select friend.fid as id ";
-			$f_recommands .= "from friend";
-			$f_recommands .= "where id=$t_id) and fid<>$t_id";
+			$fa_recommands = "select DISTINCT friend.fid from friend where id in";
+			$fa_recommands .= "(select friend.fid as id from friend ";
+			$fa_recommands .= "where id=$t_id) and fid<>$t_id";
 
-			$recommands = $db->query($f_recommands);
+			$recommands = $db->query($fa_recommands);
 
 			$recommandCount = $recommands->rowCount();
 
@@ -42,8 +43,10 @@
 ?>
 						<a href="add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$recommand['id']?>" onclick="return confirm('친구 추가하시겠습니까?');">
 							<div class="timeline-article" style="background-image: url(<?=$fimg?>);">
-							
-								<?= stripcslashes(nl2br($recommand["id"])) ?>
+								
+								<?= stripcslashes(nl2br($recommand["fid"])) ?>
+								<br>취향 : <? similarity($t_id, $recommand["fid"]); ?> %
+
 
 							</div>
 						</a>
@@ -52,7 +55,7 @@
 ?>
 				</div>
 <?
-				include("film_div.php");
+				include("film_div.php"); 
 
 				/////////////////////////////////////////////////////////
 			}
