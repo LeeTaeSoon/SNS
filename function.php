@@ -266,11 +266,19 @@ try
 				</div>
 <?
 			}
+
+			$t_id = $db->quote($_SESSION['id']);
+			$me = $db->query("SELECT proimg FROM user WHERE id=$t_id");
+			if($me->rowCount())
+				$me = $me->fetch();
 ?>
 			<div class="user-menu">
-				<div class="user-name">
-					<a href="user_page.php?id=<?= $id ?>"><span class="name"> <?= $name ?></span> 님 </a>
-				</div>
+				<a href="user_page.php?id=<?= $id ?>">
+					<div class="user-name">
+						<img src="<?= $me['proimg'] ?>">
+						<span class="name"> <?= $name ?></span> 님
+					</div>
+				</a>
 
 				<div class="logout-button">
 					<a href="logout.php">로그아웃</a>	

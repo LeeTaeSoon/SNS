@@ -170,10 +170,19 @@ div.alarm-item-full span.percent {
 
 div.user-menu {
 	position: absolute;
+    overflow: hidden;
     top: 0;
     right: 180px;
     height: 90px;
     line-height: 90px;
+}
+
+div.user-menu img {
+    margin: 20px 20px 20px 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    float: left;
 }
 
 div.user-name {
