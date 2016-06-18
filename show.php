@@ -73,7 +73,15 @@
 								<tr>
 									<th> <img src="<?= $comment_writer['proimg'] ?>"> </th>
 									<th> <a href="user_page.php?id=<?= $comment_writer['id'] ?>"><?= $comment_writer["name"]; ?></a></th>
-									<th> <a href="delete_comment.php?num=<?= $num ?>&time=<?= $comment['date'] ?>">삭제</a></th>
+									<th>
+<?										if($comment_writer['id'] == $_SESSION['id'] )
+										{
+?>
+											<a href="delete_comment.php?num=<?= $num ?>&time=<?= $comment['date'] ?>">삭제</a>
+<?
+										}
+?>
+									</th>
 								</tr>
 								<tr>
 									<td colspan="3"><?= $comment_content ?></td>

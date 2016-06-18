@@ -34,8 +34,6 @@
 ?>
 	<div id="page-wrapper">
 <?	
-
-
 		try
 		{
 			$table = "article";
