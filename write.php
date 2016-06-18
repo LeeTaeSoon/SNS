@@ -60,11 +60,17 @@
 				<div>
 				<textarea id="textarea" name="content"style="background-image: url(<?= $imgurl ?>)"></textarea>
 				</div>
+				<br><br><h1 align="center">세부 설정</h1><br><br>
+				
 				<table id="menu1">
 					<tr>
-						<th colspan="2" bgcolor="#C0C0C0">
-							<h1>세부 설정</h1>
-						</th>
+						<td>
+							영화 제목 :
+						</td>
+						<td>
+							<? include("autocomplete.php"); ?>
+						</td>
+
 					</tr>
 					<tr>
 						<td><br>
@@ -79,18 +85,19 @@
 						</td>
 					</tr>
 					<tr>
+			<td><br>스포 일러 :</td>
+			<td><br>
+				<input type="radio" name="spoiler" value="yes">있음</input>&nbsp&nbsp
+				<input type="radio" name="spoiler" value="no">없음</input>
+			</td>
+		</tr>
+					<tr>
 						<td colspan="2" align="right">
 							<input type="hidden" name="bgimg" value="<?= $imgurl ?>"><br>
 							<input type="submit" value="작        성">
 						</td>
 					</tr>
-		<tr>
-			<td><br>스포 일러 :</td>
-			<td><br>
-				<input type="checkbox" name="spoiler" value="yes">있음</input>&nbsp&nbsp
-				<input type="checkbox" name="spoiler" value="no">없음</input>
-			</td>
-		</tr>
+		
 	</table><br><br>
 			</form>
 
