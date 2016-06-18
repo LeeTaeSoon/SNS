@@ -47,34 +47,15 @@
 			<?unset($_SESSION['flash']);?>
 		</div>
 
-		<div class="select-genre">
-			<div class="genre">
+		<div class="nav ph-line-nav">
 				<a href="movie_list.php?search_query=<?= $search_query ?>&genre=19">액션</a>
-			</div>
-
-			<div class="genre">
 				<a href="movie_list.php?search_query=<?= $search_query ?>&genre=18">SF</a>
-			</div>
-
-			<div class="genre">
 				<a href="movie_list.php?search_query=<?= $search_query ?>&genre=2">판타지</a>
-			</div>
-
-			<div class="genre">
 				<a href="movie_list.php?search_query=<?= $search_query ?>&genre=4">공포</a>
-			</div>
-
-			<div class="genre">
 				<a href="movie_list.php?search_query=<?= $search_query ?>&genre=11">코미디</a>
-			</div>
-
-			<div class="genre">
 				<a href="movie_list.php?search_query=<?= $search_query ?>&genre=5">로맨스</a>
-			</div>
-
-			<div class="genre">
 				<a href="movie_list.php?search_query=<?= $search_query ?>&genre=15">애니메이션</a>
-			</div>
+				<div class="effect"></div>
 		</div>
 <?
 	foreach($movies->channel->item as $movie){
