@@ -96,7 +96,7 @@ try
 	}
 	
 
-	function show_menubar($page = NULL)
+	function show_menubar($page = NULL, $genre = NULL)
 	{
 		global $id;
 		global $name;
@@ -136,6 +136,7 @@ try
 ?>
 						<form action="movie_list.php" method="get">
 							<input type="text" name="search_query" placeholder="영화를 검색하세요"></input>
+							<input type="hidden" name="genre" value=<?= $genre ?>>
 							<input type="submit" value="검색"></input>
 						</form>
 <?
