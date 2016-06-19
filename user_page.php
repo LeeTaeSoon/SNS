@@ -11,6 +11,31 @@
 	include("function.php");
 
 	$userid = $_GET["id"];
+
+	if(isset($_FILES))
+	{
+		$save_dir = "./image/profile_img/";
+
+		if(is_uploaded_file($_FILES["uploadfile"]["tmp_name"]))
+		{
+			//echo "업로드한 파일 명 : " . $_FILES["uploadfile"]["name"];
+			// 파일을 저장할 디렉토리 및 파일명
+			$dest = $save_dir.$_FILES["uploadfile"]["name"];
+			//파일을 지정한 디렉토리에 저장
+			if(move_uploaded_file($_FILES["uploadfile"]["tmp_name"], $dest))
+				$imgurl = $save_dir.$_FILES["uploadfile"]["name"];
+			//	echo "success";
+			//else
+			//	echo "fail2";
+			$t_id = $db->quote($userid);
+			$t_url = $db->quote($imgurl);
+
+			$db->exec("UPDATE user SET proimg=$t_url WHERE id=$t_id");
+		}
+		//else
+			//echo "no uploadfile";
+	}
+
 	try {
 		$table = "user";
 
@@ -33,7 +58,8 @@
 	<link rel="stylesheet" type="text/css" href="init-style.css">
 	<link rel="stylesheet" type="text/css" href="menubar.css">
 	<link rel="stylesheet" type="text/css" href="user_page.css">
-
+	<script src='//code.jquery.com/jquery.min.js'></script>
+	<script src='//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js'></script>
 </head>
 
 <body>
@@ -46,10 +72,21 @@
 
 		<div id = "my_situ_message">
 		</div>
-			<!-- <? ?> -->
+
 		<div id="profile_picture">
-			<!-- <? ?> -->
-			<img id="profile" src="<?= $page_user['proimg'] ?>"> <input type="file">
+
+			<input type="file" id="file" name="uploadfile">
+			<label for="file"><img id="profile" src="<?= $page_user['proimg'] ?>"></label>
+
+				<script>
+				$(function() {
+					$('#file').bind('change', function() {
+						$("<form action='' enctype='multipart/form-data' method='post'/>")
+							.append( $(this) )
+							.submit();
+					});
+				});
+			</script>
 		</div>
 
 		<div id="profile_name">
