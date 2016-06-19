@@ -16,10 +16,16 @@
 	$movie = $db->quote($movie);
 	$mimage = $db->quote($mimage);
 
-	$query="insert into wish_movie(id,movie,image)";
-	$query.=" values($t_id,$movie,$mimage)";
+	$wishs = $db->query("SELECT * FROM wish_movie WHERE id=$t_id and movie=$movie");
+	if($wishs->rowCount());
 
-	$result = $db->exec($query);
+	else
+	{
+		$query="insert into wish_movie(id,movie,image)";
+		$query.=" values($t_id,$movie,$mimage)";
+	
+		$result = $db->exec($query);
+	}
 	
 	if(isset($result))
 	{
