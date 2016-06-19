@@ -101,7 +101,7 @@
 			<td><br>스포 일러 :</td>
 			<td><br>
 				<input type="radio" name="spoiler" value="yes">있음</input>&nbsp&nbsp
-				<input type="radio" name="spoiler" value="no">없음</input>
+				<input type="radio" name="spoiler" value="no" checked="checked">없음</input>
 			</td>
 		</tr>
 					<tr>
