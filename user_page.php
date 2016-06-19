@@ -111,11 +111,13 @@
 
 		foreach($articles as $article)
 		{
+			$movie_name = $article["movie"];
+			$movie_name = preg_replace("/[ #\&\+\-%@=\/\\\:;,\.'\"\^`~\_|\!\?\*$#<>()\[\]\{\}]/i", "", $movie_name);
 
 		?>  <div class="interest_movie_list">
 			 	<br> 
 			 	<div id="interest_movie_title"><h2><?= stripslashes($article['movie'])?></h2></div>
-			 	<a href="<?=$article['link']?>"><img class="molist" src="<?=$article['image']?>"></a>
+			 	<a href="movie_list.php?search_query=<?= $movie_name ?>"><img class="molist" src="<?=$article['image']?>"></a>
 				<?	
 					$movie = $db->quote($article['movie']);
 					$avr_grade = 0;

@@ -42,10 +42,13 @@ try
 		
 		foreach($rows as $row)
 		{
+			$movie_name = $row["movie"];
+			$movie_name = preg_replace("/[ #\&\+\-%@=\/\\\:;,\.'\"\^`~\_|\!\?\*$#<>()\[\]\{\}]/i", "", $movie_name);
+
 		?>  <div class="saw_movie_list">
 				<br> 
 			 	<div id="saw_movie_title"><h2><?= stripslashes($row['movie'])?></h2></div>
-			 	<a href="<?=$row['link']?>"><img class="molist" src="<?=$row['image']?>"></a>
+			 	<a href="movie_list.php?search_query=<?= $movie_name ?>"><img class="molist" src="<?=$row['image']?>"></a>
 			 	<h2> 나의 평점 : <?=$row['grade']?></h2>
 			 	<div>
 				 <?
