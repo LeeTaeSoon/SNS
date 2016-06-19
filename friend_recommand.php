@@ -29,12 +29,8 @@
 			{
 				//////////////////////// 한 필름 ////////////////////////
 ?>
-				<div class="blank"></div>
-<?
-				include("film_div.php");
-
-?>
-				<div class="timeline-board">
+				
+				<table>
 <?
 					for($j = 0; $j < $recommandCount - $i*4; $j++)
 					{
@@ -44,22 +40,23 @@
 						$recommand = $recommands->fetch();
 						$fid = $db->quote($recommand["id"]);
 						$fimg = $db->quote($recommand["proimg"]);
-?>
-						<a href="add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$recommand['id']?>" onclick="return confirm('친구 추가하시겠습니까?');">
-							<div class="timeline-article" style="background-image: url(<?=$fimg?>);">
-							
-								<?= stripcslashes(nl2br($recommand["id"])) ?>
-
-							</div>
+?>					<tr>	
+						<td id="pimg" style="background-image: url(<?=$fimg?>);">
+						</td>
+						<td>
+						   이름<br> <br>
+						<?= stripcslashes(nl2br($recommand["id"]))?>
+						</td>
+						<td>
+						<a href="add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$recommand['id']?>" onclick="return confirm('친구 추가하시겠습니까?');"> 친구 추가 
 						</a>
+						</td>
+					</tr>
 <?
 					}
-?>
-				</div>
-<?
-				include("film_div.php");
-
-				/////////////////////////////////////////////////////////
+?>					
+				</table>
+<?				/////////////////////////////////////////////////////////
 			}
 		}
 

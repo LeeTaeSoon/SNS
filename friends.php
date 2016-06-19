@@ -20,7 +20,6 @@
 	<link rel="stylesheet" type="text/css" href="friends.css">
 
 <body>
-
 	<div id="top">
 	 	<? show_menubar(); ?>
 	</div>
@@ -70,9 +69,8 @@
 					<tr>
 						<td><img src=<?=$row["proimg"]?>></td>
 						<td>NAME<br><?=$row["name"]?></td>
-						<td>ID<br><?=$row["id"]?></td>
 						<td><a href="add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$row['id']?>"
-							onclick="return confirm('<?=$row['name']?>를 친구로 추가하시겠습니까?');"><input type="submit"></a>
+							onclick="return confirm('<?=$row['name']?>를 친구로 추가하시겠습니까?');"><input type="submit"value="친구 신청"></a>
 						</td>
 					</tr>
 				<?  }
