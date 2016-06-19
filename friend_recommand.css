@@ -11,18 +11,15 @@ div.timeline-board {
 	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
-div.timeline-article {
-	position: relative;
-	float: left;
-	margin: 0 20px;
-	padding: 30px;
-	background-color: white;
-	width: 200px;
-	height: 200px;
-	background-size: 200px 200px;
-	font-size: 1.2em;
+table
+{
+	font-size: 25px;
 }
-
+tr{ margin: 60px; }
+td{ margin: 60px; width: 150px; height:150px; }
+#pimg
+{ background-size:100%;">
+}
 div.article-writer {
 	position: absolute;
 	top: 0;
