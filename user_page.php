@@ -239,8 +239,11 @@
 				$fid = $db->quote($friend["fid"]);
 				$friends = $db->query("SELECT * FROM user WHERE id=$fid");
 
-				$sen = $db->quote($_SESSION["id"]);
-				$friend_n = similarity($sen,$fid);
+				$t_id = $db->quote($_SESSION["id"]);
+
+				$friend_together = $db->query("SELECT id FROM friend WHERE id=$t_id and fid in
+										(SELECT fid FROM friend WHERE id=$fid)");
+				$friend_n = $friend_together->rowCount();
 
 				if(isset($friends))
 					$friend = $friends->fetch();
