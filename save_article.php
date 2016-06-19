@@ -22,7 +22,7 @@ try {
 	//
 		
 		$m_grade = $db->quote($m_grade);
-		$id = $db->quote($id);
+		$t_id = $db->quote($id);
 
 		echo $searchbox;
 		$movie_image = search_movie($searchbox,100,1,NULL,NULL,NULL,NULL,NULL);
@@ -33,7 +33,7 @@ try {
 
 		$searchbox = $db->quote($searchbox);
 
-		$query = "SELECT * FROM see_movie WHERE id=$id and movie=$searchbox";
+		$query = "SELECT * FROM see_movie WHERE id=$t_id and movie=$searchbox";
 		$sees = $db->query($query);
 		if($sees->rowCount())
 		{
@@ -43,7 +43,7 @@ try {
 		else 
 		{
 			$query="insert into see_movie(id,movie,grade,image)";
-			$query.=" values($id,$searchbox,$m_grade,$mimage)";
+			$query.=" values($t_id,$searchbox,$m_grade,$mimage)";
 
 			//$result = $db->exec($query);
 		}
@@ -72,7 +72,7 @@ try {
 	$db->exec("INSERT INTO $table (num, id, content, bgimg, time, access/*, movie*/)
 			values ($num, $t_id, $t_content, $t_bgimg, $t_time, $t_access)/*, $t_movie*/");
 
-	//header("Location: timeline.php");
+	header("Location: timeline.php");
 }
 
 catch (PODException $ex)
