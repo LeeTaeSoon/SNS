@@ -1,3 +1,6 @@
+body{background-image: url("image/sg.png");
+	 background-size: 100%;
+	}
 div#page-wrapper {
     margin: 0 auto;
     width: 1920px;
@@ -9,7 +12,7 @@ div#page-wrapper {
 	margin: 0 30px;
 	width: 1860px;
 	height: 170px;
-	background-color: #FF5722;
+	background-color: rgba(218, 217, 255, 0.9);
 	overflow: hidden;
 	opacity: 0.8;
 }
@@ -20,10 +23,9 @@ div#page-wrapper {
 	margin: 8px 10px;
 }
 #sign-menubar > h1{
-
+	line-height: 170px;
 	margin: 0 auto;
 	float: left;
-	color: yellow;
 	font-size: 100px;
 	text-align: center;
 
@@ -32,14 +34,14 @@ div#sign-title{
 	margin: 170px 610px 10px 610px;
 	width: 750px;
 	height: 50px;
-	background-color : #FF5722;
+	background-color: rgba(218, 217, 255, 0.9);
 }
 
 
 
 div#sign-title>h1{
 	margin-left: 50px;
-	color: #F1CBC0;
+	line-height: 50px;
 }
 
 div#id_flash{
@@ -61,6 +63,7 @@ table {
 		width :750px;
 		height: 400px;
 		line-height: 30px;
+		background-color: white;
 }
 table th{ font-size: 21px;}
 
