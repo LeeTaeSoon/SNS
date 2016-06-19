@@ -16,10 +16,40 @@ try {
 	$time = date("Y-m-d h:i:s", time());
 	$access = $_POST["access"];
 	//$movie = $_POST["movie"];
-	
+	$searchbox = $_POST["searchbox"]; //영화 제목
+	$m_grade=$_POST["m_grade"]; //평점
+
+	//
+		
+		$m_grade = $db->quote($m_grade);
+		$id = $db->quote($id);
+
+		echo $searchbox;
+		$movie_image = search_movie($searchbox,100,1,NULL,NULL,NULL,NULL,NULL);
+		echo $movie_image;
+		//$short_url = $xml->channel->item->image; 
+		//$short_url = var_dump((string) $movie_image->channel->item->image); 
+		//echo "movie".$short_url;
+
+		$searchbox = $db->quote($searchbox);
+
+		$query = "SELECT * FROM see_movie WHERE id=$id and movie=$searchbox";
+		$sees = $db->query($query);
+		if($sees->rowCount())
+		{
+			//$db->exec("UPDATE see_movie SET grade=$m_grade WHERE id=$id and movie=$searchbox");
+		}
+
+		else 
+		{
+			$query="insert into see_movie(id,movie,grade,image)";
+			$query.=" values($id,$searchbox,$m_grade,$mimage)";
+
+			//$result = $db->exec($query);
+		}
+	//
 
 	$table = "article";
-
 	$articles = $db->query("SELECT num FROM $table");
 
 	if($articles->rowCount() < 1)
@@ -42,7 +72,7 @@ try {
 	$db->exec("INSERT INTO $table (num, id, content, bgimg, time, access/*, movie*/)
 			values ($num, $t_id, $t_content, $t_bgimg, $t_time, $t_access)/*, $t_movie*/");
 
-	header("Location: timeline.php");
+	//header("Location: timeline.php");
 }
 
 catch (PODException $ex)

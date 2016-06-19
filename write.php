@@ -59,8 +59,7 @@
 			<form action="save_article.php" method="post">
 				<div>
 				<textarea id="textarea" name="content"style="background-image: url(<?= $imgurl ?>)"></textarea>
-				</div>
-				<br><br><h1 align="center">세부 설정</h1><br><br>
+				</div><br>
 				
 				<table id="menu1">
 					<tr>
@@ -70,8 +69,22 @@
 						<td>
 							<? include("autocomplete.php"); ?>
 						</td>
-
 					</tr>
+					<tr>
+						<td><br>
+							영화 평점 :
+						</td>
+						<td><br>
+							<select name="m_grade">
+									<option value="1" selected>1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+							</select>
+						</td>
+					</tr>
+
 					<tr>
 						<td><br>
 							권한 설정 :
@@ -94,7 +107,7 @@
 					<tr>
 						<td colspan="2" align="right">
 							<input type="hidden" name="bgimg" value="<?= $imgurl ?>"><br>
-							<input type="submit" value="작        성">
+							<input id="submit1" type="submit" value="작        성" style="background-color: black">
 						</td>
 					</tr>
 		

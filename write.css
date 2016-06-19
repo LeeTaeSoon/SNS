@@ -4,6 +4,14 @@
 #top{ height: 90px; }
 textarea{ float:left; width: 1300px; height: 600px; font-size: 25px; margin-right: 10px;}
 input[type="file"]{width: 400px; font-size: 30px;}
+#submit1{border-radius: 40px;  box-shadow: 0 5px #999; color: white; }
+#submit1:hover{background-color: #3e8e41}
+#submit1:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 
 table[id="menu1"]{ width: 400px; }
 table[id="menu1"] td{font-size: 31px;}
