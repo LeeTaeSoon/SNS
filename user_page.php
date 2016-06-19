@@ -106,7 +106,7 @@
 	<input type="radio" id="interest_movie" name="tab" value="interest_movie">
 	<input type="radio" id="friends" name="tab" value="friends">
 
-
+	<br><br><br>
 	<div id = "my_article" class="content">
 <?
 		$article_table = "article";
@@ -132,7 +132,7 @@
 	<div id = "saw_movie" class="content">
 		<div style="text-align: center;">
 			<br>
-			<p> What you Saw </p>
+			<p><h1> <?= $page_user["name"] ?>님이 본 영화</h1></p>
 		</div>
 		<? show_saw_movie($userid); ?>
 	</div>
@@ -140,7 +140,7 @@
 	<div id= "interest_movie" class="content">
 		<div style="text-align: center;">
 			<br>
-			<p> What you Want </p>
+			<p><h1> <?= $page_user["name"] ?>님이 관심있는 영화</h1></p>
 		</div>
 		<?
 		$querys = "SELECT * from wish_movie where id=$userid";
@@ -178,7 +178,7 @@
 				?>
 				<br>
 				<h2> SeeSaw 유저 평점 : <?=$avr_grade?></h2>
-				<div>
+				<div class="star">
 				 <?
 				 	if($avr_grade == 0 )
 				 	{

@@ -50,7 +50,7 @@ try
 			 	<div id="saw_movie_title"><h2><?= stripslashes($row['movie'])?></h2></div>
 			 	<a href="movie_list.php?search_query=<?= $movie_name ?>"><img class="molist" src="<?=$row['image']?>"></a>
 			 	<h2> 나의 평점 : <?=$row['grade']?></h2>
-			 	<div>
+			 	<div class="star">
 				 <?
 				 	if($row['grade'] == 0 )
 				 	{
