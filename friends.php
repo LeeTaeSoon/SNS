@@ -71,7 +71,9 @@
 						<td><img src=<?=$row["proimg"]?>></td>
 						<td>NAME<br><?=$row["name"]?></td>
 						<td>ID<br><?=$row["id"]?></td>
-						<td><input type="submit"></td>
+						<td><a href="add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$row['id']?>"
+							onclick="return confirm('<?=$row['name']?>를 친구로 추가하시겠습니까?');"><input type="submit"></a>
+						</td>
 					</tr>
 				<?  }
 			    } ?>

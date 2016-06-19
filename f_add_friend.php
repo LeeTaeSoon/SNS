@@ -27,9 +27,16 @@
 		$query = "insert into $table (id,fid) values ('".$id."','".$fid."')";
 		$db->exec($query);
 
+		$t_id = $db->quote($_GET["id"]);
+		$t_fid = $db->quote($_GET["fid"]);
+		$db->exec("INSERT INTO $table (id, fid) values ($t_fid, $t_id)");
+
 		$table = "alarm";
 		$query = "delete from $table where receiver='".$id."' and sender='".$fid."' ";
 		$db->exec($query);
+
+		$similarity = similarity($id, $fid);
+		$db->exec("UPDATE friend SET similarity=$similarity WHERE (id=$t_id and fid=$t_fid) or (id=$t_fid and fid=$t_id)");
 
 
 		echo "new record create successful";
