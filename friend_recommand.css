@@ -16,7 +16,7 @@ table
 	font-size: 25px;
 }
 tr{ margin: 60px; }
-td{ margin: 60px; width: 150px; height:150px; }
+td{ background-color: white; margin: 60px; width: 150px; height:150px; }
 #pimg
 { background-size:100%;">
 }

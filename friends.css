@@ -2,8 +2,11 @@
 
 body {
   font-family: 'Jeju Gothic', serif;
-  background: #f2f2f2;}
-
+  background: #f2f2f2;
+  background-image: url("xxx.png");
+  background-size:100%;
+ }
+h3{color: orange;}
 #top{ height: 130px; }
 
 #friends_menu
@@ -12,7 +15,8 @@ body {
 	margin: 0 auto;
 	height: 100px;
 	position: relative;
-	border: solid black 2px;
+	border: solid white 6px;
+	border-radius: 200px;
 }
 #friends_recommand
 {
@@ -66,7 +70,8 @@ td
 	width: 1000px;
 	height: 50px;
 	margin:50px;
-	border:solid black 3px;
+	border:solid white 15px;
+	border-radius: 50px;
 	padding: 30px;
 	overflow: hidden;
 }
