@@ -1,0 +1,25 @@
+div#page-wrapper {
+    margin: 0 auto;
+    overflow: hidden
+}
+div.fff {
+	width: 300px;
+	height: 200px;
+	background-color: white;
+	float:left;
+	border: solid white 2px;
+}
+div.fff_img{
+	width: 200px;
+	height: 200px;
+}
+
+table
+{	
+	border-radius: 20px;
+	font-size: 20px;
+}
+tr{ margin: 60px; }
+td{ background-color: white; margin: 60px; width: 150px; height:150px; }
+
+

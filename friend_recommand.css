@@ -12,8 +12,9 @@ div.timeline-board {
 }
 
 table
-{
-	font-size: 25px;
+{	
+	border-radius: 20px;
+	font-size: 20px;
 }
 tr{ margin: 60px; }
 td{ background-color: white; margin: 60px; width: 150px; height:150px; }
@@ -27,17 +28,4 @@ div.article-writer {
 	font-weight: bold;
 }
 
-div.film-black-part {
-	background-color: black;
-	width: 1200px;
-	height: 30px;
-}
 
-div.film-white-part {
-	background-color: white;
-	width: 10px;
-	height: 10px;
-	margin: 7.5px 19px 7.5px 7.5px; 
-	border-radius: 5px;
-	display: inline-block;
-}

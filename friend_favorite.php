@@ -1,17 +1,7 @@
-
-	<link rel="stylesheet" type="text/css" href="init-style.css">
-	<link rel="stylesheet" type="text/css" href="friend_recommand.css">
-
-	<?
-
-	?>
-
-<body>
-	<div id="page-wrapper">
 <?	
 		try
 		{
-			echo "<br>";
+
 			$t_id = $db->quote($id);
 
 			$fa_recommands = "select DISTINCT friend.fid from friend where id in";
@@ -22,41 +12,26 @@
 
 			$recommandCount = $recommands->rowCount();
 
-			for($i = 0; $i < ceil($recommandCount / 4); $i++)
+			for($i = 0; $i < $recommandCount; $i++)
 			{
 				//////////////////////// 한 필름 ////////////////////////
 ?>
-				<div class="blank"></div>
+				<div class="fff">
 <?
-				include("film_div.php");
-?>
-				<div class="timeline-board">
-<?
-					for($j = 0; $j < $recommandCount - $i*4; $j++)
-					{
-						if($j > 3)
-							break;
-	
 						$recommand = $recommands->fetch();
 						$fid = $db->quote($recommand["id"]);
 						$fimg = $db->quote($recommand["proimg"]);
-?>
-						<a href="add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$recommand['fid']?>" onclick="return confirm('<?=$recommand['fid']?>를 친구로 추가하시겠습니까?');">
-							<div class="timeline-article" style="background-image: url(<?=$fimg?>);">
-								
-								<?= stripcslashes(nl2br($recommand["fid"])) ?>
-								<br>취향 : <?= similarity($id, $recommand["fid"]); ?> %
+?>						
+						<?= stripcslashes(nl2br($recommand["fid"])) ?>
+						<br>취향 : <?= similarity($id, $recommand["fid"]); ?> %
+						<a href="add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$recommand['fid']?>" onclick="return confirm('<?=$recommand['fid']?>를 친구로 추가하시겠습니까?');"></a>
 
-
-							</div>
-						</a>
+						<div class="fff_img" style="background-image: url(<?=$fimg?>);">
+						</div>
 <?
-					}
 ?>
 				</div>
-<?
-				include("film_div.php"); 
-
+<? 
 				/////////////////////////////////////////////////////////
 			}
 		}
@@ -69,6 +44,5 @@
 <?
 		}
 ?>
-	</div>
-</body>
+
 </html>

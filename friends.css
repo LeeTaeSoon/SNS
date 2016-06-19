@@ -5,8 +5,22 @@ body {
   background: #f2f2f2;
   background-image: url("xxx.png");
   background-size:100%;
+  filter:alpha(opacity=0);
  }
 h3{color: orange;}
+
+div.fff {
+	width: 600px;
+	height: 200px;
+	background-color: white;
+	float:left;
+	border: solid white 2px;
+}
+div.fff_img{
+	width: 200px;
+	height: 200px;
+}
+
 #top{ height: 130px; }
 
 #friends_menu
@@ -24,6 +38,14 @@ h3{color: orange;}
 	height:1000px;
 	margin: 0 auto;
 	
+	display: none;
+}
+#friends_favorite
+{
+	width: 1200px;
+	height:1000px;
+	margin: 0 auto;
+	padding: 30px;
 	display: none;
 }
 
@@ -56,6 +78,7 @@ div#friends_find{display: none; margin: 0 auto;}
 
 div#friends_favorite{display: none; margin: 0 auto;}
 #favorite:checked~div#friends_favorite{ display: block;}
+
 
 table{ margin: 0 auto; }
 td
