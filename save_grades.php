@@ -21,10 +21,19 @@
 	    $grade = $db->quote($grade);
 		$mimage = $db->quote($mimage);
 
-		$query="insert into see_movie(id,movie,grade,image)";
-		$query.=" values($t_id,$movie,$grade,$mimage)";
+		$sees = $db->query("SELECT * FROM see_movie WHERE id=$t_id and movie=$movie");
+		if($sees->rowCount())
+		{
+			$db->exec("UPDATE see_movie SET grade=$grade WHERE id=$t_id and movie=$movie");
+		}
 
-		$result = $db->exec($query);
+		else 
+		{
+			$query="insert into see_movie(id,movie,grade,image)";
+			$query.=" values($t_id,$movie,$grade,$mimage)";
+
+			$result = $db->exec($query);
+		}	
 
 
 		$friends = $db->query("SELECT fid FROM friend WHERE id=$t_id");
@@ -36,11 +45,6 @@
 			$db->exec("UPDATE friend SET similarity=$similarity WHERE (id=$t_id and fid=$fri) or (id=$fri and fid=$t_id)");
 		}
 
-
-		if(isset($result))
-		{
-			$_SESSION['flash']="성공적으로 저장";
-		}
 		header("Location:movie_list.php");
 	}
 

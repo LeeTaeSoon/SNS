@@ -41,11 +41,6 @@
 	show_menubar("movie_list", $genre);
 ?>
 	<div id="page-wrapper">
-		
-		<div id="save_message">
-			<?=$_SESSION['flash']?>
-			<?unset($_SESSION['flash']);?>
-		</div>
 
 		<div class="nav ph-line-nav">
 				<a href="movie_list.php?search_query=<?= $search_query ?>&genre=19">액션</a>
