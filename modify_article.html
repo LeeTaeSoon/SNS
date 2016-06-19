@@ -73,39 +73,97 @@
 	<? include("film_div.php") ?>
 	
 	<div id ="content">
-		<div id ="article" style="background-image: url(<?= $imgurl ?>)">
+		<div id ="article">
 
 			<form action="modify_article.php" method="post">
-				<textarea id="textarea" name="content"><?= $article["content"]?></textarea>
-				<select name="access">
-<?
-					if($article["access"] == "all")
-						echo '<option value="all" selected>전체 공개</option>';
-					else
-						echo '<option value="all">전체 공개</option>';
+				<div>
+				<textarea id="textarea" name="content" style="background-image: url(<?= $imgurl ?>)"><?= $article["content"]?></textarea>
+				</div>
+				<br><br><h1 align="center">세부 설정</h1><br><br>
 
-					if($article["access"] == "friend")
-						echo '<option value="friend" selected>친구 공개</option>';
-					else 
-						echo '<option value="friend">친구 공개</option>';
-					
-					if($article["access"] == "secret")
-						echo '<option value="secret" selected>비공개</option>';
-					else
-						echo '<option value="secret">비공개</option>';
+				<table id="menu1">
+					<tr>
+						<td>
+							영화 제목 :
+						</td>
+						<td>
+							<? include("autocomplete.php"); ?>
+						</td>
+
+					</tr>
+					<tr>
+						<td><br>
+							권한 설정 :
+						</td>
+						<td><br>
+							<select name="access">
+<?
+								if($article["access"] == "all")
+									echo '<option value="all" selected>전체 공개</option>';
+								else
+									echo '<option value="all">전체 공개</option>';
+
+								if($article["access"] == "friend")
+									echo '<option value="friend" selected>친구 공개</option>';
+								else 
+									echo '<option value="friend">친구 공개</option>';
+								
+								if($article["access"] == "secret")
+									echo '<option value="secret" selected>비공개</option>';
+								else
+									echo '<option value="secret">비공개</option>';
 ?>
-				</select>
-				<input type="hidden" name="bgimg" value="<?= $imgurl ?>">
-				<input type="hidden" name="num" value="<?= $num ?>">
-				<input type="submit" value="수정">
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><br>스포 일러 :</td>
+						<td><br>
+<?
+							if($article["spoiler"] == "YES")
+							{
+								echo '<input type="radio" name="spoiler" value="yes" checked>있음</input>&nbsp&nbsp';
+								echo '<input type="radio" name="spoiler" value="no">없음</input>';
+							}
+
+							else
+							{
+								echo '<input type="radio" name="spoiler" value="yes">있음</input>&nbsp&nbsp';
+								echo '<input type="radio" name="spoiler" value="no" checked>없음</input>';
+							}
+?>
+						</td>
+					</tr>
+
+					<tr>
+						<td colspan="2" align="right">
+							<input type="hidden" name="bgimg" value="<?= $imgurl ?>"><br>
+							<input type="hidden" name="num" value="<?= $num ?>">
+							<input type="submit" value="수        정">
+						</td>
+					</tr>
+				</table>
+				<br><br>
 			</form>
 			
 			<form enctype="multipart/form-data" action="" method="post">
-		 		<div id ="imgload">
-			 		<input name="uploadfile" type="file">
+		 		<table id="menu2">
+		 			<tr>
+		 				<td>배경 설정 :</td>
+		 			</tr>
+		 			<tr>
+				 		<td colspan="2">
+				 			<div id ="imgload">
+					 			<input name="uploadfile" type="file">
+					 	</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="right"><br>
+					 		<input type="submit" value="배경 설정"></input>
+						</td>
+					</tr>
 			 		<input type="hidden" name="click_bgbutton" value="1">
-			 		<input type="submit" value="배경 설정"></input>
-			 	</div>
+				</table>
 		 	</form>
 
 		 </div>	
