@@ -24,30 +24,29 @@ try {
 		$m_grade = $db->quote($m_grade);
 		$t_id = $db->quote($id);
 
-		echo $searchbox;
-		$movie_image = search_movie($searchbox,100,1,NULL,NULL,NULL,NULL,NULL);
-		echo $movie_image;
-		//$short_url = $xml->channel->item->image; 
-		//$short_url = var_dump((string) $movie_image->channel->item->image); 
-		//echo "movie".$short_url;
+		$movies = search_movie($searchbox, 1, 1, NULL, NULL, NULL, NULL, "sim");
 
-		$searchbox = $db->quote($searchbox);
+	    foreach($movies->channel->item as $movie){
 
-		$query = "SELECT * FROM see_movie WHERE id=$t_id and movie=$searchbox";
-		$sees = $db->query($query);
-		if($sees->rowCount())
-		{
-			//$db->exec("UPDATE see_movie SET grade=$m_grade WHERE id=$id and movie=$searchbox");
-		}
+		    $searchbox_m = $db->quote($movie->image);
 
-		else 
-		{
-			$query="insert into see_movie(id,movie,grade,image)";
-			$query.=" values($t_id,$searchbox,$m_grade,$mimage)";
+			$query = "SELECT * FROM see_movie WHERE id=$t_id and movie=$searchbox_m";
 
-			//$result = $db->exec($query);
-		}
-	//
+			$searchbox = $db->quote($searchbox);
+			$sees = $db->query($query);
+			if($sees->rowCount())
+			{
+				$db->exec("UPDATE see_movie SET grade=$m_grade WHERE id=$idd and movie=$searchbox_m");
+			}
+
+			else 
+			{
+				$query="insert into see_movie(id,movie,grade,image)";
+		        $query.=" values($t_id,$searchbox,$m_grade,$searchbox_m)";
+		        //echo $query;
+		        $result = $db->exec($query);
+			}
+	}
 
 	$table = "article";
 	$articles = $db->query("SELECT num FROM $table");
@@ -58,8 +57,8 @@ try {
 	else
 	{
 		$temp = $db->query("SELECT * FROM $table ORDER BY num DESC LIMIT 1");
-		$temp = $temp->fetch();
-		$num = $temp["num"] + 1;
+    	$temp = $temp->fetch();
+    	$num = $temp["num"] + 1;
 	}
 
 	$t_id = $db->quote($id);
@@ -70,7 +69,7 @@ try {
 	//$t_movie = $db->quote($movie);
 
 	$db->exec("INSERT INTO $table (num, id, content, bgimg, time, access/*, movie*/)
-			values ($num, $t_id, $t_content, $t_bgimg, $t_time, $t_access)/*, $t_movie*/");
+        	 values ($num, $t_id, $t_content, $t_bgimg, $t_time, $t_access)/*, $t_movie*/");
 
 	header("Location: timeline.php");
 }

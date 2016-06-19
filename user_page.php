@@ -230,7 +230,7 @@
 	<div id= "friends" class="content">
 <?
 		$friend_table = "friend";
-		$page_friends = $db->query("SELECT * FROM $friend_table WHERE id=$userid");
+		$page_friends = $db->query("SELECT * FROM $friend_table WHERE id=$userid ORDER BY similarity desc");
 
 		foreach ($page_friends as $friend) {
 ?>
@@ -239,10 +239,8 @@
 				$fid = $db->quote($friend["fid"]);
 				$friends = $db->query("SELECT * FROM user WHERE id=$fid");
 
-				$t_id = $db->quote($_SESSION["id"]);
-
-				$friend_together = $db->query("SELECT id FROM friend WHERE id=$t_id and fid in
-										(SELECT fid FROM friend WHERE id=$fid)");
+				$friend_together = $db->query("SELECT id FROM friend WHERE id=$userid and (fid in
+										(SELECT fid FROM friend WHERE id=$fid))");
 				$friend_n = $friend_together->rowCount();
 
 				if(isset($friends))
