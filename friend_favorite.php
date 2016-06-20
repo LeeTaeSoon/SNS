@@ -4,9 +4,7 @@
 
 			$t_id = $db->quote($id);
 
-			$fa_recommands = "select DISTINCT friend.fid from friend where id in";
-			$fa_recommands .= "(select friend.fid as id from friend ";
-			$fa_recommands .= "where id=$t_id) and fid<>$t_id";
+			$fa_recommands = "select friend.fid from friend where id=$t_id order by similarity desc limit 5";
 
 			$recommands = $db->query($fa_recommands);
 
@@ -28,7 +26,6 @@
 					<td><img src=<?=$user["proimg"]?>></td>
 					<td> <?=$user["name"] ?> </td>
 					<td>취향 : <?= similarity($id, $recommand["fid"]); ?> % </td>
-					<a href="add_friend.php?id=<?=$_SESSION['id']?>&fid=<?=$recommand['fid']?>" onclick="return confirm('<?=$recommand['fid']?>를 친구로 추가하시겠습니까?');"></a>
 
 				</tr>
 <? 

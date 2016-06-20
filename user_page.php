@@ -244,7 +244,7 @@
 				$friend_n = $friend_together->rowCount();
 
 				if(isset($friends))
-					$friend = $friends->fetch();
+					$t_friend = $friends->fetch();
 				else
 				{
 					echo "Can't find freind name";
@@ -252,15 +252,16 @@
 				}
 ?>
 				<div class="friend_profile">
-					<img id="fri_proimg" src="<?=$friend['proimg']?>">	
+					<img id="fri_proimg" src="<?=$t_friend['proimg']?>">	
 				</div>
 				<div>
 					<br>
 					<br>
-					<h2><a href="user_page.php?id=<?=$friend['id']?>"><?=$friend['name']?></a></h2>
+					<h2><a href="user_page.php?id=<?=$t_friend['id']?>"><?=$t_friend['name']?></a></h2>
 					<br>
 					<br>
-					<h3> 함께 아는 친구 :  <?=$friend_n?>  명 </h3>
+					<h3> 함께 아는 친구 :  <?=$friend_n?>  명 </h3> <br>
+					<h3> 영화 취향 :  <?=$friend['similarity']?>  % </h3>
 				</div>
 			</div>
 <?

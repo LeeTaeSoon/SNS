@@ -1,6 +1,6 @@
 <style>
 
-input[type='radio']{
+aside input[type='radio']{
 	display: none;
 }
 

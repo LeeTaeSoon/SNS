@@ -19,7 +19,8 @@ try {
 	$searchbox = $_POST["searchbox"]; //영화 제목
 	$m_grade=$_POST["m_grade"]; //평점
 
-	//
+	if($searchbox!=NULL){
+
 		
 		$m_grade = $db->quote($m_grade);
 		$t_id = $db->quote($id);
@@ -34,6 +35,7 @@ try {
 
 			$searchbox = $db->quote($searchbox);
 			$sees = $db->query($query);
+			
 			if($sees->rowCount())
 			{
 				$db->exec("UPDATE see_movie SET grade=$m_grade WHERE id=$idd and movie=$searchbox_m");
@@ -46,6 +48,10 @@ try {
 		        //echo $query;
 		        $result = $db->exec($query);
 			}
+		}
+
+	}else{
+	//
 	}
 
 	$table = "article";
