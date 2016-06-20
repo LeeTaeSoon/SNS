@@ -5,7 +5,8 @@ body {
   background: #f2f2f2;
   background-image: url("xxx.png");
   background-size:100%;
-  filter:alpha(opacity=0);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
  }
 h3{color: orange;}
 
