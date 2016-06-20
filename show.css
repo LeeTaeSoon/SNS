@@ -5,7 +5,7 @@ background-size: 100%}
 #content{ height: 700px; overflow: hidden;}
 
 #article { 
-	margin: 30px; 
+	margin: 30px 30px 0px 30px; 
 	padding: 100px 30px 30px 40px; 
 	width: 1320px; 
 	height:460px; 
@@ -79,7 +79,7 @@ background-size: 100%}
 	margin-right: 20px;
 }
 
-#comment{ background-color: white; width: 390px; height:600px; border: solid black 2px; float: left; margin: 30px 10px 30px auto; }
+#comment{ background-color: white; width: 390px; height:600px; border: solid black 2px; float: left; margin: 30px 10px 0px auto; }
 
 #top{ height: 90px; }
 #go-left{ width: 80px; height:80px; position: absolute; left: 15px; top: 400px;}
@@ -90,7 +90,7 @@ input[type="submit"]{ width: 50px; height:50px; border-radius: 20px; }
 input[type="submit"]:hover{ background-color: black; color:white; }
 
 .sub_menu{overflow: hidden;}
-.sub-menu input[value="목록"]{float: right; margin: 5px 35px 10px 5px;}
+.sub-menu input[value="목록"]{float: right; margin: 5px 50px 10px 5px;}
 .sub-menu input[value="삭제"]{float: right; margin: 5px 5px 10px;}
 .sub-menu input[value="수정"]{float: right; margin: 5px 5px 10px;}
 td{ width: 300px; height: 50px; font-size: 20px; }
