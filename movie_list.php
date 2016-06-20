@@ -20,6 +20,7 @@
 		$search_query = 'a';
 	
 	$movies = search_movie($search_query, 100, 1, $genre, NULL, NULL, NULL, "date");
+
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +54,12 @@
 				<div class="effect"></div>
 		</div>
 <?
+	if($movies->channel->item == NULL){
+		?>
+		<p style="font-size : 70px; color : red; text-align : center;">DO NOT Use Korean and Space Between Keyword!!</p>
+		<?
+		exit(1);
+	}
 	foreach($movies->channel->item as $movie){
 ?>
 		<div class="movie">

@@ -1,5 +1,5 @@
 div.menu-bar {
-	width: 100%;
+    width: 100%;
     height: 90px;
     position: fixed;
     background-color: rgba(218, 217, 255, 0.9);
@@ -48,7 +48,7 @@ div.simple-menu {
 
 div.search {
     float: left;
-    width: 300px;
+    width: 250px;
     height: 50px;
     margin-right: 100px;
     line-height: 50px;
@@ -105,11 +105,19 @@ input[id="check"] {
     display: none;
 }
 
-input[type="checkbox"]:checked ~ div.alarm {
+input[id="checks"] {
+    display: none;
+}
+
+input[id="checks"]:checked ~ div.rank {
     display: block;
 }
 
-input[type="checkbox"]:checked ~ div.alarm-full {
+input[id="check"]:checked ~ div.alarm {
+    display: block;
+}
+
+input[id="check"]:checked ~ div.alarm-full {
     display: block;
 }
 
@@ -124,6 +132,19 @@ div.alarm {
     border: 1px solid #8cc1ff;
     z-index: 10;
 }
+
+div.rank {
+    display: none;
+    position: absolute;
+    top: 90px;
+    right: 700px;
+    padding: 0 10px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #8cc1ff;
+    z-index: 10;
+}
+
 
 div.alarm-full {
     display: none;
@@ -174,7 +195,7 @@ div.alarm-item-full span.percent {
 }
 
 div.user-menu {
-	position: absolute;
+    position: absolute;
     overflow: hidden;
     top: 0;
     right: 180px;
@@ -191,12 +212,12 @@ div.user-menu img {
 }
 
 div.user-name {
-	display: inline-block;
+    display: inline-block;
     margin-right: 10px;
 }
 
 span.name {
-	font-size: 1.2em;
+    font-size: 1.2em;
     font-weight: bold;
 }
 
@@ -211,7 +232,7 @@ div.all-menu-button {
 }
 
 img.menu-icon {
-	width: 70px;
-	height: 70px;
+    width: 70px;
+    height: 70px;
     border-radius: 35px;
 }

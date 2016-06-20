@@ -129,6 +129,7 @@ try
 <?
 			}
 ?>
+			<input type="checkbox" id="checks">
 			<input type="checkbox" id="check">
 
 			<div class="simple-menu">
@@ -145,6 +146,10 @@ try
 <?
 					}
 ?>
+				</div>
+
+				<div class="icon">
+					<label for="checks"><img src="image/rank.png"></label>
 				</div>
 
 				<a href="write.php">
@@ -171,6 +176,10 @@ try
 			
 			</div>
 
+			<div class="rank">
+			<?include("ranking.php");?>
+			</div>
+
 <?
 			if($alarms->rowCount() < 9)
 			{
@@ -181,18 +190,14 @@ try
 					{
 						$movie_name = $alarm["movie"];
 						$movie_name = preg_replace("/[ #\&\+\-%@=\/\\\:;,\.'\"\^`~\_|\!\?\*$#<>()\[\]\{\}]/i", "", $movie_name);
-
 						$sen = $db->quote($alarm["sender"]);
 						$rei = $db->quote($alarm["receiver"]);
-
 						$friends = $db->query("SELECT similarity FROM friend WHERE id=$rei and fid=$sen");
 						if($friends->rowCount())
 							$friend = $friends->fetch();
 						//else
 						//	echo "Cannot find friends in alarm function";
-
 						if($alarm["movie"]!=NULL){
-
 ?>
 							<div class="alarm-item">
 								<a href="user_page.php?id=<?= $alarm["sender"] ?>"><?= $alarm["sender"] ?></a> 님 께서
@@ -221,7 +226,6 @@ try
 				</div>
 <?
 			}
-
 			else
 			{
 ?>
@@ -231,18 +235,14 @@ try
 					{
 						$movie_name = $alarm["movie"];
 						$movie_name = preg_replace("/[ #\&\+\-%@=\/\\\:;,\.'\"\^`~\_|\!\?\*$#<>()\[\]\{\}]/i", "", $movie_name);
-
 						$sen = $db->quote($alarm["sender"]);
 						$rei = $db->quote($alarm["receiver"]);
-
 						$friends = $db->query("SELECT similarity FROM friend WHERE id=$rei and fid=$sen");
 						if($friends->rowCount())
 							$friend = $friends->fetch();
 						//else
 						//	echo "Cannot find friends in alarm function";
-
 						if($alarm["movie"]!=NULL){
-
 ?>
 							<div class="alarm-item-full">
 								<a href="user_page.php?id=<?= $alarm["sender"] ?>"><?= $alarm["sender"] ?></a> 님 께서
@@ -269,7 +269,6 @@ try
 				</div>
 <?
 			}
-
 			$t_id = $db->quote($_SESSION['id']);
 			$me = $db->query("SELECT proimg FROM user WHERE id=$t_id");
 			if($me->rowCount())
