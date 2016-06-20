@@ -3,7 +3,7 @@
 #article{ margin: 30px; padding:10px; width: 1800px; height:600px; border: solid black 2px; float: left; overflow: auto; background-size: 1820px 620px;  }
 #top{ height: 90px; }
 textarea{ float:left; 
-    color: white; text-shadow: 2px 2px 8px black; width: 1300px; height: 600px; font-size: 25px; margin-right: 10px; background-size: 1300px 600px;}
+    color: white; text-shadow: 2px 2px black; width: 1300px; height: 600px; font-size: 25px; margin-right: 10px; background-size: 1300px 600px;}
 input[type="file"]{width: 400px; font-size: 30px;}
 #submit1{border-radius: 40px;  box-shadow: 0 5px #999; color: white; }
 #submit1:hover{background-color: #3e8e41}
