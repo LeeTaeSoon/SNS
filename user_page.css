@@ -58,8 +58,8 @@ div#star_grade{display: none;}
 
 div.saw_movie_list{ float: left; margin:40px; text-align: center; width: 340px;}
 img.molist{ width:200px; height:350px; }
-div#saw_movie_title{ margin-bottom: 10px; text-overflow: ellipsis; overflow: hidden; display: block;
-/*white-space: nowrap;*/}
+div#saw_movie_title{ height: 40px; text-overflow: ellipsis; overflow: hidden; display: block;
+white-space: nowrap;}
 div.star{margin-left: 90px;}
 
 
